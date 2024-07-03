@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private lateinit var btnTakePhoto: Button
     private lateinit var btnAutoCapture: Button
+    private lateinit var btnCamara: Button
     companion object {
         private const val CAMERA_PERMISSION_CODE = 100
         private const val STORAGE_PERMISSION_CODE = 101
@@ -71,7 +72,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AutoCaptureActivity::class.java)
             startActivity(intent)
         }
-
+        btnCamara = findViewById(R.id.btnCamara)
+        btnCamara.setOnClickListener{
+            val intent = Intent(this, Camara::class.java)
+            startActivity(intent)
+        }
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)
