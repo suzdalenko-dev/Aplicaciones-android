@@ -31,6 +31,7 @@ import java.util.Locale
 class MainActivity : AppCompatActivity() {
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private lateinit var btnTakePhoto: Button
+    private lateinit var btnAutoCapture: Button
     companion object {
         private const val CAMERA_PERMISSION_CODE = 100
         private const val STORAGE_PERMISSION_CODE = 101
@@ -65,6 +66,12 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "dispatchTakePictureIntent", Toast.LENGTH_LONG).show()
             dispatchTakePictureIntent()
         }
+        btnAutoCapture = findViewById(R.id.btnAutoCapture)
+        btnAutoCapture.setOnClickListener{
+            val intent = Intent(this, AutoCaptureActivity::class.java)
+            startActivity(intent)
+        }
+
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)
@@ -135,7 +142,6 @@ class MainActivity : AppCompatActivity() {
             file.outputStream().use { out ->
                 imageBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
             }
-
             // Ahora puedes enviar 'file' al servidor PHP utilizando Retrofit, Volley, OkHttp o cualquier otra biblioteca de red
             // Por ejemplo:
             // val requestBody: RequestBody = RequestBody.create(MediaType.parse("image/jpeg"), file)
