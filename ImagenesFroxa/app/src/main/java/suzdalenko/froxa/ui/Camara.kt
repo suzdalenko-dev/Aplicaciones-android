@@ -1,6 +1,8 @@
 package suzdalenko.froxa.ui
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -18,6 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import suzdalenko.froxa.R
+import suzdalenko.froxa.service.UploadService
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -76,6 +79,12 @@ class Camara : AppCompatActivity() {
         captureButton = findViewById(R.id.captureButton)
         captureButton.setOnClickListener {
             takePhoto()
+        }
+        val intent = Intent(this, UploadService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        } else {
+            startService(intent)
         }
     }
 
