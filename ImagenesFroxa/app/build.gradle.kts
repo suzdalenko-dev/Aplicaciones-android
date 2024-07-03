@@ -6,7 +6,6 @@ plugins {
 android {
     namespace = "suzdalenko.froxa"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "suzdalenko.froxa"
         minSdk = 24
