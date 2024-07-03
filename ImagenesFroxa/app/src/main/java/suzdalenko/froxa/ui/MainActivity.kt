@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         // Solicitar el permiso RECEIVE_BOOT_COMPLETED
         requestPermissionLauncher.launch(android.Manifest.permission.RECEIVE_BOOT_COMPLETED)
 
-        // Mostrar diálogo para configurar el inicio automático en dispositivos Xiaomi
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)
