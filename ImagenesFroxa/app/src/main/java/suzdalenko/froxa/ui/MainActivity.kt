@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import suzdalenko.froxa.R
+import suzdalenko.froxa.service.UploadService
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -77,6 +78,14 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Camara::class.java)
             startActivity(intent)
         }
+
+        val intent = Intent(this, UploadService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        } else {
+            startService(intent)
+        }
+
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)

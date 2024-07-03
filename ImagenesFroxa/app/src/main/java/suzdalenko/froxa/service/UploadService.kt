@@ -5,12 +5,14 @@ import android.app.NotificationManager
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.core.app.ServiceCompat
 import suzdalenko.froxa.R
 import java.io.File
 import java.util.concurrent.Executors
@@ -23,7 +25,12 @@ class UploadService: Service() {
     }
     override fun onCreate() {
         super.onCreate()
-        startForeground(111, createNotification())
+        Log.d("suzdalFPR", "SERVICE STARTED 1 !!!!")
+        startForeground(NOTIFICATION_ID, createNotification())
+        // ServiceCompat.startForeground(this, 100, createNotification(),
+        //     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) { ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
+        //     } else { 0 },
+        // )
         scheduleImageCheck()
     }
     private fun createNotification(): Notification {
@@ -37,13 +44,15 @@ class UploadService: Service() {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(notificationChannel)
         }
+        Log.d("suzdalFPR", "SERVICE STARTED 2 !!!!")
         return NotificationCompat.Builder(this, notificationChannelId)
             .setContentTitle("Upload Service")
             .setContentText("Service is running in the background")
-            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setSmallIcon(R.mipmap.ic_launcher)
             .build()
     }
     private fun scheduleImageCheck() {
+        Log.d("suzdalFPR", "Checking for images...")
         executor.scheduleWithFixedDelay({
             checkAndUploadImages()
         }, 0, 1, TimeUnit.HOURS)

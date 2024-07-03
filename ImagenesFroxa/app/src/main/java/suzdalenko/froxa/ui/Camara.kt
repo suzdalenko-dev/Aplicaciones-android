@@ -80,12 +80,6 @@ class Camara : AppCompatActivity() {
         captureButton.setOnClickListener {
             takePhoto()
         }
-        val intent = Intent(this, UploadService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(intent)
-        } else {
-            startService(intent)
-        }
     }
 
     private fun startCamera() {
