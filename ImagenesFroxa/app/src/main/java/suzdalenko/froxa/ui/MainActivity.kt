@@ -10,6 +10,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.provider.Settings
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -86,6 +87,8 @@ class MainActivity : AppCompatActivity() {
         } else { startService(Intent(this, UploadFileService::class.java)) }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadFileService::class.java))
         } else { startService(Intent(this, UploadFileService::class.java)) }
+        // Mantener la pantalla encendida mientras esta actividad está en primer plano
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)

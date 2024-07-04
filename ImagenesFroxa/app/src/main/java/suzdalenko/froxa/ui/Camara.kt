@@ -1,4 +1,5 @@
 package suzdalenko.froxa.ui
+import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -7,7 +8,9 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.PowerManager
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -33,7 +36,7 @@ class Camara : AppCompatActivity() {
     private lateinit var viewFinder: PreviewView
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var captureButton: Button
-
+    private var wakeLock: PowerManager.WakeLock? = null
 
     companion object {
         var imageCapture: ImageCapture? = null
@@ -42,6 +45,7 @@ class Camara : AppCompatActivity() {
         private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)
     }
 
+    @SuppressLint("WakelockTimeout")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camara)
@@ -68,6 +72,17 @@ class Camara : AppCompatActivity() {
         prefs.edit().putString("__state", "activo").apply()
         // Registrar el receptor de broadcast
         LocalBroadcastManager.getInstance(this).registerReceiver(PrimerPlanoReceiver(), IntentFilter("com.example.ACTION_EVENT"))
+
+
+        val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
+        // Crear un WakeLock para mantener la pantalla encendida
+        wakeLock = powerManager.newWakeLock(
+            PowerManager.PARTIAL_WAKE_LOCK,
+            "MiApp::WakeLockTag"
+        )
+        wakeLock?.acquire()
+        // Mantener la pantalla encendida mientras esta actividad está en primer plano
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun startCamera() {
@@ -155,11 +170,12 @@ class Camara : AppCompatActivity() {
         super.onStop()
         prefs.edit().putString("__state", "stop").apply()
     }
+    @SuppressLint("Wakelock")
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
         prefs.edit().putString("__state", "desroy").apply()
-
+        wakeLock?.release()
     }
 
 }

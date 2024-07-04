@@ -127,6 +127,10 @@ uses-permission#android.permission.FOREGROUND_SERVICE_CAMERA
 ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:15:5-83
 	android:name
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:15:22-81
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:16:5-68
+	android:name
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:16:22-65
 application
 ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:18:5-83:19
 INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:18:5-83:19

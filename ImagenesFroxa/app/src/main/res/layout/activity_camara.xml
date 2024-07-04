@@ -12,14 +12,20 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
-    <TextView
-        android:id="@+id/overlayText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Texto de Ejemplo"
-        android:textColor="@android:color/white"
-        android:textSize="24sp"
-        android:layout_centerInParent="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/overlayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Segundos para captura.."
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/captureButton"
         android:layout_width="wrap_content"
