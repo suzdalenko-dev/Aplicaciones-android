@@ -25,16 +25,25 @@ public final class ActivityCamaraBinding implements ViewBinding {
   public final Button captureButton;
 
   @NonNull
-  public final TextView overlayText;
+  public final TextView photosCreated;
+
+  @NonNull
+  public final TextView secondsLeft;
+
+  @NonNull
+  public final TextView uploadedPhotos;
 
   @NonNull
   public final PreviewView viewFinder;
 
   private ActivityCamaraBinding(@NonNull RelativeLayout rootView, @NonNull Button captureButton,
-      @NonNull TextView overlayText, @NonNull PreviewView viewFinder) {
+      @NonNull TextView photosCreated, @NonNull TextView secondsLeft,
+      @NonNull TextView uploadedPhotos, @NonNull PreviewView viewFinder) {
     this.rootView = rootView;
     this.captureButton = captureButton;
-    this.overlayText = overlayText;
+    this.photosCreated = photosCreated;
+    this.secondsLeft = secondsLeft;
+    this.uploadedPhotos = uploadedPhotos;
     this.viewFinder = viewFinder;
   }
 
@@ -71,9 +80,21 @@ public final class ActivityCamaraBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.overlayText;
-      TextView overlayText = ViewBindings.findChildViewById(rootView, id);
-      if (overlayText == null) {
+      id = R.id.photos_created;
+      TextView photosCreated = ViewBindings.findChildViewById(rootView, id);
+      if (photosCreated == null) {
+        break missingId;
+      }
+
+      id = R.id.seconds_left;
+      TextView secondsLeft = ViewBindings.findChildViewById(rootView, id);
+      if (secondsLeft == null) {
+        break missingId;
+      }
+
+      id = R.id.uploaded_photos;
+      TextView uploadedPhotos = ViewBindings.findChildViewById(rootView, id);
+      if (uploadedPhotos == null) {
         break missingId;
       }
 
@@ -83,8 +104,8 @@ public final class ActivityCamaraBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityCamaraBinding((RelativeLayout) rootView, captureButton, overlayText,
-          viewFinder);
+      return new ActivityCamaraBinding((RelativeLayout) rootView, captureButton, photosCreated,
+          secondsLeft, uploadedPhotos, viewFinder);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

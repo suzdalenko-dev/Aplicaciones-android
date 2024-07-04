@@ -4,13 +4,13 @@
             "outputFile": "suzdalenko.froxa.app-mergeDebugResources-50:/values-w1240dp-v13/values-w1240dp-v13.xml",
             "map": [
                 {
-                    "source": "D:\\Aplicaciones-android\\ImagenesFroxa\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
+                    "source": "E:\\Aplicaciones android\\ImagenesFroxa\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "6",
-                        "startOffsets": "19",
+                        "startOffsets": "18",
                         "endColumns": "44",
-                        "endOffsets": "57"
+                        "endOffsets": "56"
                     },
                     "to": {
                         "startLines": "2",

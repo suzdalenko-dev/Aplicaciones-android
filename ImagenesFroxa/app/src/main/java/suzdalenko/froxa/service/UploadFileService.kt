@@ -14,7 +14,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import suzdalenko.froxa.R
-import suzdalenko.froxa.util.MyApp.Companion.SUBIR_ARCHIVOS_CADA_SEC
+import suzdalenko.froxa.util.MyApp.Companion.UPLOAD_FILES_EACH_SEC
 import suzdalenko.froxa.util.UploadFile
 import java.io.File
 import java.util.concurrent.Executors
@@ -34,7 +34,6 @@ class UploadFileService: Service() {
             startForeground(NOTIFICATION_ID, createNotification())
         }
         scheduleImageCheck()
-        Log.d("UploadService", "On Create")
     }
     private fun createNotification(): Notification {
         val notificationChannelId = "UPLOAD_SERVICE_CHANNEL"
@@ -54,7 +53,7 @@ class UploadFileService: Service() {
             .build()
     }
     private fun scheduleImageCheck() {
-        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 0, SUBIR_ARCHIVOS_CADA_SEC, TimeUnit.SECONDS)
+        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 0, UPLOAD_FILES_EACH_SEC, TimeUnit.SECONDS)
     }
     private fun checkAndUploadImages() {
         countFiles = 0
@@ -62,7 +61,7 @@ class UploadFileService: Service() {
         if (imageDir.exists() && imageDir.isDirectory) {
             val imageFiles = imageDir.listFiles { file -> file.extension == "jpg" }
             val numeroFiles = imageFiles?.size
-            Log.d(TAG, "numeroFiles="+numeroFiles.toString())
+            Log.d("UploadService", "numeroFiles="+numeroFiles.toString())
             imageFiles?.forEach { imageFile ->
                 countFiles++
                 if (countFiles <= 5) {
@@ -70,7 +69,7 @@ class UploadFileService: Service() {
                 }
             }
         } else {
-            Log.d(TAG, "No images found or directory does not exist.")
+            Log.d("UploadService", "No images found or directory does not exist.")
         }
 
     }
@@ -93,7 +92,6 @@ class UploadFileService: Service() {
         executor.shutdown()
     }
     companion object {
-        private const val TAG = "UploadService"
         private const val NOTIFICATION_ID = 1
     }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {

@@ -25,6 +25,7 @@ import androidx.core.view.WindowInsetsCompat
 import suzdalenko.froxa.R
 import suzdalenko.froxa.dontuse.AutoCaptureActivity
 import suzdalenko.froxa.service.UploadFileService
+import suzdalenko.froxa.util.MyApp.Companion.prefs
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -32,17 +33,14 @@ import java.util.Date
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private lateinit var btnTakePhoto: Button
     private lateinit var btnAutoCapture: Button
     private lateinit var btnCamara: Button
     companion object {
         private const val CAMERA_PERMISSION_CODE = 100
         private const val STORAGE_PERMISSION_CODE = 101
-        private const val REQUEST_IMAGE_CAPTURE = 102
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {                    Log.d("suzdalFPR", "hola main activity")
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -51,29 +49,17 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
-            if (isGranted) {
-                Toast.makeText(this, "Permiso concedido para autoinicio de aplicacion", Toast.LENGTH_LONG).show()
-            } else {
-                Toast.makeText(this, "Permiso denegado", Toast.LENGTH_LONG).show()
-                showAutoStartPermissionDialog()
-                openXiaomiAutoStartSettings()
-            }
-        }
-        // Solicitar el permiso RECEIVE_BOOT_COMPLETED
-        requestPermissionLauncher.launch(android.Manifest.permission.RECEIVE_BOOT_COMPLETED)
-
         btnTakePhoto = findViewById(R.id.btnTakePhoto)
         btnTakePhoto.setOnClickListener {
             checkPermissionsAndOpenCamera()
-            Toast.makeText(this, "dispatchTakePictureIntent", Toast.LENGTH_LONG).show()
             dispatchTakePictureIntent()
+            showAutoStartPermissionDialog()
         }
         btnAutoCapture = findViewById(R.id.btnAutoCapture)
         btnAutoCapture.setOnClickListener{
             val intent = Intent(this, AutoCaptureActivity::class.java)
             startActivity(intent)
+            openXiaomiAutoStartSettings()
         }
         btnCamara = findViewById(R.id.btnCamara)
         btnCamara.setOnClickListener{
@@ -89,6 +75,12 @@ class MainActivity : AppCompatActivity() {
         } else { startService(Intent(this, UploadFileService::class.java)) }
         // Mantener la pantalla encendida mientras esta actividad está en primer plano
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        // ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
+        } else {
+            startActivity(Intent(this, Camara::class.java)); finish()
+        }
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)
@@ -127,7 +119,6 @@ class MainActivity : AppCompatActivity() {
     private fun checkPermissionsAndOpenCamera() {
         val cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
         val storagePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        Log.d("suzdalFPR", "suzdalFPR")
 
         // Verificar si los permisos no están garantizados
         if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
@@ -136,8 +127,8 @@ class MainActivity : AppCompatActivity() {
             if (storagePermission != PackageManager.PERMISSION_GRANTED) {
                 // Solicitar permiso de almacenamiento dependiendo de la versión de Android
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    // En Android 10 y posteriores, no se usa WRITE_EXTERNAL_STORAGE directamente
-                    // Puedes mostrar un mensaje al usuario o manejar la lógica específica de tu aplicación aquí
+                    startActivity(Intent(this, Camara::class.java))
+                    finish()
                 } else {
                     // Para versiones anteriores a Android 10, solicitar permiso WRITE_EXTERNAL_STORAGE
                     ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION_CODE)
@@ -149,53 +140,9 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         takePictureLauncher.launch(intent)
     }
-
-    // Función para subir la imagen al servidor PHP
-    private fun uploadImageToServer(imageBitmap: Bitmap) {
-        // Código para convertir el Bitmap a un archivo JPEG
-        val file = createImageFile()
-
-        try {
-            file.outputStream().use { out ->
-                imageBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
-            }
-            // Ahora puedes enviar 'file' al servidor PHP utilizando Retrofit, Volley, OkHttp o cualquier otra biblioteca de red
-            // Por ejemplo:
-            // val requestBody: RequestBody = RequestBody.create(MediaType.parse("image/jpeg"), file)
-            // val request: Request = Request.Builder().url("http://tu.servidor.com/upload.php").post(requestBody).build()
-            // OkHttpClient().newCall(request).enqueue(object : Callback {
-            //     override fun onFailure(call: Call, e: IOException) {
-            //         // Manejar el fallo
-            //     }
-            //
-            //     override fun onResponse(call: Call, response: Response) {
-            //         // Procesar la respuesta del servidor
-            //     }
-            // })
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
-    @Throws(IOException::class)
-    private fun createImageFile(): File {
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile(
-            "JPEG_${timeStamp}_", /* prefix */
-            ".jpg", /* suffix */
-            storageDir /* directory */
-        )
-    }
-
     // Registro de resultado de actividad para la captura de imagen
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
-            val data: Intent? = result.data
-            val imageBitmap = data?.extras?.get("data") as? Bitmap
-            if (imageBitmap != null) {
-                // Lógica para subir la imagen al servidor PHP
-                uploadImageToServer(imageBitmap)
-            }
         } else {
             Toast.makeText(this, "Captura de imagen cancelada", Toast.LENGTH_SHORT).show()
         }

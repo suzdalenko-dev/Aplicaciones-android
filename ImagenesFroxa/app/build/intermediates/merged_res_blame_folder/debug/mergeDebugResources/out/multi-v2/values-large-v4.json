@@ -4,7 +4,7 @@
             "outputFile": "suzdalenko.froxa.app-mergeDebugResources-50:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\2bbb20f59e41f939830d430198ab937a\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\2bbb20f59e41f939830d430198ab937a\\transformed\\appcompat-1.7.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\6fbd9c381341fc9bcc145f4f102796fe\\transformed\\material-1.12.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\6fbd9c381341fc9bcc145f4f102796fe\\transformed\\material-1.12.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

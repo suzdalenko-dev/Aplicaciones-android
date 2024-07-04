@@ -4,13 +4,13 @@
             "outputFile": "suzdalenko.froxa.app-mergeDebugResources-50:/values-w600dp-v13/values-w600dp-v13.xml",
             "map": [
                 {
-                    "source": "D:\\Aplicaciones-android\\ImagenesFroxa\\app\\src\\main\\res\\values-w600dp\\dimens.xml",
+                    "source": "E:\\Aplicaciones android\\ImagenesFroxa\\app\\src\\main\\res\\values-w600dp\\dimens.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "6",
-                        "startOffsets": "19",
+                        "startOffsets": "18",
                         "endColumns": "43",
-                        "endOffsets": "56"
+                        "endOffsets": "55"
                     },
                     "to": {
                         "startLines": "2",

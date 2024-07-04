@@ -13,17 +13,33 @@
         android:layout_alignParentTop="true" />
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/overlayText"
+            android:id="@+id/seconds_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
             android:text="Segundos.."
             android:textColor="@android:color/white"
             android:textSize="11sp" />
-
+        <TextView
+            android:id="@+id/photos_created"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="Fotos creadas.."
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
+        <TextView
+            android:id="@+id/uploaded_photos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="Fotos subidas.."
+            android:textColor="@android:color/white"
+            android:textSize="11sp" />
     </LinearLayout>
 
     <Button

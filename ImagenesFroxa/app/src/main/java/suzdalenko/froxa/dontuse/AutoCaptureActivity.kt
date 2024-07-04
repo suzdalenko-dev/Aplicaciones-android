@@ -33,6 +33,15 @@ class AutoCaptureActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_capture)
 
+        // Inicializar el launcher para capturar la imagen
+        takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
+            if (success) {
+                uploadImageToServer(photoUri)
+                scheduleNextCapture()
+                playShutterSound()
+            }
+        }
+
         // Inicializar el SoundPool con AudioAttributes adecuados
         val audioAttributes = AudioAttributes.Builder()
             .setUsage(AudioAttributes.USAGE_MEDIA)
@@ -53,15 +62,6 @@ class AutoCaptureActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
         } else {
             dispatchTakePictureIntent()
-        }
-
-        // Inicializar el launcher para capturar la imagen
-        takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
-            if (success) {
-                uploadImageToServer(photoUri)
-                scheduleNextCapture()
-                playShutterSound()
-            }
         }
     }
 

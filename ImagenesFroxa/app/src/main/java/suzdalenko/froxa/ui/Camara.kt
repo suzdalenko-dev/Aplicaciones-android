@@ -28,6 +28,7 @@ import suzdalenko.froxa.receiver.PrimerPlanoReceiver
 import suzdalenko.froxa.service.CreateFotoService
 import suzdalenko.froxa.util.MyApp.Companion.prefs
 import java.io.File
+import java.lang.ref.WeakReference
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.concurrent.ExecutorService
@@ -63,6 +64,8 @@ class Camara : AppCompatActivity() {
         captureButton.setOnClickListener {
             takePhoto()
         }
+        // Establecer la referencia de la actividad en el servicio
+        CreateFotoService.activityCamara = WeakReference(this)
         val serviceIntent = Intent(this, CreateFotoService::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(serviceIntent)
@@ -143,7 +146,6 @@ class Camara : AppCompatActivity() {
                         val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                         val msg = "Imagen capturada: $savedUri"
                         Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-                        Log.d(TAG, msg)
                     }
                 }
             )

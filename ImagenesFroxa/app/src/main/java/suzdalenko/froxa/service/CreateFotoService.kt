@@ -12,6 +12,7 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.os.IBinder
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -20,9 +21,10 @@ import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import suzdalenko.froxa.R
 import suzdalenko.froxa.ui.Camara
-import suzdalenko.froxa.util.MyApp.Companion.HACER_FOTO_CADA_MILISEC
+import suzdalenko.froxa.util.MyApp.Companion.MAKE_PHOTO_EVERY_MILISEC
 import suzdalenko.froxa.util.MyApp.Companion.prefs
 import java.io.File
+import java.lang.ref.WeakReference
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -31,6 +33,13 @@ class CreateFotoService : Service() {
     private lateinit var handler: Handler
     private lateinit var miHandlerThread: HandlerThread
     private lateinit var miHandler: Handler
+    var secundosQueFaltan = 0
+    var countSecond = 0
+    var fotosCreadas = 0
+    companion object {
+        var activityCamara: WeakReference<Camara>? = null
+        var fotosCreadas = 0
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -44,6 +53,22 @@ class CreateFotoService : Service() {
 
         startForeground(11, createNotification())
         startTakingPhotos()
+        // modificar datos en Camara activity xml
+        Thread {
+            while (true) {
+                activityCamara?.get()?.let { activity ->
+                    activity.runOnUiThread {
+                        val textView: TextView? = activity.findViewById(R.id.seconds_left)
+                        textView?.let {
+                            secundosQueFaltan = (MAKE_PHOTO_EVERY_MILISEC / 1000).toInt() - countSecond++
+                            it.text = "Segundos: ${secundosQueFaltan}"
+                            if(secundosQueFaltan <= 0) countSecond = 0
+                        }
+                    }
+                }
+                Thread.sleep(1000)
+            }
+        }.start()
     }
 
     override fun onDestroy() {
@@ -74,9 +99,9 @@ class CreateFotoService : Service() {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 takePhoto()
-                handler.postDelayed(this, HACER_FOTO_CADA_MILISEC) // Ejecutar cada 10 segundos
+                handler.postDelayed(this, MAKE_PHOTO_EVERY_MILISEC) // Ejecutar cada 10 segundos
             }
-        }, 3000)
+        }, 1000)
     }
 
     private fun takePhoto() {
@@ -85,20 +110,11 @@ class CreateFotoService : Service() {
 
         Camara.imageCapture?.let { imageCapture ->
             val imageDir = File(externalMediaDirs.firstOrNull(), "images")
-            if (!imageDir.exists()) {
-                imageDir.mkdirs()
-            }
-
-            val photoFile = File(
-                imageDir,
-                SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE).format(System.currentTimeMillis()) + ".jpg"
-            )
-
+            if (!imageDir.exists()) { imageDir.mkdirs() }
+            val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE).format(System.currentTimeMillis()) + ".jpg")
             val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-
             // Configurar el flash para que esté encendido
             imageCapture.flashMode = ImageCapture.FLASH_MODE_ON
-
             imageCapture.takePicture(
                 outputOptions,
                 ContextCompat.getMainExecutor(this@CreateFotoService),
@@ -106,12 +122,9 @@ class CreateFotoService : Service() {
                     override fun onError(exception: ImageCaptureException) {
                         Log.e("CreateFotoService", "Error al capturar la imagen: ${exception.message}", exception)
                     }
-
                     override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                         val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                         val msg = "Imagen capturada: $savedUri"
-                        Log.d("CreateFotoService", msg)
-                        // Mostrar un Toast con la ruta de la imagen guardada
                         Toast.makeText(this@CreateFotoService, msg, Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -133,7 +146,6 @@ class CreateFotoService : Service() {
                 val intent = Intent("com.example.ACTION_EVENT")
                 intent.putExtra("message", "Evento desde el servicio")
                 LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
-                Log.d("estadoActualActivity", "!!! enviando receiver !!!")
                 miHandler.postDelayed(this, 50000) // Ejecutar cada 10 segundos
             }
         }, 5000)

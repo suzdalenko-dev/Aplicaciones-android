@@ -9,7 +9,7 @@ import suzdalenko.froxa.ui.Camara
 class PrimerPlanoReceiver : BroadcastReceiver(){
     override fun onReceive(context: Context?, intent: Intent?) {
         /* no lo usare ya que no es capaz de abrir activity */
-        // Log.d("estadoActualActivity", "---------------------------------------")
+        //
         // intent?.let {
         //     if (it.action == "com.example.ACTION_EVENT") {
         //         Log.d("estadoActualActivity", it.action.toString())
@@ -17,7 +17,7 @@ class PrimerPlanoReceiver : BroadcastReceiver(){
         //         val startIntent = Intent(context, Camara::class.java)
         //         startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         //         context?.startActivity(startIntent)
-        //         Log.d("estadoActualActivity", "receiver funcionando")
+        //
         //     }
         // }
     }
