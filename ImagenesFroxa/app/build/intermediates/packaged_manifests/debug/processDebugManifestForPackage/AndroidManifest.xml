@@ -57,7 +57,7 @@
             android:name="suzdalenko.froxa.ui.Camara"
             android:exported="false" />
         <activity
-            android:name="suzdalenko.froxa.ui.AutoCaptureActivity"
+            android:name="suzdalenko.froxa.dontuse.AutoCaptureActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
@@ -82,7 +82,12 @@
         </receiver>
 
         <service
-            android:name="suzdalenko.froxa.service.UploadService"
+            android:name="suzdalenko.froxa.service.UploadFileService"
+            android:exported="false"
+            android:foregroundServiceType="camera" >
+        </service>
+        <service
+            android:name="suzdalenko.froxa.service.CreateFotoService"
             android:exported="false"
             android:foregroundServiceType="camera" >
         </service>

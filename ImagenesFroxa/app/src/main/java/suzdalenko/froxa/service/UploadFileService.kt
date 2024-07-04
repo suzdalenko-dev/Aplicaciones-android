@@ -17,7 +17,7 @@ import suzdalenko.froxa.R
 import java.io.File
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
-class UploadService: Service() {
+class UploadFileService: Service() {
     private val executor = Executors.newSingleThreadScheduledExecutor()
     private val handler = Handler(Looper.getMainLooper())
     override fun onBind(p0: Intent?): IBinder? {
@@ -26,11 +26,11 @@ class UploadService: Service() {
     override fun onCreate() {
         super.onCreate()
         Log.d("suzdalFPR", "SERVICE STARTED 1 !!!!")
-        startForeground(NOTIFICATION_ID, createNotification())
-        // ServiceCompat.startForeground(this, 100, createNotification(),
-        //     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) { ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
-        //     } else { 0 },
-        // )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            ServiceCompat.startForeground(this, NOTIFICATION_ID, createNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA)
+        } else {
+            startForeground(NOTIFICATION_ID, createNotification())
+        }
         scheduleImageCheck()
     }
     private fun createNotification(): Notification {
@@ -53,9 +53,7 @@ class UploadService: Service() {
     }
     private fun scheduleImageCheck() {
         Log.d("suzdalFPR", "Checking for images...")
-        executor.scheduleWithFixedDelay({
-            checkAndUploadImages()
-        }, 0, 1, TimeUnit.HOURS)
+        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 0, 1, TimeUnit.HOURS)
     }
     private fun checkAndUploadImages() {
         val imageDir = File(externalMediaDirs.firstOrNull(), "images")
@@ -67,6 +65,7 @@ class UploadService: Service() {
         } else {
             Log.d(TAG, "No images found or directory does not exist.")
         }
+
     }
     private fun uploadImage(imageFile: File) {
         // Lógica para subir la imagen al servidor PHP
@@ -82,7 +81,6 @@ class UploadService: Service() {
         private const val NOTIFICATION_ID = 1
     }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        // Maneja cada intent aquí
         return START_STICKY
     }
 }

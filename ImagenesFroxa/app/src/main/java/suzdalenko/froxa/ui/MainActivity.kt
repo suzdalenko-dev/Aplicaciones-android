@@ -22,7 +22,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import suzdalenko.froxa.R
-import suzdalenko.froxa.service.UploadService
+import suzdalenko.froxa.dontuse.AutoCaptureActivity
+import suzdalenko.froxa.service.UploadFileService
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -79,8 +80,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadService::class.java))
-        } else { startService(Intent(this, UploadService::class.java)) }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadFileService::class.java))
+        } else { startService(Intent(this, UploadFileService::class.java)) }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadFileService::class.java))
+        } else { startService(Intent(this, UploadFileService::class.java)) }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadFileService::class.java))
+        } else { startService(Intent(this, UploadFileService::class.java)) }
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)

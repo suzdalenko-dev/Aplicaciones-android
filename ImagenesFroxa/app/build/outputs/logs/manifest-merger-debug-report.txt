@@ -11,10 +11,10 @@ INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest
 	android:name
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:32:13-62
 manifest
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:1-74:12
-INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:1-74:12
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:1-78:12
+INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:1-78:12
 MERGED from [androidx.databinding:viewbinding:8.5.0] C:\Users\alexei\.gradle\caches\transforms-4\6a59cc0b15928cc4460f8bf0811ba293\transformed\viewbinding-8.5.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.7] C:\Users\alexei\.gradle\caches\transforms-4\3a82de8819c952946d60063964fd6005\transformed\navigation-common-2.7.7\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] C:\Users\alexei\.gradle\caches\transforms-4\7bc53123c8367935c37bdaf31cb53c01\transformed\navigation-common-ktx-2.7.7\AndroidManifest.xml:2:1-7:12
@@ -124,8 +124,8 @@ ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xm
 	android:name
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:15:22-81
 application
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:18:5-72:19
-INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:18:5-72:19
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:18:5-76:19
+INJECTED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:18:5-76:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\alexei\.gradle\caches\transforms-4\060ee18df6e41ab3219dbf788493f29d\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\alexei\.gradle\caches\transforms-4\060ee18df6e41ab3219dbf788493f29d\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.camera:camera-camera2:1.3.4] C:\Users\alexei\.gradle\caches\transforms-4\8000f97fa24436c4f02b028a2d25ba05\transformed\camera-camera2-1.3.4\AndroidManifest.xml:23:5-34:19
@@ -182,56 +182,64 @@ ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xm
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:42:13-37
 	android:name
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:41:13-38
-activity#suzdalenko.froxa.ui.AutoCaptureActivity
+activity#suzdalenko.froxa.dontuse.AutoCaptureActivity
 ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:43:9-46:58
 	android:exported
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:45:13-37
 	android:theme
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:46:13-55
 	android:name
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:44:13-51
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:44:13-56
 activity#suzdalenko.froxa.ui.MainActivity
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:47:9-55:20
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:47:9-54:20
 	android:exported
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:49:13-36
 	android:name
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:48:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:50:13-54:29
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:50:13-53:29
 action#android.intent.action.MAIN
 ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:51:17-69
 	android:name
 		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:51:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:53:17-77
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:52:17-77
 	android:name
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:53:27-74
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:52:27-74
 receiver#suzdalenko.froxa.receiver.BootReceiver
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:57:9-66:20
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:56:9-65:20
 	android:enabled
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:59:13-35
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:58:13-35
 	android:exported
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:60:13-36
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:59:13-36
 	android:name
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:58:13-50
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:57:13-50
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+category:name:android.intent.category.DEFAULT
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:61:13-65:29
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:60:13-64:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:62:17-79
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:61:17-79
 	android:name
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:62:25-76
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:61:25-76
 category#android.intent.category.DEFAULT
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:64:17-76
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:63:17-76
 	android:name
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:64:27-73
-service#suzdalenko.froxa.service.UploadService
-ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:67:9-71:19
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:63:27-73
+service#suzdalenko.froxa.service.UploadFileService
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:66:9-70:19
 	android:exported
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:68:13-37
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:67:13-37
 	android:foregroundServiceType
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:70:13-51
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:69:13-51
 	android:name
-		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:69:13-50
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:68:13-54
+service#suzdalenko.froxa.service.CreateFotoService
+ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:71:9-75:19
+	android:exported
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:72:13-37
+	android:foregroundServiceType
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:74:13-51
+	android:name
+		ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:73:13-54
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from D:\Aplicaciones-android\ImagenesFroxa\app\src\main\AndroidManifest.xml:36:13-38:54
 	android:resource

@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -17,10 +16,8 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import suzdalenko.froxa.R
-import suzdalenko.froxa.service.UploadService
+import suzdalenko.froxa.service.CreateFotoService
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -29,38 +26,13 @@ import java.util.concurrent.Executors
 class Camara : AppCompatActivity() {
     private lateinit var viewFinder: PreviewView
     private lateinit var cameraExecutor: ExecutorService
-    private lateinit var imageCapture: ImageCapture
     private lateinit var captureButton: Button
 
-    private fun takePhoto() {
-        // Crear un archivo de salida para la imagen
-        val photoFile = File(
-            externalMediaDirs.firstOrNull(),
-            SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE)
-                .format(System.currentTimeMillis()) + ".jpg"
-        )
-
-        // Crear el objeto de salida
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-
-        // Configurar la captura de la imagen
-        imageCapture.takePicture(
-            outputOptions,
-            ContextCompat.getMainExecutor(this),
-            object : ImageCapture.OnImageSavedCallback {
-                override fun onError(exception: ImageCaptureException) {
-                    Log.e(TAG, "Error al capturar la imagen: ${exception.message}", exception)
-                    Toast.makeText(baseContext, "Error al capturar la imagen: ${exception.message}", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
-                    val msg = "Imagen capturada: $savedUri"
-                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-                    Log.d(TAG, msg)
-                }
-            }
-        )
+    companion object {
+        var imageCapture: ImageCapture? = null
+        private const val TAG = "CameraXBasic"
+        private const val REQUEST_CODE_PERMISSIONS = 10
+        private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,6 +51,12 @@ class Camara : AppCompatActivity() {
         captureButton = findViewById(R.id.captureButton)
         captureButton.setOnClickListener {
             takePhoto()
+        }
+        val serviceIntent = Intent(this, CreateFotoService::class.java)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(serviceIntent)
+        } else {
+            startService(serviceIntent)
         }
     }
 
@@ -110,6 +88,43 @@ class Camara : AppCompatActivity() {
         }, ContextCompat.getMainExecutor(this))
     }
 
+    private fun takePhoto() {
+        imageCapture?.let {
+            // Crear un archivo de salida para la imagen
+            val imageDir = File(externalMediaDirs.firstOrNull(), "images")
+            if (!imageDir.exists()) {
+                imageDir.mkdirs()
+            }
+            val photoFile = File(
+                imageDir,
+                SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE).format(System.currentTimeMillis()) + ".jpg"
+            )
+
+            val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
+            // Configurar el flash para que esté encendido
+            it.flashMode = ImageCapture.FLASH_MODE_ON
+
+            it.takePicture(
+                outputOptions,
+                ContextCompat.getMainExecutor(this),
+                object : ImageCapture.OnImageSavedCallback {
+                    override fun onError(exception: ImageCaptureException) {
+                        Log.e(TAG, "Error al capturar la imagen: ${exception.message}", exception)
+                        Toast.makeText(baseContext, "Error al capturar la imagen: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                        val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
+                        val msg = "Imagen capturada: $savedUri"
+                        Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                        Log.d(TAG, msg)
+                    }
+                }
+            )
+        }
+    }
+
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
@@ -117,11 +132,5 @@ class Camara : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
-    }
-
-    companion object {
-        private const val TAG = "CameraXBasic"
-        private const val REQUEST_CODE_PERMISSIONS = 10
-        private val REQUIRED_PERMISSIONS = arrayOf(android.Manifest.permission.CAMERA)
     }
 }

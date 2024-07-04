@@ -41,7 +41,7 @@
             android:name=".ui.Camara"
             android:exported="false" />
         <activity
-            android:name=".ui.AutoCaptureActivity"
+            android:name=".dontuse.AutoCaptureActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
@@ -49,7 +49,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -66,7 +65,12 @@
         </receiver>
         <service
             android:exported="false"
-            android:name=".service.UploadService"
+            android:name=".service.UploadFileService"
+            android:foregroundServiceType="camera">
+        </service>
+        <service
+            android:exported="false"
+            android:name=".service.CreateFotoService"
             android:foregroundServiceType="camera">
         </service>
     </application>
