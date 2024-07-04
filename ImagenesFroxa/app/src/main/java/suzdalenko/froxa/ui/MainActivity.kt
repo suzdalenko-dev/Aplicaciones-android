@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         private const val REQUEST_IMAGE_CAPTURE = 102
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {                    Log.d("suzdalFPR", "hola main activity")
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
@@ -79,13 +79,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val intent = Intent(this, UploadService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(intent)
-        } else {
-            startService(intent)
-        }
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadService::class.java))
+        } else { startService(Intent(this, UploadService::class.java)) }
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)

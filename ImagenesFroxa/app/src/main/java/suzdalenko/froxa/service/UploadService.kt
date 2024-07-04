@@ -81,4 +81,8 @@ class UploadService: Service() {
         private const val TAG = "UploadService"
         private const val NOTIFICATION_ID = 1
     }
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // Maneja cada intent aquí
+        return START_STICKY
+    }
 }
