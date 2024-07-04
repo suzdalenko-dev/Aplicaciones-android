@@ -14,12 +14,15 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import suzdalenko.froxa.R
+import suzdalenko.froxa.util.MyApp.Companion.SUBIR_ARCHIVOS_CADA_SEC
+import suzdalenko.froxa.util.UploadFile
 import java.io.File
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 class UploadFileService: Service() {
     private val executor = Executors.newSingleThreadScheduledExecutor()
     private val handler = Handler(Looper.getMainLooper())
+    var countFiles = 0
     override fun onBind(p0: Intent?): IBinder? {
         return null
     }
@@ -31,6 +34,7 @@ class UploadFileService: Service() {
             startForeground(NOTIFICATION_ID, createNotification())
         }
         scheduleImageCheck()
+        Log.d("UploadService", "On Create")
     }
     private fun createNotification(): Notification {
         val notificationChannelId = "UPLOAD_SERVICE_CHANNEL"
@@ -50,14 +54,20 @@ class UploadFileService: Service() {
             .build()
     }
     private fun scheduleImageCheck() {
-        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 0, 5, TimeUnit.SECONDS)
+        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 0, SUBIR_ARCHIVOS_CADA_SEC, TimeUnit.SECONDS)
     }
     private fun checkAndUploadImages() {
+        countFiles = 0
         val imageDir = File(externalMediaDirs.firstOrNull(), "images")
         if (imageDir.exists() && imageDir.isDirectory) {
             val imageFiles = imageDir.listFiles { file -> file.extension == "jpg" }
+            val numeroFiles = imageFiles?.size
+            Log.d(TAG, "numeroFiles="+numeroFiles.toString())
             imageFiles?.forEach { imageFile ->
-                uploadImage(imageFile)
+                countFiles++
+                if (countFiles <= 5) {
+                    uploadImage(imageFile)
+                }
             }
         } else {
             Log.d(TAG, "No images found or directory does not exist.")
@@ -67,7 +77,16 @@ class UploadFileService: Service() {
     private fun uploadImage(imageFile: File) {
         // Lógica para subir la imagen al servidor PHP
         // Por ejemplo, usando una librería de HTTP como Retrofit o HttpURLConnection
-        Log.d("existsFiles", "Uploading image: ${imageFile.name}")
+        val uploadFile = UploadFile(imageFile)
+        uploadFile.uploadFile { response ->
+            // Procesar la respuesta del servidor
+            Log.d("UploadService", "Response: $response")
+            if(response.toString().contains("exitosamente")){
+                imageFile.delete()
+            }
+        }
+        Log.d("UploadService", imageFile.name.toString())
+        Log.d("UploadService", "Uploading image: ${imageFile.name}")
     }
     override fun onDestroy() {
         super.onDestroy()

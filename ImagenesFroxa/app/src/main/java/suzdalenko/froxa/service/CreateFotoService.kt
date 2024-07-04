@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import suzdalenko.froxa.R
 import suzdalenko.froxa.ui.Camara
+import suzdalenko.froxa.util.MyApp.Companion.HACER_FOTO_CADA_MILISEC
 import suzdalenko.froxa.util.MyApp.Companion.prefs
 import java.io.File
 import java.text.SimpleDateFormat
@@ -28,8 +29,6 @@ import java.util.Locale
 class CreateFotoService : Service() {
     private lateinit var handlerThread: HandlerThread
     private lateinit var handler: Handler
-    private var isActivityRunning = false
-    private var broadcastReceiver: BroadcastReceiver? = null
     private lateinit var miHandlerThread: HandlerThread
     private lateinit var miHandler: Handler
 
@@ -75,7 +74,7 @@ class CreateFotoService : Service() {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 takePhoto()
-                handler.postDelayed(this, 10000) // Ejecutar cada 10 segundos
+                handler.postDelayed(this, HACER_FOTO_CADA_MILISEC) // Ejecutar cada 10 segundos
             }
         }, 3000)
     }
@@ -85,7 +84,7 @@ class CreateFotoService : Service() {
         val estadoActualActivity = prefs.getString("__state", "activo").toString()
 
         Camara.imageCapture?.let { imageCapture ->
-            val imageDir = File(getExternalFilesDir(null), "images")
+            val imageDir = File(externalMediaDirs.firstOrNull(), "images")
             if (!imageDir.exists()) {
                 imageDir.mkdirs()
             }
@@ -135,7 +134,7 @@ class CreateFotoService : Service() {
                 intent.putExtra("message", "Evento desde el servicio")
                 LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
                 Log.d("estadoActualActivity", "!!! enviando receiver !!!")
-                miHandler.postDelayed(this, 5000) // Ejecutar cada 10 segundos
+                miHandler.postDelayed(this, 50000) // Ejecutar cada 10 segundos
             }
         }, 5000)
 
