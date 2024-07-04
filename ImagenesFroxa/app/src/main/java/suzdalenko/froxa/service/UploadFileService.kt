@@ -25,7 +25,6 @@ class UploadFileService: Service() {
     }
     override fun onCreate() {
         super.onCreate()
-        Log.d("suzdalFPR", "SERVICE STARTED 1 !!!!")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             ServiceCompat.startForeground(this, NOTIFICATION_ID, createNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA)
         } else {
@@ -44,7 +43,6 @@ class UploadFileService: Service() {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(notificationChannel)
         }
-        Log.d("suzdalFPR", "SERVICE STARTED 2 !!!!")
         return NotificationCompat.Builder(this, notificationChannelId)
             .setContentTitle("Upload Service")
             .setContentText("Service is running in the background")
@@ -52,8 +50,7 @@ class UploadFileService: Service() {
             .build()
     }
     private fun scheduleImageCheck() {
-        Log.d("suzdalFPR", "Checking for images...")
-        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 0, 1, TimeUnit.HOURS)
+        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 0, 5, TimeUnit.SECONDS)
     }
     private fun checkAndUploadImages() {
         val imageDir = File(externalMediaDirs.firstOrNull(), "images")
@@ -70,7 +67,7 @@ class UploadFileService: Service() {
     private fun uploadImage(imageFile: File) {
         // Lógica para subir la imagen al servidor PHP
         // Por ejemplo, usando una librería de HTTP como Retrofit o HttpURLConnection
-        Log.d(TAG, "Uploading image: ${imageFile.name}")
+        Log.d("existsFiles", "Uploading image: ${imageFile.name}")
     }
     override fun onDestroy() {
         super.onDestroy()

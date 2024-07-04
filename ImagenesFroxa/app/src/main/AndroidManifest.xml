@@ -16,6 +16,7 @@
 
 
     <application
+        android:name=".util.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -39,6 +40,7 @@
         </provider>
         <activity
             android:name=".ui.Camara"
+            android:launchMode="singleTask"
             android:exported="false" />
         <activity
             android:name=".dontuse.AutoCaptureActivity"
@@ -53,14 +55,15 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".receiver.BootReceiver"
-            android:enabled="true"
-            android:exported="true">
+        <receiver android:name=".receiver.BootReceiver" android:enabled="true" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.PrimerPlanoReceiver" android:enabled="true" android:exported="true" android:permission="TODO">
+            <intent-filter>
+                <action android:name="com.example.ACTION_EVENT" />
             </intent-filter>
         </receiver>
         <service

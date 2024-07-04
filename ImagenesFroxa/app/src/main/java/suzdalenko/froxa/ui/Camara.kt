@@ -1,5 +1,8 @@
 package suzdalenko.froxa.ui
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -16,8 +19,11 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import suzdalenko.froxa.R
+import suzdalenko.froxa.receiver.PrimerPlanoReceiver
 import suzdalenko.froxa.service.CreateFotoService
+import suzdalenko.froxa.util.MyApp.Companion.prefs
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -27,6 +33,7 @@ class Camara : AppCompatActivity() {
     private lateinit var viewFinder: PreviewView
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var captureButton: Button
+
 
     companion object {
         var imageCapture: ImageCapture? = null
@@ -58,6 +65,9 @@ class Camara : AppCompatActivity() {
         } else {
             startService(serviceIntent)
         }
+        prefs.edit().putString("__state", "activo").apply()
+        // Registrar el receptor de broadcast
+        LocalBroadcastManager.getInstance(this).registerReceiver(PrimerPlanoReceiver(), IntentFilter("com.example.ACTION_EVENT"))
     }
 
     private fun startCamera() {
@@ -129,8 +139,27 @@ class Camara : AppCompatActivity() {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
+    override fun onStart() {
+        super.onStart()
+        prefs.edit().putString("__state", "activo").apply()
+    }
+    override fun onResume() {
+        super.onResume()
+        prefs.edit().putString("__state", "activo").apply()
+    }
+    override fun onPause() {
+        super.onPause()
+        prefs.edit().putString("__state", "pause").apply()
+    }
+    override fun onStop() {
+        super.onStop()
+        prefs.edit().putString("__state", "stop").apply()
+    }
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
+        prefs.edit().putString("__state", "desroy").apply()
+
     }
+
 }

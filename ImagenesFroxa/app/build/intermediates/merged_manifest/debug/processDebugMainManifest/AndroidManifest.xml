@@ -27,6 +27,7 @@
     <uses-permission android:name="suzdalenko.froxa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
+        android:name="suzdalenko.froxa.util.MyApp"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -55,7 +56,8 @@
 
         <activity
             android:name="suzdalenko.froxa.ui.Camara"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask" />
         <activity
             android:name="suzdalenko.froxa.dontuse.AutoCaptureActivity"
             android:exported="false"
@@ -78,6 +80,15 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
 
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="suzdalenko.froxa.receiver.PrimerPlanoReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="TODO" >
+            <intent-filter>
+                <action android:name="com.example.ACTION_EVENT" />
             </intent-filter>
         </receiver>
 
