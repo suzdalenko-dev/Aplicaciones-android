@@ -12,7 +12,7 @@ class PrimerPlanoReceiver : BroadcastReceiver(){
         //
         // intent?.let {
         //     if (it.action == "com.example.ACTION_EVENT") {
-        //         Log.d("estadoActualActivity", it.action.toString())
+        //
         //         val message = it.getStringExtra("message")
         //         val startIntent = Intent(context, Camara::class.java)
         //         startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

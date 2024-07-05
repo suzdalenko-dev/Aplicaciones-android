@@ -1,13 +1,16 @@
 package suzdalenko.froxa.ui
 import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.ServiceConnection
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.IBinder
 import android.os.PowerManager
 import android.util.Log
 import android.view.WindowManager
@@ -26,6 +29,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import suzdalenko.froxa.R
 import suzdalenko.froxa.receiver.PrimerPlanoReceiver
 import suzdalenko.froxa.service.CreateFotoService
+import suzdalenko.froxa.service.UploadFileService
 import suzdalenko.froxa.util.MyApp.Companion.prefs
 import java.io.File
 import java.lang.ref.WeakReference
@@ -34,6 +38,22 @@ import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 class Camara : AppCompatActivity() {
+    private var myService: CreateFotoService? = null
+    private var isBound = false
+    private val connection = object : ServiceConnection {
+        override fun onServiceConnected(className: ComponentName, service: IBinder) {
+            val binder = service as CreateFotoService.LocalBinder
+            myService = binder.getService()
+            isBound = true
+        }
+        override fun onServiceDisconnected(arg0: ComponentName) {
+            isBound = false
+        }
+    }
+    private fun modifyServiceVariable() {
+        if (isBound) { myService?.let { service -> service.fotosCreadasActivity += 1 } }
+    }
+
     private lateinit var viewFinder: PreviewView
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var captureButton: Button
@@ -66,6 +86,7 @@ class Camara : AppCompatActivity() {
         }
         // Establecer la referencia de la actividad en el servicio
         CreateFotoService.activityCamara = WeakReference(this)
+        UploadFileService.activityCamara = WeakReference(this)
         val serviceIntent = Intent(this, CreateFotoService::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(serviceIntent)
@@ -86,6 +107,10 @@ class Camara : AppCompatActivity() {
         wakeLock?.acquire()
         // Mantener la pantalla encendida mientras esta actividad está en primer plano
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        // Enlazar con el Service
+        Intent(this, CreateFotoService::class.java).also { intent ->
+            bindService(intent, connection, Context.BIND_AUTO_CREATE)
+        }
     }
 
     private fun startCamera() {
@@ -141,11 +166,11 @@ class Camara : AppCompatActivity() {
                         Log.e(TAG, "Error al capturar la imagen: ${exception.message}", exception)
                         Toast.makeText(baseContext, "Error al capturar la imagen: ${exception.message}", Toast.LENGTH_SHORT).show()
                     }
-
                     override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                         val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                         val msg = "Imagen capturada: $savedUri"
                         Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                        modifyServiceVariable()
                     }
                 }
             )

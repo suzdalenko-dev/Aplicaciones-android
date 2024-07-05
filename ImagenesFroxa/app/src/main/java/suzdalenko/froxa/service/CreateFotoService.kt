@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Binder
 import android.os.Build
 import android.os.Handler
 import android.os.HandlerThread
@@ -29,16 +30,21 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class CreateFotoService : Service() {
+    var fotosCreadasActivity: Long = 0
+    inner class LocalBinder : Binder() {
+        fun getService(): CreateFotoService = this@CreateFotoService
+    }
+    private val binder = LocalBinder()
+
     private lateinit var handlerThread: HandlerThread
     private lateinit var handler: Handler
     private lateinit var miHandlerThread: HandlerThread
     private lateinit var miHandler: Handler
-    var secundosQueFaltan = 0
-    var countSecond = 0
-    var fotosCreadas = 0
+    var secundosQueFaltan: Long = 0
+    var countSecond: Long = 0
     companion object {
         var activityCamara: WeakReference<Camara>? = null
-        var fotosCreadas = 0
+        var fotosCreadas: Long = 0
     }
 
     override fun onCreate() {
@@ -62,8 +68,9 @@ class CreateFotoService : Service() {
                         textView?.let {
                             secundosQueFaltan = (MAKE_PHOTO_EVERY_MILISEC / 1000).toInt() - countSecond++
                             it.text = "Segundos: ${secundosQueFaltan}"
-                            if(secundosQueFaltan <= 0) countSecond = 0
                         }
+                        val textView2: TextView? = activity.findViewById(R.id.photos_created)
+                        textView2?.let { it.text = "Fotos creadas: ${fotosCreadas+fotosCreadasActivity}" }
                     }
                 }
                 Thread.sleep(1000)
@@ -126,6 +133,8 @@ class CreateFotoService : Service() {
                         val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                         val msg = "Imagen capturada: $savedUri"
                         Toast.makeText(this@CreateFotoService, msg, Toast.LENGTH_SHORT).show()
+                        countSecond = 0
+                        fotosCreadas++
                     }
                 }
             )
@@ -135,7 +144,7 @@ class CreateFotoService : Service() {
     }
 
     override fun onBind(intent: Intent?): IBinder? {
-        return null
+        return binder
     }
 
 
@@ -153,4 +162,7 @@ class CreateFotoService : Service() {
 
         return START_STICKY
     }
+
+
+
 }
