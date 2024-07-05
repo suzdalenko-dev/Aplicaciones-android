@@ -3,7 +3,6 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -120,9 +119,9 @@ class CreateFotoService : Service() {
             if (!imageDir.exists()) { imageDir.mkdirs() }
             val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE).format(System.currentTimeMillis()) + ".jpg")
             val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-            // Configurar el flash para que esté encendido
-            imageCapture.flashMode = ImageCapture.FLASH_MODE_ON
-            imageCapture.takePicture(
+            if(prefs.getString("flash", "x").toString() == "flash") { imageCapture.flashMode = ImageCapture.FLASH_MODE_ON
+            } else { imageCapture.flashMode = ImageCapture.FLASH_MODE_OFF }
+                imageCapture.takePicture(
                 outputOptions,
                 ContextCompat.getMainExecutor(this@CreateFotoService),
                 object : ImageCapture.OnImageSavedCallback {

@@ -1,7 +1,7 @@
-#Wed Jul 03 08:46:52 CEST 2024
-base.0=D\:\\Aplicaciones-android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
-base.1=D\:\\Aplicaciones-android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
-base.2=D\:\\Aplicaciones-android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\15\\classes.dex
+#Fri Jul 05 23:35:27 CEST 2024
+base.0=E\:\\Aplicaciones android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeExtDexDebugAndroidTest\\classes.dex
+base.1=E\:\\Aplicaciones android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\0\\classes.dex
+base.2=E\:\\Aplicaciones android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debugAndroidTest\\mergeProjectDexDebugAndroidTest\\15\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=15/classes.dex

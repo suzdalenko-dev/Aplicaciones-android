@@ -1,20 +1,18 @@
 package suzdalenko.froxa.ui
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import android.provider.Settings
-import android.util.Log
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -25,14 +23,12 @@ import androidx.core.view.WindowInsetsCompat
 import suzdalenko.froxa.R
 import suzdalenko.froxa.dontuse.AutoCaptureActivity
 import suzdalenko.froxa.service.UploadFileService
+import suzdalenko.froxa.util.MyApp.Companion.isValidEmail
 import suzdalenko.froxa.util.MyApp.Companion.prefs
-import java.io.File
-import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var editEmail: EditText
+    private lateinit var btnGuardar: Button
     private lateinit var btnTakePhoto: Button
     private lateinit var btnAutoCapture: Button
     private lateinit var btnCamara: Button
@@ -40,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         private const val CAMERA_PERMISSION_CODE = 100
         private const val STORAGE_PERMISSION_CODE = 101
     }
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -48,6 +45,16 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        btnGuardar = findViewById(R.id.btnGuardar)
+        editEmail = findViewById<EditText>(R.id.etEmail)
+        if(prefs.getString("email", "email").toString() != "email"){ editEmail.setText(prefs.getString("email", "email").toString()) }
+        btnGuardar.setOnClickListener{
+            val email = editEmail.text.toString().trim()
+            if(isValidEmail(email)){
+                prefs.edit().putString("email", email).apply()
+                startActivity(Intent(this, MainActivity::class.java)); finish()
+            } else { Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_LONG).show(); editEmail.setText("") }
         }
         btnTakePhoto = findViewById(R.id.btnTakePhoto)
         btnTakePhoto.setOnClickListener {
@@ -63,8 +70,12 @@ class MainActivity : AppCompatActivity() {
         }
         btnCamara = findViewById(R.id.btnCamara)
         btnCamara.setOnClickListener{
-            val intent = Intent(this, Camara::class.java)
-            startActivity(intent)
+            if(prefs.getString("email", "email").toString() != "email"){
+                val intent = Intent(this, Camara::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_LONG).show(); editEmail.setText("")
+            }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadFileService::class.java))
@@ -79,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
         } else {
-            startActivity(Intent(this, Camara::class.java)); finish()
+           // startActivity(Intent(this, Camara::class.java)); finish()
         }
     }
     private fun showAutoStartPermissionDialog() {
@@ -166,4 +177,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }

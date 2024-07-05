@@ -1,18 +1,14 @@
 [
     {
-        "merged": "C:\\Users\\alexei work\\.gradle\\daemon\\8.7\\suzdalenko.froxa.app-mergeDebugResources-51:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\alexei work\\.gradle\\daemon\\8.7\\suzdalenko.froxa.app-main-54:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\alexei work\\.gradle\\daemon\\8.7\\suzdalenko.froxa.app-mergeDebugResources-51:\\layout\\activity_capture.xml",
-        "source": "C:\\Users\\alexei work\\.gradle\\daemon\\8.7\\suzdalenko.froxa.app-main-54:\\layout\\activity_capture.xml"
+        "merged": "suzdalenko.froxa.app-mergeDebugResources-51:/layout/activity_capture.xml",
+        "source": "suzdalenko.froxa.app-main-54:/layout/activity_capture.xml"
     },
     {
         "merged": "suzdalenko.froxa.app-mergeDebugResources-51:/layout/activity_camara.xml",
         "source": "suzdalenko.froxa.app-main-54:/layout/activity_camara.xml"
     },
     {
-        "merged": "C:\\Users\\alexei work\\.gradle\\daemon\\8.7\\suzdalenko.froxa.app-mergeDebugResources-51:\\layout\\activity_camara.xml",
-        "source": "C:\\Users\\alexei work\\.gradle\\daemon\\8.7\\suzdalenko.froxa.app-main-54:\\layout\\activity_camara.xml"
+        "merged": "suzdalenko.froxa.app-mergeDebugResources-51:/layout/activity_main.xml",
+        "source": "suzdalenko.froxa.app-main-54:/layout/activity_main.xml"
     }
 ]

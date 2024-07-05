@@ -1,22 +1,25 @@
 package suzdalenko.froxa.ui
 import android.annotation.SuppressLint
-import android.content.BroadcastReceiver
+import android.app.PictureInPictureParams
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.ServiceConnection
 import android.content.pm.PackageManager
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
 import android.os.PowerManager
 import android.util.Log
+import android.util.Rational
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -40,6 +43,7 @@ import java.util.concurrent.Executors
 class Camara : AppCompatActivity() {
     private var myService: CreateFotoService? = null
     private var isBound = false
+    private lateinit var switchCompat: SwitchCompat
     private val connection = object : ServiceConnection {
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
             val binder = service as CreateFotoService.LocalBinder
@@ -111,6 +115,13 @@ class Camara : AppCompatActivity() {
         Intent(this, CreateFotoService::class.java).also { intent ->
             bindService(intent, connection, Context.BIND_AUTO_CREATE)
         }
+        switchCompat = findViewById(R.id.switchCompat)
+        if(prefs.getString("flash", "x") == "flash"){ switchCompat.isChecked = true
+        } else { switchCompat.isChecked = false }
+        switchCompat.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked){ prefs.edit().putString("flash", "flash").apply(); Toast.makeText(this, "Flash enabled", Toast.LENGTH_SHORT).show()
+            } else { prefs.edit().putString("flash", "x").apply(); ; Toast.makeText(this, "Flash desabled", Toast.LENGTH_SHORT).show() }
+        }
     }
 
     private fun startCamera() {
@@ -145,18 +156,13 @@ class Camara : AppCompatActivity() {
         imageCapture?.let {
             // Crear un archivo de salida para la imagen
             val imageDir = File(externalMediaDirs.firstOrNull(), "images")
-            if (!imageDir.exists()) {
-                imageDir.mkdirs()
-            }
-            val photoFile = File(
-                imageDir,
-                SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE).format(System.currentTimeMillis()) + ".jpg"
-            )
-
+            if (!imageDir.exists()) { imageDir.mkdirs() }
+            val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE).format(System.currentTimeMillis()) + ".jpg")
             val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
             // Configurar el flash para que esté encendido
-            it.flashMode = ImageCapture.FLASH_MODE_ON
+            if(prefs.getString("flash", "x").toString() == "flash") { it.flashMode = ImageCapture.FLASH_MODE_ON
+            } else { it.flashMode = ImageCapture.FLASH_MODE_OFF }
 
             it.takePicture(
                 outputOptions,
@@ -205,4 +211,27 @@ class Camara : AppCompatActivity() {
         wakeLock?.release()
     }
 
+    override fun onUserLeaveHint() {
+        super.onUserLeaveHint()
+
+        enterPictureInPictureMode1()
+    }
+    private fun enterPictureInPictureMode1() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val aspectRatio = Rational(1, 1) // Puedes ajustar la relación de aspecto según tus necesidades
+            val pipParams = PictureInPictureParams.Builder()
+                .setAspectRatio(aspectRatio)
+                .build()
+            enterPictureInPictureMode(pipParams)
+        } else {
+            // Manejar dispositivos con versiones anteriores a API 26
+            Toast.makeText(this, "Picture-in-Picture no es soportado en este dispositivo.", Toast.LENGTH_SHORT).show()
+            // O cualquier otra alternativa que desees implementar
+        }
+
+    }
+    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean, newConfig: Configuration) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+        if (isInPictureInPictureMode) { } else { }
+    }
 }

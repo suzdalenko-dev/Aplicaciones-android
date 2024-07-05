@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="suzdalenko.froxa"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:usesCleartextTraffic="false"
         android:name=".util.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -26,13 +26,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FroxaImagenes"
+        android:usesCleartextTraffic="false"
         tools:targetApi="31">
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
         <meta-data
             android:name="androidx.camera.default.impl"
             android:value="androidx.camera.camera2.Camera2Config" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -42,44 +45,52 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <activity
+
+        <activity android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation" android:supportsPictureInPicture="true"
             android:name=".ui.Camara"
-            android:launchMode="singleTask"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTask" />
         <activity
             android:name=".dontuse.AutoCaptureActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <receiver android:name=".receiver.BootReceiver" android:enabled="true" android:exported="true">
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.PrimerPlanoReceiver" android:enabled="true" android:exported="true" android:permission="TODO">
+        <receiver
+            android:name=".receiver.PrimerPlanoReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="TODO">
             <intent-filter>
                 <action android:name="com.example.ACTION_EVENT" />
             </intent-filter>
         </receiver>
+
         <service
-            android:exported="false"
             android:name=".service.UploadFileService"
-            android:foregroundServiceType="camera">
-        </service>
-        <service
             android:exported="false"
+            android:foregroundServiceType="camera" />
+        <service
             android:name=".service.CreateFotoService"
-            android:foregroundServiceType="camera">
-        </service>
+            android:exported="false"
+            android:foregroundServiceType="camera" />
     </application>
 
 </manifest>

@@ -32,6 +32,8 @@ androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycl
 androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "cameraView" }
 androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }  # Añade esta línea
 okhttp = 'com.squareup.okhttp3:okhttp:4.9.1'
+mailandroidmail = 'com.sun.mail:android-mail:1.6.7'
+mailandroidactivation = 'com.sun.mail:android-activation:1.6.7'
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -35,6 +35,12 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    packaging  {
+        resources {
+            excludes.add("META-INF/LICENSE.md")
+            excludes.add("META-INF/NOTICE.md")
+        }
+    }
 }
 
 dependencies {
@@ -54,4 +60,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.okhttp)
+    implementation(libs.mailandroidmail)
+    implementation(libs.mailandroidactivation)
 }

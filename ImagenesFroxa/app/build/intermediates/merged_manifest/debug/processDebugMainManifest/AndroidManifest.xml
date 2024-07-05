@@ -63,8 +63,10 @@
 
         <activity
             android:name="suzdalenko.froxa.ui.Camara"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:exported="false"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:supportsPictureInPicture="true" />
         <activity
             android:name="suzdalenko.froxa.dontuse.AutoCaptureActivity"
             android:exported="false"
@@ -102,13 +104,11 @@
         <service
             android:name="suzdalenko.froxa.service.UploadFileService"
             android:exported="false"
-            android:foregroundServiceType="camera" >
-        </service>
+            android:foregroundServiceType="camera" />
         <service
             android:name="suzdalenko.froxa.service.CreateFotoService"
             android:exported="false"
-            android:foregroundServiceType="camera" >
-        </service>
+            android:foregroundServiceType="camera" />
         <service
             android:name="androidx.camera.core.impl.MetadataHolderService"
             android:enabled="false"

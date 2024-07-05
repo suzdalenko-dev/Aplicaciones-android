@@ -15,12 +15,12 @@ import android.widget.TextView
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import suzdalenko.froxa.R
-import suzdalenko.froxa.service.CreateFotoService.Companion
-import suzdalenko.froxa.service.CreateFotoService.Companion.fotosCreadas
 import suzdalenko.froxa.ui.Camara
-import suzdalenko.froxa.util.MyApp.Companion.MAKE_PHOTO_EVERY_MILISEC
 import suzdalenko.froxa.util.MyApp.Companion.UPLOAD_FILES_EACH_SEC
 import suzdalenko.froxa.util.UploadFile
+import suzdalenko.froxa.util.MyApp.Companion.getDateApp
+import suzdalenko.froxa.util.MyApp.Companion.prefs
+import suzdalenko.froxa.util.SentEmail.Companion.enviarCorreoAutomaticamente
 import java.io.File
 import java.lang.ref.WeakReference
 import java.util.concurrent.Executors
@@ -31,6 +31,7 @@ class UploadFileService: Service() {
     var countFiles = 0
     companion object {
         var activityCamara: WeakReference<Camara>? = null
+        var uploadLeenda = "Archivos subidos: "
         var photosUploaded: Long = 0
     }
     override fun onBind(p0: Intent?): IBinder? {
@@ -50,7 +51,7 @@ class UploadFileService: Service() {
                     activity.runOnUiThread {
                         val textView: TextView? = activity.findViewById(R.id.uploaded_photos)
                         textView?.let {
-                            it.text = "Archivos subidos: ${photosUploaded}"
+                            it.text = "${uploadLeenda} ${photosUploaded}"
                         }
                     }
                 }
@@ -86,8 +87,8 @@ class UploadFileService: Service() {
             val numeroFiles = imageFiles?.size
             imageFiles?.forEach { imageFile ->
                 countFiles++
-                if (countFiles <= 5) {
-                    uploadImage(imageFile)
+                if (countFiles <= 3) {
+                    uploadOrSentImage(imageFile)
                 }
             }
         } else {
@@ -95,18 +96,27 @@ class UploadFileService: Service() {
         }
 
     }
-    private fun uploadImage(imageFile: File) {
-        // Lógica para subir la imagen al servidor PHP
-        // Por ejemplo, usando una librería de HTTP como Retrofit o HttpURLConnection
-        val uploadFile = UploadFile(imageFile)
-        uploadFile.uploadFile { response ->
-            // Procesar la respuesta del servidor
-            if(response.toString().contains("exitosamente")){
-                imageFile.delete()
-                photosUploaded++
-
+    private fun uploadOrSentImage(imageFile: File) {
+        if (prefs.getString("email", "email").toString() == "taller@froxa.com"){
+            val uploadFile = UploadFile(imageFile)
+            uploadFile.uploadFile { response ->
+                if(response.toString().contains("exitosamente")){
+                    imageFile.delete()
+                    uploadLeenda = "Archivos subidos: "
+                    photosUploaded++
+                }
+            }
+        } else {
+            enviarCorreoAutomaticamente("alexey.saron@gmail.com", "Auto Photo App", getDateApp(), imageFile){ emailSented ->
+                if (emailSented){
+                    photosUploaded++
+                    uploadLeenda = "Archivos enviados: "
+                    imageFile.delete()
+                }
             }
         }
+
+
     }
     override fun onDestroy() {
         super.onDestroy()
@@ -115,4 +125,5 @@ class UploadFileService: Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return START_STICKY
     }
+
 }

@@ -1,6 +1,5 @@
-suzdalenko.froxa.test.app-annotation-experimental-1.3.0-0 C:\Users\alexei\.gradle\caches\transforms-4\2f918db5f5f563643f5a83c466fb6e7d\transformed\annotation-experimental-1.3.0\res
-suzdalenko.froxa.test.app-core-1.5.0-1 C:\Users\alexei\.gradle\caches\transforms-4\99d1b788709a0d4c6535ce740a13a3f2\transformed\core-1.5.0\res
-suzdalenko.froxa.test.app-androidTest-2 D:\Aplicaciones-android\ImagenesFroxa\app\build\generated\res\resValues\androidTest\debug
-suzdalenko.froxa.test.app-mergeDebugAndroidTestResources-3 D:\Aplicaciones-android\ImagenesFroxa\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-suzdalenko.froxa.test.app-mergeDebugAndroidTestResources-4 D:\Aplicaciones-android\ImagenesFroxa\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-suzdalenko.froxa.test.app-debugAndroidTest-5 D:\Aplicaciones-android\ImagenesFroxa\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+suzdalenko.froxa.test.app-core-1.6.1-0 C:\Users\alexei work\.gradle\caches\transforms-4\ee208b7cd86be34bce78dd6b2fb6d1f3\transformed\core-1.6.1\res
+suzdalenko.froxa.test.app-androidTest-1 E:\Aplicaciones android\ImagenesFroxa\app\build\generated\res\resValues\androidTest\debug
+suzdalenko.froxa.test.app-mergeDebugAndroidTestResources-2 E:\Aplicaciones android\ImagenesFroxa\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+suzdalenko.froxa.test.app-mergeDebugAndroidTestResources-3 E:\Aplicaciones android\ImagenesFroxa\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+suzdalenko.froxa.test.app-debugAndroidTest-4 E:\Aplicaciones android\ImagenesFroxa\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
