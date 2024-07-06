@@ -1,4 +1,4 @@
-#Sat Jul 06 00:07:39 CEST 2024
+#Sat Jul 06 13:16:14 CEST 2024
 base.0=E\:\\Aplicaciones android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=E\:\\Aplicaciones android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=E\:\\Aplicaciones android\\ImagenesFroxa\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex

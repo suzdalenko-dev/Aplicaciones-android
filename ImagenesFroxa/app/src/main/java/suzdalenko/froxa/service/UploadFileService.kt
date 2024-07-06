@@ -77,7 +77,7 @@ class UploadFileService: Service() {
             .build()
     }
     private fun scheduleImageCheck() {
-        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 0, UPLOAD_FILES_EACH_SEC, TimeUnit.SECONDS)
+        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 22, UPLOAD_FILES_EACH_SEC, TimeUnit.SECONDS)
     }
     private fun checkAndUploadImages() {
         countFiles = 0

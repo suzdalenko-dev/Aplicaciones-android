@@ -80,6 +80,7 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e47cd34317e636f4d3d100fa88e2d6ca\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\alexei work\.gradle\caches\transforms-4\d2f0485474a3fa51e45b4f8cdec86b2f\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
 	package
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:70-96
 		INJECTED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml
