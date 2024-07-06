@@ -104,10 +104,7 @@ class Camara : AppCompatActivity() {
 
         val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
         // Crear un WakeLock para mantener la pantalla encendida
-        wakeLock = powerManager.newWakeLock(
-            PowerManager.PARTIAL_WAKE_LOCK,
-            "MiApp::WakeLockTag"
-        )
+        wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MiApp::WakeLockTag")
         wakeLock?.acquire()
         // Mantener la pantalla encendida mientras esta actividad está en primer plano
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -122,6 +119,8 @@ class Camara : AppCompatActivity() {
             if(isChecked){ prefs.edit().putString("flash", "flash").apply(); Toast.makeText(this, "Flash enabled", Toast.LENGTH_SHORT).show()
             } else { prefs.edit().putString("flash", "x").apply(); ; Toast.makeText(this, "Flash desabled", Toast.LENGTH_SHORT).show() }
         }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadFileService::class.java))
+        } else { startService(Intent(this, UploadFileService::class.java)) }
     }
 
     private fun startCamera() {
@@ -213,7 +212,6 @@ class Camara : AppCompatActivity() {
 
     override fun onUserLeaveHint() {
         super.onUserLeaveHint()
-
         enterPictureInPictureMode1()
     }
     private fun enterPictureInPictureMode1() {

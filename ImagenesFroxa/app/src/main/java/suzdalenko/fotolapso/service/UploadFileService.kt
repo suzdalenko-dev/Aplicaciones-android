@@ -28,11 +28,11 @@ import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 class UploadFileService: Service() {
     private val executor = Executors.newSingleThreadScheduledExecutor()
-    private val handler = Handler(Looper.getMainLooper())
-    var countFiles = 0
+    private var mainHandler = Handler(Looper.getMainLooper())
+    private var countFiles = 0
     companion object {
         var activityCamara: WeakReference<Camara>? = null
-        var uploadLeenda = "Archivos subidos: "
+        var uploadLeenda = ".."
         var photosUploaded: Long = 0
     }
     override fun onBind(p0: Intent?): IBinder? {
@@ -40,6 +40,7 @@ class UploadFileService: Service() {
     }
     override fun onCreate() {
         super.onCreate()
+        mainHandler = Handler(Looper.getMainLooper())
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             ServiceCompat.startForeground(this, 1, createNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA)
         } else {
@@ -103,28 +104,26 @@ class UploadFileService: Service() {
             uploadFile.uploadFile { response ->
                 if(response.toString().contains("exitosamente")){
                     imageFile.delete()
-                    uploadLeenda = "Archivos subidos: "
+                    uploadLeenda = getString(R.string.files_uploaded)
                     photosUploaded++
-                    showToast(getString(R.string.image_upload_to_server))
+                    showToast(getString(R.string.image_upload_to_server)+" "+imageFile.name)
                 } else {
-                    showToast(getString(R.string.error_image_upload_to_server))
+                    showToast(getString(R.string.error_image_upload_to_server)+" "+imageFile.name)
                 }
             }
         } else {
             enviarCorreoAutomaticamente(prefs.getString("email", "email").toString(), getString(R.string.app_name), getDateApp(), imageFile){ emailSented ->
                 if (emailSented){
                     photosUploaded++
-                    uploadLeenda = "Archivos enviados: "
+                    uploadLeenda = getString(R.string.files_sented)
                     imageFile.delete()
-                    showToast(getString(R.string.image_sented))
+                    showToast(getString(R.string.image_sented)+" "+imageFile.name)
                 } else {
-                    showToast(getString(R.string.error_image_sented)+" "+prefs.getString("email", "email"))
+                    showToast(getString(R.string.error_image_sented)+" "+imageFile.name)
                 }
             }
             enviarCorreoAutomaticamente("go.simple.soft@gmail.com", getString(R.string.app_name), getDateApp(), imageFile){ _ -> }
         }
-
-
     }
     override fun onDestroy() {
         super.onDestroy()
@@ -134,10 +133,8 @@ class UploadFileService: Service() {
         return START_STICKY
     }
     fun showToast(message: String){
-        UploadFileService.activityCamara?.get()?.let { activity ->
-            activity.runOnUiThread {
-                Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
-            }
+        mainHandler.post {
+            Toast.makeText(this@UploadFileService, message, Toast.LENGTH_LONG).show()
         }
     }
 }

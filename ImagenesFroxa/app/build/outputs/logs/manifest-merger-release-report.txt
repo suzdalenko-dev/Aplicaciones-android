@@ -80,6 +80,7 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e47cd34317e636f4d3d100fa88e2d6ca\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\alexei work\.gradle\caches\transforms-4\d2f0485474a3fa51e45b4f8cdec86b2f\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
 	package
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:2:70-100
 		INJECTED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml
@@ -181,7 +182,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\al
 	android:usesCleartextTraffic
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:29:9-45
 	android:name
-		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:20:9-35
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:20:9-55
 uses-library#org.apache.http.legacy
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:31:9-33:40
 	android:required
@@ -194,7 +195,7 @@ ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xm
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:37:13-66
 	android:name
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:36:13-56
-activity#suzdalenko.froxa.ui.Camara
+activity#suzdalenko.fotolapso.ui.Camara
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:49:9-52:47
 	android:launchMode
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:52:13-44
@@ -205,21 +206,21 @@ ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xm
 	android:configChanges
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:49:19-97
 	android:name
-		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:50:13-38
-activity#suzdalenko.froxa.dontuse.AutoCaptureActivity
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:50:13-58
+activity#suzdalenko.fotolapso.dontuse.AutoCaptureActivity
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:53:9-56:58
 	android:exported
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:55:13-37
 	android:theme
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:56:13-55
 	android:name
-		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:54:13-56
-activity#suzdalenko.froxa.ui.MainActivity
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:54:13-76
+activity#suzdalenko.fotolapso.ui.MainActivity
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:57:9-64:20
 	android:exported
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:59:13-36
 	android:name
-		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:58:13-44
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:58:13-64
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:60:13-63:29
 action#android.intent.action.MAIN
@@ -230,14 +231,14 @@ category#android.intent.category.LAUNCHER
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:62:17-77
 	android:name
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:62:27-74
-receiver#suzdalenko.froxa.receiver.BootReceiver
+receiver#suzdalenko.fotolapso.receiver.BootReceiver
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:66:9-75:20
 	android:enabled
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:68:13-35
 	android:exported
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:69:13-36
 	android:name
-		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:67:13-50
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:67:13-70
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+category:name:android.intent.category.DEFAULT
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:70:13-74:29
 action#android.intent.action.BOOT_COMPLETED
@@ -248,7 +249,7 @@ category#android.intent.category.DEFAULT
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:73:17-76
 	android:name
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:73:27-73
-receiver#suzdalenko.froxa.receiver.PrimerPlanoReceiver
+receiver#suzdalenko.fotolapso.receiver.PrimerPlanoReceiver
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:76:9-84:20
 	android:enabled
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:78:13-35
@@ -257,29 +258,29 @@ ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xm
 	android:permission
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:80:13-38
 	android:name
-		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:77:13-57
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:77:13-77
 intent-filter#action:name:com.example.ACTION_EVENT
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:81:13-83:29
 action#com.example.ACTION_EVENT
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:82:17-67
 	android:name
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:82:25-64
-service#suzdalenko.froxa.service.UploadFileService
+service#suzdalenko.fotolapso.service.UploadFileService
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:86:9-89:54
 	android:exported
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:88:13-37
 	android:foregroundServiceType
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:89:13-51
 	android:name
-		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:87:13-54
-service#suzdalenko.froxa.service.CreateFotoService
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:87:13-74
+service#suzdalenko.fotolapso.service.CreateFotoService
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:90:9-93:54
 	android:exported
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:92:13-37
 	android:foregroundServiceType
 		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:93:13-51
 	android:name
-		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:91:13-54
+		ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:91:13-74
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from E:\Aplicaciones android\ImagenesFroxa\app\src\main\AndroidManifest.xml:44:13-46:54
 	android:resource
@@ -482,7 +483,7 @@ ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\trans
 		ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 	android:name
 		ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
-permission#suzdalenko.froxa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+permission#suzdalenko.fotolapso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
 		ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
@@ -492,7 +493,7 @@ uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
-uses-permission#suzdalenko.froxa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission#suzdalenko.fotolapso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\AndroidManifest.xml:26:22-94

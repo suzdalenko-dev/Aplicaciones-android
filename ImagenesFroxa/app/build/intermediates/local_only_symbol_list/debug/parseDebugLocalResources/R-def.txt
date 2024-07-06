@@ -40,6 +40,8 @@ string email_saved
 string empty
 string error_image_sented
 string error_image_upload_to_server
+string files_sented
+string files_uploaded
 string guardar
 string image_sented
 string image_upload_to_server

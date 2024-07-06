@@ -2,19 +2,25 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="mi_green">#89FF00</color>
     <color name="white">#FFFFFFFF</color>
     <dimen name="fab_margin">16dp</dimen>
     <string name="ajuste_1">Ajuste 1</string>
     <string name="ajuste_2">Ajuste 2</string>
-    <string name="app_name">AutoPhoto</string>
+    <string name="app_name">Foto Lapso</string>
     <string name="autoimage">AUTOMATIC IMAGES APP</string>
     <string name="c_mara">Cámara</string>
     <string name="capturar">Capturar</string>
-    <string name="description">Automatic Pictures App</string>
+    <string name="description">App Fotos Automáticas</string>
     <string name="dots">..</string>
     <string name="email_de_recepci_n_de_im_genes">Email de recepción de imágenes</string>
+    <string name="email_saved">Correo guardado</string>
     <string name="empty"/>
+    <string name="error_image_sented">Error al enviar imagen por correo</string>
+    <string name="error_image_upload_to_server">Error al subir imagen al servidor</string>
     <string name="guardar">Guardar</string>
+    <string name="image_sented">Imagen enviada por correo\n</string>
+    <string name="image_upload_to_server">Imagen subida al servidor</string>
     <string name="insert_email_correct">Ingrese email correcto</string>
     <string name="lorem_ipsum">
        AutoPhoto

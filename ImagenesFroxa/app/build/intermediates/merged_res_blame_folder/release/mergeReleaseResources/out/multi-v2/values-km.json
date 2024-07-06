@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.froxa.app-mergeReleaseResources-50:/values-km/values-km.xml",
+            "outputFile": "suzdalenko.fotolapso.app-mergeReleaseResources-50:/values-km/values-km.xml",
             "map": [
                 {
                     "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\581689015f39b792e1dcb72898ec9b04\\transformed\\core-1.13.1\\res\\values-km\\values-km.xml",

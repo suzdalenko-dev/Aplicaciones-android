@@ -154,7 +154,7 @@ class CreateFotoService : Service() {
                 val intent = Intent("com.example.ACTION_EVENT")
                 intent.putExtra("message", "Evento desde el servicio")
                 LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
-                miHandler.postDelayed(this, 50000) // Ejecutar cada 10 segundos
+                miHandler.postDelayed(this, 1320 * 1000) // 22 minutos son 1320 segundos.
             }
         }, 5000)
 

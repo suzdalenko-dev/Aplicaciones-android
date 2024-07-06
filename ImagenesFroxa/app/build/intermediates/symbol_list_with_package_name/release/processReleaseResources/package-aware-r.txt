@@ -1,4 +1,4 @@
-suzdalenko.froxa
+suzdalenko.fotolapso
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -2071,6 +2071,7 @@ color material_timepicker_button_stroke
 color material_timepicker_clock_text_color
 color material_timepicker_clockface
 color material_timepicker_modebutton_tint
+color mi_green
 color mtrl_btn_bg_color_selector
 color mtrl_btn_ripple_color
 color mtrl_btn_stroke_color_selector
@@ -3930,15 +3931,20 @@ string description
 string dest_title
 string dots
 string email_de_recepci_n_de_im_genes
+string email_saved
 string empty
 string error_a11y_label
 string error_icon_content_description
+string error_image_sented
+string error_image_upload_to_server
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string guardar
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string image_sented
+string image_upload_to_server
 string insert_email_correct
 string item_view_role_description
 string lorem_ipsum

@@ -20,4 +20,6 @@
     <string name="error_image_sented">Error al enviar imagen por correo</string>
     <string name="image_upload_to_server">Imagen subida al servidor</string>
     <string name="error_image_upload_to_server">Error al subir imagen al servidor</string>
+    <string name="files_uploaded">"Archivos subidos: "</string>
+    <string name="files_sented">"Archivos enviados: "</string>
 </resources>

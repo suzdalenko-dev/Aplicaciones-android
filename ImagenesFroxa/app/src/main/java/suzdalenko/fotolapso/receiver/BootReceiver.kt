@@ -10,11 +10,8 @@ class BootReceiver : BroadcastReceiver() {
         if (intent?.action == Intent.ACTION_BOOT_COMPLETED) {
             // Iniciar la aplicación
             val launchIntent = Intent(context, MainActivity::class.java)
-            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
             context?.startActivity(launchIntent)
-
-            // Mensaje de prueba (puedes eliminar esto)
-            Toast.makeText(context, "Aplicación iniciada al arrancar el dispositivo", Toast.LENGTH_LONG).show()
         }
     }
 }

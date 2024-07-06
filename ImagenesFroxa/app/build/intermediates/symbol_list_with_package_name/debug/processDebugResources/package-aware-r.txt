@@ -3940,6 +3940,8 @@ string error_image_upload_to_server
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string files_sented
+string files_uploaded
 string guardar
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="suzdalenko.froxa"
+    package="suzdalenko.fotolapso"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -23,13 +23,13 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <permission
-        android:name="suzdalenko.froxa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="suzdalenko.fotolapso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="suzdalenko.froxa.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="suzdalenko.fotolapso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
-        android:name="suzdalenko.froxa.util.MyApp"
+        android:name="suzdalenko.fotolapso.util.MyApp"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -51,7 +51,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="suzdalenko.froxa.fileprovider"
+            android:authorities="suzdalenko.fotolapso.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -60,17 +60,17 @@
         </provider>
 
         <activity
-            android:name="suzdalenko.froxa.ui.Camara"
+            android:name="suzdalenko.fotolapso.ui.Camara"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:exported="false"
             android:launchMode="singleTask"
             android:supportsPictureInPicture="true" />
         <activity
-            android:name="suzdalenko.froxa.dontuse.AutoCaptureActivity"
+            android:name="suzdalenko.fotolapso.dontuse.AutoCaptureActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
-            android:name="suzdalenko.froxa.ui.MainActivity"
+            android:name="suzdalenko.fotolapso.ui.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -80,7 +80,7 @@
         </activity>
 
         <receiver
-            android:name="suzdalenko.froxa.receiver.BootReceiver"
+            android:name="suzdalenko.fotolapso.receiver.BootReceiver"
             android:enabled="true"
             android:exported="true" >
             <intent-filter>
@@ -90,7 +90,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="suzdalenko.froxa.receiver.PrimerPlanoReceiver"
+            android:name="suzdalenko.fotolapso.receiver.PrimerPlanoReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="TODO" >
@@ -100,11 +100,11 @@
         </receiver>
 
         <service
-            android:name="suzdalenko.froxa.service.UploadFileService"
+            android:name="suzdalenko.fotolapso.service.UploadFileService"
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
-            android:name="suzdalenko.froxa.service.CreateFotoService"
+            android:name="suzdalenko.fotolapso.service.CreateFotoService"
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
@@ -118,7 +118,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="suzdalenko.froxa.androidx-startup"
+            android:authorities="suzdalenko.fotolapso.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

@@ -2,6 +2,7 @@ R_DEF: Internal format may change without notice
 local
 color black
 color ic_launcher_background
+color mi_green
 color white
 dimen fab_margin
 drawable ic_launcher_background
@@ -35,8 +36,13 @@ string capturar
 string description
 string dots
 string email_de_recepci_n_de_im_genes
+string email_saved
 string empty
+string error_image_sented
+string error_image_upload_to_server
 string guardar
+string image_sented
+string image_upload_to_server
 string insert_email_correct
 string lorem_ipsum
 string segundos

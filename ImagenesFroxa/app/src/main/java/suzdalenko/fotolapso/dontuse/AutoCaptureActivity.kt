@@ -36,22 +36,15 @@ class AutoCaptureActivity : AppCompatActivity() {
         // Inicializar el launcher para capturar la imagen
         takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
             if (success) {
-                uploadImageToServer(photoUri)
-                scheduleNextCapture()
+                dispatchTakePictureIntent()
                 playShutterSound()
             }
         }
 
         // Inicializar el SoundPool con AudioAttributes adecuados
-        val audioAttributes = AudioAttributes.Builder()
-            .setUsage(AudioAttributes.USAGE_MEDIA)
-            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-            .build()
+        val audioAttributes = AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build()
 
-        soundPool = SoundPool.Builder()
-            .setMaxStreams(1)
-            .setAudioAttributes(audioAttributes)
-            .build()
+        soundPool = SoundPool.Builder().setMaxStreams(1).setAudioAttributes(audioAttributes).build()
 
         // Cargar el sonido del obturador predeterminado del sistema
         soundId = soundPool.load(MediaStore.Audio.Media.INTERNAL_CONTENT_URI.toString(), 1)
@@ -72,24 +65,12 @@ class AutoCaptureActivity : AppCompatActivity() {
         takePictureLauncher.launch(photoUri)
     }
 
-    // Método para subir la imagen al servidor
-    private fun uploadImageToServer(photoUri: Uri) {
-        try {
-            // Código para subir la imagen al servidor
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
 
     // Método para crear un archivo de imagen temporal
     private fun createImageFile(): File {
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
         val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile(
-            "JPEG_${timeStamp}_",
-            ".jpg",
-            storageDir
-        )
+        return File.createTempFile("JPEG_${timeStamp}_", ".jpg", storageDir)
     }
 
     // Manejo de permisos de la aplicación
@@ -102,13 +83,6 @@ class AutoCaptureActivity : AppCompatActivity() {
                 Toast.makeText(this, "Permisos necesarios no concedidos", Toast.LENGTH_LONG).show()
             }
         }
-    }
-
-    // Programar la próxima captura automática
-    private fun scheduleNextCapture() {
-        // Esperar 5 segundos antes de la próxima captura automática
-        Thread.sleep(5000)
-        dispatchTakePictureIntent()
     }
 
     // Reproducir el sonido del obturador predeterminado del sistema

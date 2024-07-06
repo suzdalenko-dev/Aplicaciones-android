@@ -1,102 +1,102 @@
 [
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/layout_activity_camara.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/layout/activity_camara.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/xml_backup_rules.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/xml/backup_rules.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-hdpi/ic_launcher_foreground.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/drawable/ic_launcher_foreground.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/layout_activity_capture.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/layout/activity_capture.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/xml_backup_rules.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/xml/backup_rules.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/xml_file_paths.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/xml/file_paths.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/layout_activity_capture.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/layout/activity_capture.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-mdpi/ic_launcher_foreground.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/xml_data_extraction_rules.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/xml/data_extraction_rules.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/xml_data_extraction_rules.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/drawable_ic_launcher_background.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xhdpi/ic_launcher_foreground.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/drawable_ic_launcher_background.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/drawable/ic_launcher_background.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-xxhdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/xml_file_paths.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/xml/file_paths.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/layout_activity_main.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/layout/activity_main.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-mdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/layout_activity_camara.xml.flat",
-        "source": "suzdalenko.froxa.app-main-53:/layout/activity_camara.xml"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-hdpi/ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.froxa.app-release-52:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.froxa.app-main-53:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "suzdalenko.fotolapso.app-release-52:/layout_activity_main.xml.flat",
+        "source": "suzdalenko.fotolapso.app-main-53:/layout/activity_main.xml"
     }
 ]
