@@ -2008,7 +2008,7 @@
     <string name="ajuste_1">Ajuste 1</string>
     <string name="ajuste_2">Ajuste 2</string>
     <string name="androidx_startup" translatable="false">androidx.startup</string>
-    <string name="app_name">FotoLapso</string>
+    <string name="app_name">Foto Lapso</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="autoimage">AUTOMATIC IMAGES APP</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
@@ -2034,17 +2034,22 @@
     <string name="dest_title">destination title</string>
     <string name="dots">..</string>
     <string name="email_de_recepci_n_de_im_genes">Email de recepción de imágenes</string>
+    <string name="email_saved">Correo guardado</string>
     <string name="empty"/>
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
   </string>
     <string name="error_icon_content_description">Error</string>
+    <string name="error_image_sented">Error al enviar imagen por correo</string>
+    <string name="error_image_upload_to_server">Error al subir imagen al servidor</string>
     <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">com.google.android.material.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">com.google.android.material.transformation.FabTransformationSheetBehavior</string>
     <string name="guardar">Guardar</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
+    <string name="image_sented">Imagen enviada por correo\n</string>
+    <string name="image_upload_to_server">Imagen subida al servidor</string>
     <string name="insert_email_correct">Ingrese email correcto</string>
     <string name="item_view_role_description">Tab</string>
     <string name="lorem_ipsum">

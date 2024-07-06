@@ -1,0 +1,20 @@
+package suzdalenko.fotolapso.receiver
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.widget.Toast
+import suzdalenko.fotolapso.ui.MainActivity
+
+class BootReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context?, intent: Intent?) {
+        if (intent?.action == Intent.ACTION_BOOT_COMPLETED) {
+            // Iniciar la aplicación
+            val launchIntent = Intent(context, MainActivity::class.java)
+            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context?.startActivity(launchIntent)
+
+            // Mensaje de prueba (puedes eliminar esto)
+            Toast.makeText(context, "Aplicación iniciada al arrancar el dispositivo", Toast.LENGTH_LONG).show()
+        }
+    }
+}

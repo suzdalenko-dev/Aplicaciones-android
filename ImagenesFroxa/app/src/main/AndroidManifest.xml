@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="suzdalenko.froxa"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="suzdalenko.fotolapso"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name=".util.MyApp"
+        android:name="suzdalenko.fotolapso.util.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -47,15 +47,15 @@
         </provider>
 
         <activity android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation" android:supportsPictureInPicture="true"
-            android:name=".ui.Camara"
+            android:name="suzdalenko.fotolapso.ui.Camara"
             android:exported="false"
             android:launchMode="singleTask" />
         <activity
-            android:name=".dontuse.AutoCaptureActivity"
+            android:name="suzdalenko.fotolapso.dontuse.AutoCaptureActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name="suzdalenko.fotolapso.ui.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,7 +64,7 @@
         </activity>
 
         <receiver
-            android:name=".receiver.BootReceiver"
+            android:name="suzdalenko.fotolapso.receiver.BootReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -74,7 +74,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".receiver.PrimerPlanoReceiver"
+            android:name="suzdalenko.fotolapso.receiver.PrimerPlanoReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="TODO">
@@ -84,11 +84,11 @@
         </receiver>
 
         <service
-            android:name=".service.UploadFileService"
+            android:name="suzdalenko.fotolapso.service.UploadFileService"
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
-            android:name=".service.CreateFotoService"
+            android:name="suzdalenko.fotolapso.service.CreateFotoService"
             android:exported="false"
             android:foregroundServiceType="camera" />
     </application>

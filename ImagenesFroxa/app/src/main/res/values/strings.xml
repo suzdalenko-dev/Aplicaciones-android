@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FotoLapso</string>
+    <string name="app_name">Foto Lapso</string>
     <string name="description">App Fotos Automáticas</string>
     <string name="lorem_ipsum">
        AutoPhoto
@@ -15,4 +15,9 @@
     <string name="dots">..</string>
     <string name="empty" />
     <string name="capturar">Capturar</string>
+    <string name="email_saved">Correo guardado</string>
+    <string name="image_sented">Imagen enviada por correo\n</string>
+    <string name="error_image_sented">Error al enviar imagen por correo</string>
+    <string name="image_upload_to_server">Imagen subida al servidor</string>
+    <string name="error_image_upload_to_server">Error al subir imagen al servidor</string>
 </resources>

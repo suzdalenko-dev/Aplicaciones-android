@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "suzdalenko.froxa"
+    namespace = "suzdalenko.fotolapso"
     compileSdk = 34
     defaultConfig {
-        applicationId = "suzdalenko.froxa"
+        applicationId = "suzdalenko.fotolapso"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
