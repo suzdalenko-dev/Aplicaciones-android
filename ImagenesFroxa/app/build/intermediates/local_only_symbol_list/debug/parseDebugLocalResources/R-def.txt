@@ -2,6 +2,7 @@ R_DEF: Internal format may change without notice
 local
 color black
 color ic_launcher_background
+color mi_green
 color white
 dimen fab_margin
 drawable ic_launcher_background

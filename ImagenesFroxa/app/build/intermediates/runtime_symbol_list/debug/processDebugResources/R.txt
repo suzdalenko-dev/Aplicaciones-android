@@ -2070,6 +2070,7 @@ int color material_timepicker_button_stroke 0x7f0502b4
 int color material_timepicker_clock_text_color 0x7f0502b5
 int color material_timepicker_clockface 0x7f0502b6
 int color material_timepicker_modebutton_tint 0x7f0502b7
+int color mi_green 0x7f050308
 int color mtrl_btn_bg_color_selector 0x7f0502b8
 int color mtrl_btn_ripple_color 0x7f0502b9
 int color mtrl_btn_stroke_color_selector 0x7f0502ba

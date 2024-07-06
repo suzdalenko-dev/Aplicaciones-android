@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="mi_green">#89FF00</color>
     <color name="white">#FFFFFFFF</color>
     <dimen name="fab_margin">16dp</dimen>
     <string name="ajuste_1">Ajuste 1</string>
