@@ -32,7 +32,7 @@ class UploadFileService: Service() {
     private var countFiles = 0
     companion object {
         var activityCamara: WeakReference<Camara>? = null
-        var uploadLeenda = ".."
+        var uploadLeenda = ""
         var photosUploaded: Long = 0
     }
     override fun onBind(p0: Intent?): IBinder? {
@@ -41,6 +41,7 @@ class UploadFileService: Service() {
     override fun onCreate() {
         super.onCreate()
         mainHandler = Handler(Looper.getMainLooper())
+        uploadLeenda = getString(R.string.files_sented)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             ServiceCompat.startForeground(this, 1, createNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA)
         } else {

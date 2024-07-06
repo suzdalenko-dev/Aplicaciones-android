@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">Foto Lapso</string>
     <string name="description">App Fotos Automáticas</string>
-    <string name="lorem_ipsum">
-       AutoPhoto
-    </string>
+    <string name="lorem_ipsum">AutoPhoto</string>
     <string name="autoimage">AUTOMATIC IMAGES APP</string>
     <string name="ajuste_1">Ajuste 1</string>
     <string name="ajuste_2">Ajuste 2</string>
@@ -11,7 +9,7 @@
     <string name="guardar">Guardar</string>
     <string name="email_de_recepci_n_de_im_genes">Email de recepción de imágenes</string>
     <string name="insert_email_correct">Ingrese email correcto</string>
-    <string name="segundos">Segundos..</string>
+    <string name="segundos">El tiempo: </string>
     <string name="dots">..</string>
     <string name="empty" />
     <string name="capturar">Capturar</string>
@@ -22,4 +20,5 @@
     <string name="error_image_upload_to_server">Error al subir imagen al servidor</string>
     <string name="files_uploaded">"Archivos subidos: "</string>
     <string name="files_sented">"Archivos enviados: "</string>
+    <string name="photos_created">"Fotos creadas: "</string>
 </resources>

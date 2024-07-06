@@ -65,7 +65,7 @@
             android:name="suzdalenko.fotolapso.ui.Camara"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:exported="false"
-            android:launchMode="singleTask"
+            android:launchMode="singleInstance"
             android:supportsPictureInPicture="true" />
         <activity
             android:name="suzdalenko.fotolapso.dontuse.AutoCaptureActivity"
@@ -73,7 +73,8 @@
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
             android:name="suzdalenko.fotolapso.ui.MainActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

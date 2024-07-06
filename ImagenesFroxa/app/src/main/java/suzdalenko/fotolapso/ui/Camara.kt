@@ -88,16 +88,7 @@ class Camara : AppCompatActivity() {
         captureButton.setOnClickListener {
             takePhoto()
         }
-        // Establecer la referencia de la actividad en el servicio
-        CreateFotoService.activityCamara = WeakReference(this)
-        UploadFileService.activityCamara = WeakReference(this)
-        val serviceIntent = Intent(this, CreateFotoService::class.java)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(serviceIntent)
-        } else {
-            startService(serviceIntent)
-        }
-        prefs.edit().putString("__state", "activo").apply()
+
         // Registrar el receptor de broadcast
         LocalBroadcastManager.getInstance(this).registerReceiver(PrimerPlanoReceiver(), IntentFilter("com.example.ACTION_EVENT"))
 
@@ -119,6 +110,12 @@ class Camara : AppCompatActivity() {
             if(isChecked){ prefs.edit().putString("flash", "flash").apply(); Toast.makeText(this, "Flash enabled", Toast.LENGTH_SHORT).show()
             } else { prefs.edit().putString("flash", "x").apply(); ; Toast.makeText(this, "Flash desabled", Toast.LENGTH_SHORT).show() }
         }
+
+        // Establecer la referencia de la actividad en el servicio
+        CreateFotoService.activityCamara = WeakReference(this)
+        UploadFileService.activityCamara = WeakReference(this)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, CreateFotoService::class.java))
+        } else { startService(Intent(this, CreateFotoService::class.java)) }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadFileService::class.java))
         } else { startService(Intent(this, UploadFileService::class.java)) }
     }
@@ -188,25 +185,24 @@ class Camara : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        prefs.edit().putString("__state", "activo").apply()
     }
     override fun onResume() {
         super.onResume()
-        prefs.edit().putString("__state", "activo").apply()
+        // Verificar si la actividad está en modo Picture-in-Picture
+        if (isInPictureInPictureMode) {
+            // Si está en modo PiP, finalizar la instancia PiP
+        }
     }
     override fun onPause() {
         super.onPause()
-        prefs.edit().putString("__state", "pause").apply()
     }
     override fun onStop() {
         super.onStop()
-        prefs.edit().putString("__state", "stop").apply()
     }
     @SuppressLint("Wakelock")
     override fun onDestroy() {
         super.onDestroy()
         cameraExecutor.shutdown()
-        prefs.edit().putString("__state", "desroy").apply()
         wakeLock?.release()
     }
 

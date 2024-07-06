@@ -47,6 +47,7 @@ string image_sented
 string image_upload_to_server
 string insert_email_correct
 string lorem_ipsum
+string photos_created
 string segundos
 style Base.Theme.FroxaImagenes
 style Theme.FroxaImagenes

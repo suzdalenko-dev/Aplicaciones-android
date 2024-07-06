@@ -4056,6 +4056,7 @@ int string path_password_eye 0x7f0f00ab
 int string path_password_eye_mask_strike_through 0x7f0f00ac
 int string path_password_eye_mask_visible 0x7f0f00ad
 int string path_password_strike_through 0x7f0f00ae
+int string photos_created 0x7f0f00be
 int string search_menu_title 0x7f0f00af
 int string searchbar_scrolling_view_behavior 0x7f0f00b0
 int string searchview_clear_text_content_description 0x7f0f00b1

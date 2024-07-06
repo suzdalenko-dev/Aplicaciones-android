@@ -24,10 +24,9 @@
     <string name="image_sented">Imagen enviada por correo\n</string>
     <string name="image_upload_to_server">Imagen subida al servidor</string>
     <string name="insert_email_correct">Ingrese email correcto</string>
-    <string name="lorem_ipsum">
-       AutoPhoto
-    </string>
-    <string name="segundos">Segundos..</string>
+    <string name="lorem_ipsum">AutoPhoto</string>
+    <string name="photos_created">"Fotos creadas: "</string>
+    <string name="segundos">El tiempo: </string>
     <style name="Base.Theme.FroxaImagenes" parent="Theme.Material3.DayNight.NoActionBar">
         
         

@@ -54,7 +54,8 @@ class MainActivity : AppCompatActivity() {
             if(isValidEmail(email)){
                 prefs.edit().putString("email", email).apply()
                 Toast.makeText(this, getString(R.string.email_saved), Toast.LENGTH_LONG).show();
-                startActivity(Intent(this, MainActivity::class.java)); finish()
+                editEmail.setText(prefs.getString("email", "email").toString())
+                editEmail.clearFocus()
             } else { Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_LONG).show(); editEmail.setText("") }
         }
         btnTakePhoto = findViewById(R.id.btnTakePhoto)
@@ -73,15 +74,12 @@ class MainActivity : AppCompatActivity() {
         btnCamara.setOnClickListener{
             if(prefs.getString("email", "email").toString() != "email"){
                 val intent = Intent(this, Camara::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_LONG).show(); editEmail.setText("")
             }
         }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, UploadFileService::class.java))
-        } else { startService(Intent(this, UploadFileService::class.java)) }
-
         // ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)

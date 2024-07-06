@@ -22,6 +22,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import suzdalenko.fotolapso.R
 import suzdalenko.fotolapso.ui.Camara
 import suzdalenko.fotolapso.util.MyApp.Companion.MAKE_PHOTO_EVERY_MILISEC
+import suzdalenko.fotolapso.util.MyApp.Companion.formatSeconds
 import suzdalenko.fotolapso.util.MyApp.Companion.prefs
 import java.io.File
 import java.lang.ref.WeakReference
@@ -39,7 +40,7 @@ class CreateFotoService : Service() {
     private lateinit var handler: Handler
     private lateinit var miHandlerThread: HandlerThread
     private lateinit var miHandler: Handler
-    var secundosQueFaltan: Long = 0
+    var secundosQueFaltan: String = ""
     var countSecond: Long = 0
     companion object {
         var activityCamara: WeakReference<Camara>? = null
@@ -65,11 +66,12 @@ class CreateFotoService : Service() {
                     activity.runOnUiThread {
                         val textView: TextView? = activity.findViewById(R.id.seconds_left)
                         textView?.let {
-                            secundosQueFaltan = (MAKE_PHOTO_EVERY_MILISEC / 1000).toInt() - countSecond++
-                            it.text = "Segundos: ${secundosQueFaltan}"
+                            val secondTime = (MAKE_PHOTO_EVERY_MILISEC / 1000).toInt() - countSecond++
+                            secundosQueFaltan = formatSeconds(secondTime)
+                            it.text = getString(R.string.segundos)+" ${secundosQueFaltan}"
                         }
                         val textView2: TextView? = activity.findViewById(R.id.photos_created)
-                        textView2?.let { it.text = "Fotos creadas: ${fotosCreadas+fotosCreadasActivity}" }
+                        textView2?.let { it.text = getString(R.string.photos_created)+" ${fotosCreadas+fotosCreadasActivity}" }
                     }
                 }
                 Thread.sleep(1000)
@@ -151,9 +153,9 @@ class CreateFotoService : Service() {
         // Simular algún proceso en segundo plano que envía un evento cada cierto tiempo
         miHandler.postDelayed(object : Runnable {
             override fun run() {
-                val intent = Intent("com.example.ACTION_EVENT")
-                intent.putExtra("message", "Evento desde el servicio")
-                LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
+                val intent1 = Intent("com.example.ACTION_EVENT")
+                intent1.putExtra("message", "Evento desde el servicio")
+                LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent1)
                 miHandler.postDelayed(this, 1320 * 1000) // 22 minutos son 1320 segundos.
             }
         }, 5000)
