@@ -21,12 +21,14 @@ id switchCompat
 id tvAutoImage
 id uploaded_photos
 id viewFinder
-layout activity_camara
-layout activity_capture
+layout activity_camera
 layout activity_main
+layout activity_settings
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
+string a_mi_mismo
+string ajuste2
 string ajuste_1
 string ajuste_2
 string app_name

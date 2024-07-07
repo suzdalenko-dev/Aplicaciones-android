@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "suzdalenko.fotolapso"
+    namespace = "suzdalenko.photolapse"
     compileSdk = 34
     defaultConfig {
-        applicationId = "suzdalenko.fotolapso"
+        applicationId = "suzdalenko.photolapse"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.fotolapso.app-mergeDebugResources-50:/values-da/values-da.xml",
+            "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-50:/values-da/values-da.xml",
             "map": [
                 {
                     "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\3ed96641c42fb9ec6604c147161447da\\transformed\\navigation-ui-2.7.7\\res\\values-da\\values-da.xml",

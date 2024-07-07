@@ -25,6 +25,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="22dp"
+        android:autofillHints=""
         android:hint="@string/email_de_recepci_n_de_im_genes"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"

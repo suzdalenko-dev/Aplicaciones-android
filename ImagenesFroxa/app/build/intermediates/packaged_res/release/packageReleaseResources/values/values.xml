@@ -5,27 +5,30 @@
     <color name="mi_green">#89FF00</color>
     <color name="white">#FFFFFFFF</color>
     <dimen name="fab_margin">16dp</dimen>
-    <string name="ajuste_1">Ajuste 1</string>
-    <string name="ajuste_2">Ajuste 2</string>
-    <string name="app_name">Foto Lapso</string>
+    <string name="a_mi_mismo">To myself</string>
+    <string name="ajuste2">Set 2</string>
+    <string name="ajuste_1">Set 1</string>
+    <string name="ajuste_2">Set 2</string>
+    <string name="app_name">PhotoLapse</string>
     <string name="autoimage">AUTOMATIC IMAGES APP</string>
-    <string name="c_mara">Cámara</string>
-    <string name="capturar">Capturar</string>
-    <string name="description">App Fotos Automáticas</string>
+    <string name="c_mara">Camera</string>
+    <string name="capturar">Capture</string>
+    <string name="description">Automatic picture and sending</string>
     <string name="dots">..</string>
-    <string name="email_de_recepci_n_de_im_genes">Email de recepción de imágenes</string>
-    <string name="email_saved">Correo guardado</string>
+    <string name="email_de_recepci_n_de_im_genes">Email receipt of images</string>
+    <string name="email_saved">Email saved</string>
     <string name="empty"/>
-    <string name="error_image_sented">Error al enviar imagen por correo</string>
-    <string name="error_image_upload_to_server">Error al subir imagen al servidor</string>
-    <string name="guardar">Guardar</string>
-    <string name="image_sented">Imagen enviada por correo\n</string>
-    <string name="image_upload_to_server">Imagen subida al servidor</string>
-    <string name="insert_email_correct">Ingrese email correcto</string>
-    <string name="lorem_ipsum">
-       AutoPhoto
-    </string>
-    <string name="segundos">Segundos..</string>
+    <string name="error_image_sented">Error sending image by mail</string>
+    <string name="error_image_upload_to_server">Error uploading image to server</string>
+    <string name="files_sented">Files sent: </string>
+    <string name="files_uploaded">Uploaded files: </string>
+    <string name="guardar">Save</string>
+    <string name="image_sented">Image sent by mail</string>
+    <string name="image_upload_to_server">Image uploaded to server</string>
+    <string name="insert_email_correct">Enter correct email</string>
+    <string name="lorem_ipsum">Auto Snapshot Auto Snap and Mail</string>
+    <string name="photos_created">Created photos: "</string>
+    <string name="segundos">Time: </string>
     <style name="Base.Theme.FroxaImagenes" parent="Theme.Material3.DayNight.NoActionBar">
         
         

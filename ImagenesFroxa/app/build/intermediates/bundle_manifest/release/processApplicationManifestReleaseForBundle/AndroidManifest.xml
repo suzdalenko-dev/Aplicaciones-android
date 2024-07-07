@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="suzdalenko.fotolapso"
+    package="suzdalenko.photolapse"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -23,13 +23,13 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <permission
-        android:name="suzdalenko.fotolapso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="suzdalenko.photolapse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="suzdalenko.fotolapso.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="suzdalenko.photolapse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
-        android:name="suzdalenko.fotolapso.util.MyApp"
+        android:name="suzdalenko.photolapse.util.MyApp"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -51,7 +51,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="suzdalenko.fotolapso.fileprovider"
+            android:authorities="suzdalenko.photolapse.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
@@ -60,18 +60,19 @@
         </provider>
 
         <activity
-            android:name="suzdalenko.fotolapso.ui.Camara"
+            android:name="suzdalenko.photolapse.ui.CameraActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:exported="false"
-            android:launchMode="singleTask"
+            android:launchMode="singleInstance"
             android:supportsPictureInPicture="true" />
         <activity
-            android:name="suzdalenko.fotolapso.dontuse.AutoCaptureActivity"
+            android:name="suzdalenko.photolapse.ui.ClickCaptureActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
-            android:name="suzdalenko.fotolapso.ui.MainActivity"
-            android:exported="true" >
+            android:name="suzdalenko.photolapse.ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -80,7 +81,7 @@
         </activity>
 
         <receiver
-            android:name="suzdalenko.fotolapso.receiver.BootReceiver"
+            android:name="suzdalenko.photolapse.receiver.BootReceiver"
             android:enabled="true"
             android:exported="true" >
             <intent-filter>
@@ -90,7 +91,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="suzdalenko.fotolapso.receiver.PrimerPlanoReceiver"
+            android:name="suzdalenko.photolapse.receiver.FirstPlaneReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="TODO" >
@@ -100,11 +101,11 @@
         </receiver>
 
         <service
-            android:name="suzdalenko.fotolapso.service.UploadFileService"
+            android:name="suzdalenko.photolapse.service.FileUploadService"
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
-            android:name="suzdalenko.fotolapso.service.CreateFotoService"
+            android:name="suzdalenko.photolapse.service.FotoCreateService"
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
@@ -118,7 +119,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="suzdalenko.fotolapso.androidx-startup"
+            android:authorities="suzdalenko.photolapse.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

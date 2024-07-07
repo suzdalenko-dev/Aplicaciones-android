@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="suzdalenko.fotolapso"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="suzdalenko.photolapse"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-feature
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name="suzdalenko.fotolapso.util.MyApp"
+        android:name="suzdalenko.photolapse.util.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -27,6 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FroxaImagenes"
         android:usesCleartextTraffic="false"
+
         tools:targetApi="31">
         <uses-library
             android:name="org.apache.http.legacy"
@@ -47,15 +48,15 @@
         </provider>
 
         <activity android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation" android:supportsPictureInPicture="true"
-            android:name="suzdalenko.fotolapso.ui.Camara"
+            android:name="suzdalenko.photolapse.ui.CameraActivity"
             android:exported="false"
             android:launchMode="singleInstance" />
         <activity
-            android:name="suzdalenko.fotolapso.dontuse.AutoCaptureActivity"
+            android:name="suzdalenko.photolapse.ui.ClickCaptureActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
-            android:name="suzdalenko.fotolapso.ui.MainActivity"
+            android:name="suzdalenko.photolapse.ui.MainActivity"
             android:exported="true"  android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,7 +65,7 @@
         </activity>
 
         <receiver
-            android:name="suzdalenko.fotolapso.receiver.BootReceiver"
+            android:name="suzdalenko.photolapse.receiver.BootReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -73,7 +74,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="suzdalenko.fotolapso.receiver.PrimerPlanoReceiver"
+            android:name="suzdalenko.photolapse.receiver.FirstPlaneReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="TODO">
@@ -83,11 +84,11 @@
         </receiver>
 
         <service
-            android:name="suzdalenko.fotolapso.service.UploadFileService"
+            android:name="suzdalenko.photolapse.service.FileUploadService"
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
-            android:name="suzdalenko.fotolapso.service.CreateFotoService"
+            android:name="suzdalenko.photolapse.service.FotoCreateService"
             android:exported="false"
             android:foregroundServiceType="camera" />
     </application>

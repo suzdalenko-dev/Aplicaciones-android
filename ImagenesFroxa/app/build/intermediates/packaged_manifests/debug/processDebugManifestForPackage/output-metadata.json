@@ -4,7 +4,7 @@
     "type": "PACKAGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "suzdalenko.fotolapso",
+  "applicationId": "suzdalenko.photolapse",
   "variantName": "debug",
   "elements": [
     {
