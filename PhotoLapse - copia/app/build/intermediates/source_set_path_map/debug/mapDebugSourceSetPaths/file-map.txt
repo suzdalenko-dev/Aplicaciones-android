@@ -1,0 +1,55 @@
+suzdalenko.photolapse.app-savedstate-1.2.1-0 C:\Users\alexei\.gradle\caches\transforms-4\0094540bc646a6a74b0141f4e4be00ea\transformed\savedstate-1.2.1\res
+suzdalenko.photolapse.app-navigation-common-2.7.7-1 C:\Users\alexei\.gradle\caches\transforms-4\06cbe9680b4140d88ab354901c517ba6\transformed\navigation-common-2.7.7\res
+suzdalenko.photolapse.app-lifecycle-livedata-core-2.6.2-2 C:\Users\alexei\.gradle\caches\transforms-4\076cf86343106f0c08420917cf567ee7\transformed\lifecycle-livedata-core-2.6.2\res
+suzdalenko.photolapse.app-lifecycle-livedata-2.6.2-3 C:\Users\alexei\.gradle\caches\transforms-4\0b5e9253b9171d4c94b77cfe480f665b\transformed\lifecycle-livedata-2.6.2\res
+suzdalenko.photolapse.app-lifecycle-viewmodel-savedstate-2.6.2-4 C:\Users\alexei\.gradle\caches\transforms-4\15dbbdb91e9494c20d97e5080bdf7f4c\transformed\lifecycle-viewmodel-savedstate-2.6.2\res
+suzdalenko.photolapse.app-camera-camera2-1.3.4-5 C:\Users\alexei\.gradle\caches\transforms-4\19e964ff493f4cf02f245def17ef85d5\transformed\camera-camera2-1.3.4\res
+suzdalenko.photolapse.app-camera-core-1.3.4-6 C:\Users\alexei\.gradle\caches\transforms-4\1bfcde137c32592f4a8f20266ce37d40\transformed\camera-core-1.3.4\res
+suzdalenko.photolapse.app-core-runtime-2.2.0-7 C:\Users\alexei\.gradle\caches\transforms-4\1cf8f410efe29a33ece56476d7ab2beb\transformed\core-runtime-2.2.0\res
+suzdalenko.photolapse.app-constraintlayout-2.1.4-8 C:\Users\alexei\.gradle\caches\transforms-4\2a14c32481be71f01fac4d3274b8091b\transformed\constraintlayout-2.1.4\res
+suzdalenko.photolapse.app-activity-ktx-1.9.0-9 C:\Users\alexei\.gradle\caches\transforms-4\2f1af82ffb55305b32062dee9e6b1c34\transformed\activity-ktx-1.9.0\res
+suzdalenko.photolapse.app-lifecycle-viewmodel-2.6.2-10 C:\Users\alexei\.gradle\caches\transforms-4\3962a92282811fc212d03ea1351bff46\transformed\lifecycle-viewmodel-2.6.2\res
+suzdalenko.photolapse.app-material-1.12.0-11 C:\Users\alexei\.gradle\caches\transforms-4\3c87dffb94a37612c9b2f7c10dff2006\transformed\material-1.12.0\res
+suzdalenko.photolapse.app-navigation-ui-ktx-2.7.7-12 C:\Users\alexei\.gradle\caches\transforms-4\3e50fa1dd038c635351fe93bb987e951\transformed\navigation-ui-ktx-2.7.7\res
+suzdalenko.photolapse.app-navigation-ui-2.7.7-13 C:\Users\alexei\.gradle\caches\transforms-4\3ed96641c42fb9ec6604c147161447da\transformed\navigation-ui-2.7.7\res
+suzdalenko.photolapse.app-core-ktx-1.13.1-14 C:\Users\alexei\.gradle\caches\transforms-4\41f370ec0143d71468117581d252e239\transformed\core-ktx-1.13.1\res
+suzdalenko.photolapse.app-profileinstaller-1.3.1-15 C:\Users\alexei\.gradle\caches\transforms-4\4797da13d366df20b9b899a0d2a73496\transformed\profileinstaller-1.3.1\res
+suzdalenko.photolapse.app-core-1.13.1-16 C:\Users\alexei\.gradle\caches\transforms-4\581689015f39b792e1dcb72898ec9b04\transformed\core-1.13.1\res
+suzdalenko.photolapse.app-viewpager2-1.0.0-17 C:\Users\alexei\.gradle\caches\transforms-4\6a085c156a213b2bcca7991abc7111a9\transformed\viewpager2-1.0.0\res
+suzdalenko.photolapse.app-camera-view-1.3.4-18 C:\Users\alexei\.gradle\caches\transforms-4\6be9cff8c883066108b7511584b7386c\transformed\camera-view-1.3.4\res
+suzdalenko.photolapse.app-coordinatorlayout-1.1.0-19 C:\Users\alexei\.gradle\caches\transforms-4\6e5e3137e9d6f7fe5914d0d9ab836e81\transformed\coordinatorlayout-1.1.0\res
+suzdalenko.photolapse.app-transition-1.5.0-20 C:\Users\alexei\.gradle\caches\transforms-4\7594e2ced09221cbee862f4e6c37f430\transformed\transition-1.5.0\res
+suzdalenko.photolapse.app-navigation-common-ktx-2.7.7-21 C:\Users\alexei\.gradle\caches\transforms-4\773e1e878a16def1e57540c29d142eeb\transformed\navigation-common-ktx-2.7.7\res
+suzdalenko.photolapse.app-lifecycle-livedata-core-ktx-2.6.2-22 C:\Users\alexei\.gradle\caches\transforms-4\8437bdcfb1aeeb6468a90a753bd365ad\transformed\lifecycle-livedata-core-ktx-2.6.2\res
+suzdalenko.photolapse.app-window-1.0.0-23 C:\Users\alexei\.gradle\caches\transforms-4\858ccd4a00fdc8430615eee12d8b2ab7\transformed\window-1.0.0\res
+suzdalenko.photolapse.app-appcompat-1.7.0-24 C:\Users\alexei\.gradle\caches\transforms-4\90ab1ddb2efdc853068c492a786d9e85\transformed\appcompat-1.7.0\res
+suzdalenko.photolapse.app-recyclerview-1.1.0-25 C:\Users\alexei\.gradle\caches\transforms-4\990aa2e0d49f40fd5f4ca9f415641ba3\transformed\recyclerview-1.1.0\res
+suzdalenko.photolapse.app-slidingpanelayout-1.2.0-26 C:\Users\alexei\.gradle\caches\transforms-4\9af4384de22b4ae73df5d825c0dfd732\transformed\slidingpanelayout-1.2.0\res
+suzdalenko.photolapse.app-activity-1.9.0-27 C:\Users\alexei\.gradle\caches\transforms-4\9f5e8da8c7a0e57a77f19352ad53d6a3\transformed\activity-1.9.0\res
+suzdalenko.photolapse.app-drawerlayout-1.1.1-28 C:\Users\alexei\.gradle\caches\transforms-4\a1f63753cb4a6d33b4e651009e6ef27c\transformed\drawerlayout-1.1.1\res
+suzdalenko.photolapse.app-fragment-1.6.2-29 C:\Users\alexei\.gradle\caches\transforms-4\a363d917aed110dc69cf862e737c752e\transformed\fragment-1.6.2\res
+suzdalenko.photolapse.app-emoji2-1.3.0-30 C:\Users\alexei\.gradle\caches\transforms-4\aa89862dd21d95b74a34720aabc174d6\transformed\emoji2-1.3.0\res
+suzdalenko.photolapse.app-savedstate-ktx-1.2.1-31 C:\Users\alexei\.gradle\caches\transforms-4\bd39044b4d7bad4addfe1d03572547ef\transformed\savedstate-ktx-1.2.1\res
+suzdalenko.photolapse.app-navigation-fragment-ktx-2.7.7-32 C:\Users\alexei\.gradle\caches\transforms-4\c0c34a0e75c3e3dd39eb3de55faee030\transformed\navigation-fragment-ktx-2.7.7\res
+suzdalenko.photolapse.app-fragment-ktx-1.6.2-33 C:\Users\alexei\.gradle\caches\transforms-4\c1d7454c8c8ec79e1f64db6f6252b9b4\transformed\fragment-ktx-1.6.2\res
+suzdalenko.photolapse.app-camera-video-1.3.4-34 C:\Users\alexei\.gradle\caches\transforms-4\c6c2ae962192a42ed48d32cc8e01bb99\transformed\camera-video-1.3.4\res
+suzdalenko.photolapse.app-lifecycle-runtime-2.6.2-35 C:\Users\alexei\.gradle\caches\transforms-4\c9639e72c107e1f4f1bd42ff34cd5298\transformed\lifecycle-runtime-2.6.2\res
+suzdalenko.photolapse.app-startup-runtime-1.1.1-36 C:\Users\alexei\.gradle\caches\transforms-4\ca00a6c7de80348b0b2a826726645a16\transformed\startup-runtime-1.1.1\res
+suzdalenko.photolapse.app-navigation-fragment-2.7.7-37 C:\Users\alexei\.gradle\caches\transforms-4\d08ffea07f2ee99545c4c532cd717ba3\transformed\navigation-fragment-2.7.7\res
+suzdalenko.photolapse.app-navigation-runtime-2.7.7-38 C:\Users\alexei\.gradle\caches\transforms-4\d12a2f309cdb29a8c741b2c8d86524e0\transformed\navigation-runtime-2.7.7\res
+suzdalenko.photolapse.app-annotation-experimental-1.4.0-39 C:\Users\alexei\.gradle\caches\transforms-4\d2f0485474a3fa51e45b4f8cdec86b2f\transformed\annotation-experimental-1.4.0\res
+suzdalenko.photolapse.app-lifecycle-viewmodel-ktx-2.6.2-40 C:\Users\alexei\.gradle\caches\transforms-4\dbf634a866d05edaa7800d01c4b6b7ae\transformed\lifecycle-viewmodel-ktx-2.6.2\res
+suzdalenko.photolapse.app-navigation-runtime-ktx-2.7.7-41 C:\Users\alexei\.gradle\caches\transforms-4\e523531163d03a5c60d113d412921491\transformed\navigation-runtime-ktx-2.7.7\res
+suzdalenko.photolapse.app-lifecycle-process-2.6.2-42 C:\Users\alexei\.gradle\caches\transforms-4\e9107ad6d7fba5cbee20bf738028517b\transformed\lifecycle-process-2.6.2\res
+suzdalenko.photolapse.app-emoji2-views-helper-1.3.0-43 C:\Users\alexei\.gradle\caches\transforms-4\f22e5e2e22218ed33fec1b8372efa792\transformed\emoji2-views-helper-1.3.0\res
+suzdalenko.photolapse.app-cardview-1.0.0-44 C:\Users\alexei\.gradle\caches\transforms-4\fa32ac9c8fa7eb7e3ec66a7f56c0f8e6\transformed\cardview-1.0.0\res
+suzdalenko.photolapse.app-appcompat-resources-1.7.0-45 C:\Users\alexei\.gradle\caches\transforms-4\fa7ac1c512b6f961333a6c9619c959fa\transformed\appcompat-resources-1.7.0\res
+suzdalenko.photolapse.app-lifecycle-runtime-ktx-2.6.2-46 C:\Users\alexei\.gradle\caches\transforms-4\fbdf7e87e34229d1fb2175d09d2b0551\transformed\lifecycle-runtime-ktx-2.6.2\res
+suzdalenko.photolapse.app-camera-lifecycle-1.3.4-47 C:\Users\alexei\.gradle\caches\transforms-4\fdb359dde88647945d0975d851b5a593\transformed\camera-lifecycle-1.3.4\res
+suzdalenko.photolapse.app-pngs-48 D:\Aplicaciones-android\PhotoLapse - copia\app\build\generated\res\pngs\debug
+suzdalenko.photolapse.app-resValues-49 D:\Aplicaciones-android\PhotoLapse - copia\app\build\generated\res\resValues\debug
+suzdalenko.photolapse.app-packageDebugResources-50 D:\Aplicaciones-android\PhotoLapse - copia\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+suzdalenko.photolapse.app-packageDebugResources-51 D:\Aplicaciones-android\PhotoLapse - copia\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+suzdalenko.photolapse.app-debug-52 D:\Aplicaciones-android\PhotoLapse - copia\app\build\intermediates\merged_res\debug\mergeDebugResources
+suzdalenko.photolapse.app-debug-53 D:\Aplicaciones-android\PhotoLapse - copia\app\src\debug\res
+suzdalenko.photolapse.app-main-54 D:\Aplicaciones-android\PhotoLapse - copia\app\src\main\res
