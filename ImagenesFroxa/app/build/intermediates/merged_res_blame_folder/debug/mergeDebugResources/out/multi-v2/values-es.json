@@ -4,7 +4,24 @@
             "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-50:/values-es/values-es.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\3c87dffb94a37612c9b2f7c10dff2006\\transformed\\material-1.12.0\\res\\values-es\\values-es.xml",
+                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\581689015f39b792e1dcb72898ec9b04\\transformed\\core-1.13.1\\res\\values-es\\values-es.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,154,256,356,454,561,667,787",
+                        "endColumns": "98,101,99,97,106,105,119,100",
+                        "endOffsets": "149,251,351,449,556,662,782,883"
+                    },
+                    "to": {
+                        "startLines": "45,46,47,48,49,50,51,142",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "3852,3951,4053,4153,4251,4358,4464,11691",
+                        "endColumns": "98,101,99,97,106,105,119,100",
+                        "endOffsets": "3946,4048,4148,4246,4353,4459,4579,11787"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\3c87dffb94a37612c9b2f7c10dff2006\\transformed\\material-1.12.0\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\90ab1ddb2efdc853068c492a786d9e85\\transformed\\appcompat-1.7.0\\res\\values-es\\values-es.xml",
+                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\90ab1ddb2efdc853068c492a786d9e85\\transformed\\appcompat-1.7.0\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,13 +57,13 @@
                     }
                 },
                 {
-                    "source": "E:\\Aplicaciones android\\ImagenesFroxa\\app\\src\\main\\res\\values-es\\strings.xml",
+                    "source": "D:\\Aplicaciones-android\\ImagenesFroxa\\app\\src\\main\\res\\values-es\\strings.xml",
                     "from": {
                         "startLines": "24,23,5,6,1,4,7,14,2,12,9,15,13,17,19,21,20,8,16,18,10,3,22,11",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "1364,1319,258,304,16,185,350,711,63,647,436,757,683,882,1040,1195,1131,392,813,963,526,134,1258,598",
+                        "startOffsets": "1388,1342,263,310,17,189,357,725,65,659,445,772,696,899,1059,1216,1151,400,829,981,536,137,1280,609",
                         "endColumns": "49,44,45,45,46,72,41,45,70,35,89,55,27,80,90,62,63,43,68,76,71,50,60,48",
-                        "endOffsets": "1409,1359,299,345,58,253,387,752,129,678,521,808,706,958,1126,1253,1190,431,877,1035,593,180,1314,642"
+                        "endOffsets": "1433,1382,304,351,59,257,394,766,131,690,530,823,719,975,1145,1274,1210,439,893,1053,603,183,1336,653"
                     },
                     "to": {
                         "startLines": "6,34,35,36,37,38,44,52,56,57,58,59,60,63,64,66,67,68,70,71,72,74,136,140",
@@ -57,7 +74,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\3ed96641c42fb9ec6604c147161447da\\transformed\\navigation-ui-2.7.7\\res\\values-es\\values-es.xml",
+                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\3ed96641c42fb9ec6604c147161447da\\transformed\\navigation-ui-2.7.7\\res\\values-es\\values-es.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -71,23 +88,6 @@
                         "startOffsets": "10940,11059",
                         "endColumns": "118,119",
                         "endOffsets": "11054,11174"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\581689015f39b792e1dcb72898ec9b04\\transformed\\core-1.13.1\\res\\values-es\\values-es.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,154,256,356,454,561,667,787",
-                        "endColumns": "98,101,99,97,106,105,119,100",
-                        "endOffsets": "149,251,351,449,556,662,782,883"
-                    },
-                    "to": {
-                        "startLines": "45,46,47,48,49,50,51,142",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "3852,3951,4053,4153,4251,4358,4464,11691",
-                        "endColumns": "98,101,99,97,106,105,119,100",
-                        "endOffsets": "3946,4048,4148,4246,4353,4459,4579,11787"
                     }
                 }
             ]

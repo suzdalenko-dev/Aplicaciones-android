@@ -36,6 +36,7 @@ class FotoCreateService : Service() {
     }
     private val binder = LocalBinder()
 
+    private lateinit var currentLocale: Locale
     private lateinit var handlerThread: HandlerThread
     private lateinit var handler: Handler
     private lateinit var miHandlerThread: HandlerThread
@@ -49,6 +50,7 @@ class FotoCreateService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        currentLocale = applicationContext.resources.configuration.locales.get(0)
         handlerThread = HandlerThread("CreateFotoServiceThread")
         handlerThread.start()
         handler = Handler(handlerThread.looper)
@@ -119,7 +121,7 @@ class FotoCreateService : Service() {
         CameraActivity.imageCapture?.let { imageCapture ->
             val imageDir = File(externalMediaDirs.firstOrNull(), "images")
             if (!imageDir.exists()) { imageDir.mkdirs() }
-            val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE).format(System.currentTimeMillis()) + ".jpg")
+            val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", currentLocale).format(System.currentTimeMillis()) + ".jpg")
             val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
             if(prefs.getString("flash", "x").toString() == "flash") { imageCapture.flashMode = ImageCapture.FLASH_MODE_ON
             } else { imageCapture.flashMode = ImageCapture.FLASH_MODE_OFF }

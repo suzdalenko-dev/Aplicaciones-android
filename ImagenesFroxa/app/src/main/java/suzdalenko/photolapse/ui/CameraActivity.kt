@@ -41,6 +41,7 @@ import java.util.Locale
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 class CameraActivity : AppCompatActivity() {
+    private lateinit var currentLocale: Locale
     private var myService: FotoCreateService? = null
     private var isBound = false
     private lateinit var switchCompat: SwitchCompat
@@ -75,7 +76,7 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
         viewFinder = findViewById(R.id.viewFinder)
-
+        currentLocale = applicationContext.resources.configuration.locales.get(0)
         // Solicitar permisos de cámara si no están concedidos
         if (allPermissionsGranted()) {
             startCamera()
@@ -153,7 +154,7 @@ class CameraActivity : AppCompatActivity() {
             // Crear un archivo de salida para la imagen
             val imageDir = File(externalMediaDirs.firstOrNull(), "images")
             if (!imageDir.exists()) { imageDir.mkdirs() }
-            val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.FRANCE).format(System.currentTimeMillis()) + ".jpg")
+            val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", currentLocale).format(System.currentTimeMillis()) + ".jpg")
             val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
             // Configurar el flash para que esté encendido
