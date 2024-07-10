@@ -33,8 +33,8 @@
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Compartir con <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Ocultar"</string>
     <string name="ajuste2">Ajuste 2</string>
-    <string name="ajuste_1">Ajuste 1</string>
-    <string name="ajuste_2">Ajuste 2</string>
+    <string name="ajuste_1">A 1</string>
+    <string name="ajuste_2">A 2</string>
     <string name="app_name">FotoLapso</string>
     <string name="autoimage">APLICACIÓN DE IMÁGENES AUTOMÁTICAS</string>
     <string name="bottomsheet_action_collapse">Ocultar la hoja inferior</string>
@@ -57,7 +57,7 @@
     <string name="description">Instantánea automática y envío</string>
     <string name="dots">..</string>
     <string name="email_de_recepci_n_de_im_genes">Email de recepción de imágenes</string>
-    <string name="email_saved">Correo guardado</string>
+    <string name="email_saved">Guardado</string>
     <string name="empty"/>
     <string name="error_a11y_label">Error: no válida</string>
     <string name="error_icon_content_description">Error</string>

@@ -1,0 +1,32 @@
+[
+{
+  "directory": "D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64",
+  "command": "C:\\Users\\alexei\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android30 --sysroot=C:/Users/alexei/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dgameactivity_EXPORTS -isystem C:/Users/alexei/.gradle/caches/transforms-4/eb7d0302ac381986475583af9519a0e6/transformed/games-activity-1.2.2/prefab/modules/game-activity/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\gameactivity.dir\\main.cpp.o -c D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\main.cpp",
+  "file": "D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\main.cpp"
+},
+{
+  "directory": "D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64",
+  "command": "C:\\Users\\alexei\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android30 --sysroot=C:/Users/alexei/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dgameactivity_EXPORTS -isystem C:/Users/alexei/.gradle/caches/transforms-4/eb7d0302ac381986475583af9519a0e6/transformed/games-activity-1.2.2/prefab/modules/game-activity/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\gameactivity.dir\\AndroidOut.cpp.o -c D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\AndroidOut.cpp",
+  "file": "D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\AndroidOut.cpp"
+},
+{
+  "directory": "D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64",
+  "command": "C:\\Users\\alexei\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android30 --sysroot=C:/Users/alexei/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dgameactivity_EXPORTS -isystem C:/Users/alexei/.gradle/caches/transforms-4/eb7d0302ac381986475583af9519a0e6/transformed/games-activity-1.2.2/prefab/modules/game-activity/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\gameactivity.dir\\Renderer.cpp.o -c D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\Renderer.cpp",
+  "file": "D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\Renderer.cpp"
+},
+{
+  "directory": "D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64",
+  "command": "C:\\Users\\alexei\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android30 --sysroot=C:/Users/alexei/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dgameactivity_EXPORTS -isystem C:/Users/alexei/.gradle/caches/transforms-4/eb7d0302ac381986475583af9519a0e6/transformed/games-activity-1.2.2/prefab/modules/game-activity/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\gameactivity.dir\\Shader.cpp.o -c D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\Shader.cpp",
+  "file": "D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\Shader.cpp"
+},
+{
+  "directory": "D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64",
+  "command": "C:\\Users\\alexei\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android30 --sysroot=C:/Users/alexei/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dgameactivity_EXPORTS -isystem C:/Users/alexei/.gradle/caches/transforms-4/eb7d0302ac381986475583af9519a0e6/transformed/games-activity-1.2.2/prefab/modules/game-activity/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\gameactivity.dir\\TextureAsset.cpp.o -c D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\TextureAsset.cpp",
+  "file": "D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\TextureAsset.cpp"
+},
+{
+  "directory": "D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64",
+  "command": "C:\\Users\\alexei\\AppData\\Local\\Android\\Sdk\\ndk\\26.1.10909125\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android30 --sysroot=C:/Users/alexei/AppData/Local/Android/Sdk/ndk/26.1.10909125/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dgameactivity_EXPORTS -isystem C:/Users/alexei/.gradle/caches/transforms-4/eb7d0302ac381986475583af9519a0e6/transformed/games-activity-1.2.2/prefab/modules/game-activity/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles\\gameactivity.dir\\Utility.cpp.o -c D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\Utility.cpp",
+  "file": "D:\\Aplicaciones-android\\GameActivity\\app\\src\\main\\cpp\\Utility.cpp"
+}
+]

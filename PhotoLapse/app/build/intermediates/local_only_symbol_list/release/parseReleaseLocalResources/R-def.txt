@@ -18,6 +18,7 @@ id main
 id photos_created
 id seconds_left
 id switchCompat
+id timePicker
 id tvAutoImage
 id uploaded_photos
 id viewFinder
@@ -51,6 +52,7 @@ string insert_email_correct
 string lorem_ipsum
 string photos_created
 string segundos
+string service_restarted
 style Base.Theme.FroxaImagenes
 style Theme.FroxaImagenes
 xml backup_rules

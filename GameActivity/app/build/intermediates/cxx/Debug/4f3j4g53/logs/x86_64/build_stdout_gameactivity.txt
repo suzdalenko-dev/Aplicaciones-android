@@ -1,0 +1,2 @@
+ninja: Entering directory `D:\Aplicaciones-android\GameActivity\app\.cxx\Debug\4f3j4g53\x86_64'
+ninja: no work to do.

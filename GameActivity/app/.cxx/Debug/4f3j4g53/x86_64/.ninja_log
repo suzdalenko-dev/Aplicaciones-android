@@ -1,0 +1,8 @@
+# ninja log v5
+103	2697	7423127403474757	CMakeFiles/gameactivity.dir/Shader.cpp.o	c12572ba7c0e0ebd
+2	2875	7423127404904759	CMakeFiles/gameactivity.dir/Utility.cpp.o	7d9e238e10129243
+232	3183	7423127408264805	CMakeFiles/gameactivity.dir/TextureAsset.cpp.o	f00f62606ec093e8
+347	3194	7423127408204793	CMakeFiles/gameactivity.dir/AndroidOut.cpp.o	c01bb063bff55f01
+467	3984	7423127416224819	CMakeFiles/gameactivity.dir/main.cpp.o	52653e33f1757902
+638	4482	7423127421194821	CMakeFiles/gameactivity.dir/Renderer.cpp.o	2e23b76f90541b7e
+4482	4922	7423127425684864	D:/Aplicaciones-android/GameActivity/app/build/intermediates/cxx/Debug/4f3j4g53/obj/x86_64/libgameactivity.so	1071364c349723ad

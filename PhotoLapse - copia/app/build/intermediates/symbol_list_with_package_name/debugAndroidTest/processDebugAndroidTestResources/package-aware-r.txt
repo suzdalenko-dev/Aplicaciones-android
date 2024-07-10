@@ -1,3 +1,0 @@
-suzdalenko.froxa.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

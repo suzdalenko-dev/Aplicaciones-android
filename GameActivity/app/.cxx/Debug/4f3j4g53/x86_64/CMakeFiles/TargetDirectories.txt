@@ -1,0 +1,3 @@
+D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64/CMakeFiles/gameactivity.dir
+D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64/CMakeFiles/edit_cache.dir
+D:/Aplicaciones-android/GameActivity/app/.cxx/Debug/4f3j4g53/x86_64/CMakeFiles/rebuild_cache.dir
