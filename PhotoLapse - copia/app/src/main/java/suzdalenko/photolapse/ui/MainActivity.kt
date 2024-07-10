@@ -32,6 +32,7 @@ import suzdalenko.photolapse.util.MyApp.Companion.isValidEmail
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 
 class MainActivity : AppCompatActivity() {
+    private var minuteValue: Int = 1
     private lateinit var editEmail: EditText
     private lateinit var btnGuardar: Button
     private lateinit var btnTakePhoto: Button
@@ -103,10 +104,10 @@ class MainActivity : AppCompatActivity() {
         timePicker.hour   = prefs.getInt("hourOfDay", 0)
         timePicker.minute = prefs.getInt("minute", 30)
         timePicker.setOnTimeChangedListener { view, hourOfDay, minute ->
-            Log.d("TimePicker", "Hora seleccionada: $hourOfDay:$minute")
-            MAKE_PHOTO_EVERY_MILISEC = ((hourOfDay * 3600 + minute * 60) * 1000).toLong()
+            minuteValue = if(minute < 1) { 1; } else { minute }
+            MAKE_PHOTO_EVERY_MILISEC = ((hourOfDay * 3600 + minuteValue * 60) * 1000).toLong()
             prefs.edit().putInt("hourOfDay", hourOfDay).apply()
-            prefs.edit().putInt("minute", minute).apply()
+            prefs.edit().putInt("minute", minuteValue).apply()
             prefs.edit().putLong("camera_frequency", MAKE_PHOTO_EVERY_MILISEC).apply()
             /* con esto dejo solo un hilo de ejecucion para hacer las fotos, si no hay varios */
             if (isServiceBound) { fotoCreateService?.restartTakingPhotos() }

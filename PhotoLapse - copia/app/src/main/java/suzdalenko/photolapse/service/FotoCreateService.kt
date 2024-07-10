@@ -69,7 +69,8 @@ class FotoCreateService : Service() {
                     activity.runOnUiThread {
                         val textView: TextView? = activity.findViewById(R.id.seconds_left)
                         textView?.let {
-                            val secondTime = (MAKE_PHOTO_EVERY_MILISEC / 1000).toInt() - countSecond++
+                            var secondTime = (MAKE_PHOTO_EVERY_MILISEC / 1000).toInt() - countSecond++
+                            if(secondTime < 0) { secondTime = 0 }
                             secundosQueFaltan = formatSeconds(secondTime)
                             it.text = getString(R.string.segundos)+" ${secundosQueFaltan}"
                         }
