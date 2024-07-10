@@ -4,7 +4,7 @@
             "outputFile": "suzdalenko.photolapse.app-mergeReleaseResources-50:/values-w320dp-land-v13/values-w320dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\3c87dffb94a37612c9b2f7c10dff2006\\transformed\\material-1.12.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\3c87dffb94a37612c9b2f7c10dff2006\\transformed\\material-1.12.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
