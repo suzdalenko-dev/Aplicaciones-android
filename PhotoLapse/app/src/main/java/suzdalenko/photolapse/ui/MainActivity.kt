@@ -115,9 +115,8 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
         } else {
-           // startActivity(Intent(this, Camara::class.java)); finish()
+            bindService(Intent(this, FotoCreateService::class.java), serviceConnection, Context.BIND_AUTO_CREATE)
         }
-        bindService(Intent(this, FotoCreateService::class.java), serviceConnection, Context.BIND_AUTO_CREATE)
     }
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)
@@ -203,6 +202,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
+    // private fun checkPermissionsAndStartService() {
+    //     val permissionsToRequest = mutableListOf<String>()
+    //     if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+    //         permissionsToRequest.add(Manifest.permission.CAMERA)
+    //     }
+    //     if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+    //         permissionsToRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+    //     }
+    //     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+    //         ContextCompat.checkSelfPermission(this, Manifest.permission.FOREGROUND_SERVICE_CAMERA) != PackageManager.PERMISSION_GRANTED) {
+    //         permissionsToRequest.add(Manifest.permission.FOREGROUND_SERVICE_CAMERA)
+    //     }
+    //     if (permissionsToRequest.isNotEmpty()) {
+    //         ActivityCompat.requestPermissions(this, permissionsToRequest.toTypedArray(), 22)
+    //     } else {
+    //         startFotoCreateService()
+    //     }
+    // }
 
 }

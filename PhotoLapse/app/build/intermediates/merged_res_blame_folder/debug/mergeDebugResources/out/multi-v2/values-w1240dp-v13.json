@@ -4,7 +4,7 @@
             "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-50:/values-w1240dp-v13/values-w1240dp-v13.xml",
             "map": [
                 {
-                    "source": "D:\\Aplicaciones-android\\PhotoLapse - copia\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
+                    "source": "E:\\Aplicaciones-android\\PhotoLapse\\app\\src\\main\\res\\values-w1240dp\\dimens.xml",
                     "from": {
                         "startLines": "1",
                         "startColumns": "6",
