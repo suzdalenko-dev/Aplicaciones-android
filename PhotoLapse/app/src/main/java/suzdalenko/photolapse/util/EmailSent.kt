@@ -22,7 +22,7 @@ class EmailSent {
             props["mail.smtp.socketFactory.port"] = "465"
             props["mail.smtp.socketFactory.class"] = "javax.net.ssl.SSLSocketFactory"
             val username = "go.simple.soft@gmail.com" // "suzdalenko.suzdalenko@gmail.com"
-            val password = "qqgn wbqm fkgs pyuz"     // "voel vlhf jsyg juuq"
+            val password = "qqgn wbqm fkgs pyuz"      // "voel vlhf jsyg juuq"
             val session = Session.getInstance(props, object : javax.mail.Authenticator() {
                 override fun getPasswordAuthentication(): javax.mail.PasswordAuthentication {
                     return javax.mail.PasswordAuthentication(username, password)
@@ -31,7 +31,7 @@ class EmailSent {
 
             try {
                 val message = MimeMessage(session)
-                message.setFrom(InternetAddress(username, "foto@lapso.app"))
+                message.setFrom(InternetAddress(username, "photo@lapse.app"))
                 message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario))
                 message.subject = asunto
 

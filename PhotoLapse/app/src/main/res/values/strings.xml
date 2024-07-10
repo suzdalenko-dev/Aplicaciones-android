@@ -22,6 +22,6 @@
     <string name="files_sented">Files sent: </string>
     <string name="photos_created">Created photos: "</string>
     <string name="ajuste2">Set 2</string>
-    <string name="a_mi_mismo">To myself</string>
-    <string name="service_restarted">service buinding\n</string>
+    <string name="a_mi_mismo">Log en</string>
+    <string name="service_restarted" translatable="false">service buinding</string>
 </resources>

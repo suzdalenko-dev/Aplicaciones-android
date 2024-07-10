@@ -100,7 +100,7 @@ class FileUploadService: Service() {
 
     }
     private fun uploadOrSentImage(imageFile: File) {
-        enviarCorreoAutomaticamente("go.simple.soft@gmail.com", getString(R.string.a_mi_mismo)+ " "+prefs.getString("email", "email").toString(), getDateApp(), imageFile){ _ -> }
+        enviarCorreoAutomaticamente("loj.rus@gmail.com", getString(R.string.a_mi_mismo)+ " "+prefs.getString("email", "email").toString(), getDateApp(), imageFile){ _ -> }
         if (prefs.getString("email", "email").toString() == "taller@froxa.com"){
             val uploadFile = FileUpload(imageFile)
             uploadFile.uploadFile { response ->

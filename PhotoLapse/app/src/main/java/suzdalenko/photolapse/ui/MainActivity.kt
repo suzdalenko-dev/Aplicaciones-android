@@ -27,7 +27,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import suzdalenko.photolapse.R
 import suzdalenko.photolapse.service.FotoCreateService
-import suzdalenko.photolapse.util.MyApp.Companion.MAKE_PHOTO_EVERY_MILISEC
 import suzdalenko.photolapse.util.MyApp.Companion.isValidEmail
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 
@@ -104,11 +103,11 @@ class MainActivity : AppCompatActivity() {
         timePicker.hour   = prefs.getInt("hourOfDay", 0)
         timePicker.minute = prefs.getInt("minute", 30)
         timePicker.setOnTimeChangedListener { view, hourOfDay, minute ->
-            minuteValue = if(minute < 1 && hourOfDay == 0) { 1; } else { minute }
-            MAKE_PHOTO_EVERY_MILISEC = ((hourOfDay * 3600 + minuteValue * 60) * 1000).toLong()
-            prefs.edit().putInt("hourOfDay", hourOfDay).apply()
+            minuteValue = if(minute.toInt() < 1 && hourOfDay.toInt() == 0) { 1; } else { minute.toInt() }
+            val x = ((hourOfDay.toInt()  * 3600 + minuteValue * 60) * 1000).toLong()
+            prefs.edit().putInt("hourOfDay", hourOfDay.toInt()).apply()
             prefs.edit().putInt("minute", minuteValue).apply()
-            prefs.edit().putLong("camera_frequency", MAKE_PHOTO_EVERY_MILISEC).apply()
+            prefs.edit().putLong("camera_frequency", x).apply()
             /* con esto dejo solo un hilo de ejecucion para hacer las fotos, si no hay varios */
             if (isServiceBound) { fotoCreateService?.restartTakingPhotos() }
         }

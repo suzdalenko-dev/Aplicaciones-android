@@ -21,7 +21,7 @@ import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import suzdalenko.photolapse.R
 import suzdalenko.photolapse.ui.CameraActivity
-import suzdalenko.photolapse.util.MyApp.Companion.MAKE_PHOTO_EVERY_MILISEC
+import suzdalenko.photolapse.util.MyApp.Companion.DISPARO_CAMARA
 import suzdalenko.photolapse.util.MyApp.Companion.formatSeconds
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 import java.io.File
@@ -69,9 +69,11 @@ class FotoCreateService : Service() {
                     activity.runOnUiThread {
                         val textView: TextView? = activity.findViewById(R.id.seconds_left)
                         textView?.let {
-                            var secondTime = (MAKE_PHOTO_EVERY_MILISEC / 1000).toInt() - countSecond++
-                            if(secondTime < 0) { secondTime = 0 }
-                            secundosQueFaltan = formatSeconds(secondTime)
+                            val CAMERA_FREQUENCY = prefs.getLong("camera_frequency", 1800 * 1000)
+                            DISPARO_CAMARA = (CAMERA_FREQUENCY / 1000).toInt() - countSecond++
+                            // Log.d("CAMERA_FREQUENCY", "CAMERA_FREQUENCY: ${DISPARO_CAMARA} " +"countSecond $countSecond")
+                            if(DISPARO_CAMARA < 0) { DISPARO_CAMARA = 0L }
+                            secundosQueFaltan = formatSeconds(DISPARO_CAMARA)
                             it.text = getString(R.string.segundos)+" ${secundosQueFaltan}"
                         }
                         val textView2: TextView? = activity.findViewById(R.id.photos_created)
@@ -104,16 +106,20 @@ class FotoCreateService : Service() {
     private fun startTakingPhotos() {
         handler.postDelayed(object : Runnable {
             override fun run() {
-                takePhoto()
-                MAKE_PHOTO_EVERY_MILISEC = prefs.getLong("camera_frequency", 1800 * 1000) // Ejecutar cada 30 minutos
-                handler.postDelayed(this, MAKE_PHOTO_EVERY_MILISEC)
+                if(DISPARO_CAMARA.toInt() <= 0 || DISPARO_CAMARA.toInt() == 0) {
+                    takePhoto()
+                    DISPARO_CAMARA = prefs.getLong("camera_frequency", 5000)
+                    countSecond = 0
+                }
+                handler.postDelayed(this, 5000)
+
             }
         }, 5000)
     }
 
     private fun takePhoto() {
         // Verificar si la actividad está en primer plano
-        val estadoActualActivity = prefs.getString("__state", "activo").toString()
+        // Log.d("CAMERA_FREQUENCY", "TOMANDO LA FOTO: ${DISPARO_CAMARA} " +"countSecond $countSecond")
 
         CameraActivity.imageCapture?.let { imageCapture ->
             val imageDir = File(externalMediaDirs.firstOrNull(), "images")
@@ -133,7 +139,6 @@ class FotoCreateService : Service() {
                         val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                         val msg = "Imagen capturada: $savedUri"
                         Toast.makeText(this@FotoCreateService, msg, Toast.LENGTH_SHORT).show()
-                        countSecond = 0
                         fotosCreadas++
                     }
                 }
@@ -172,7 +177,9 @@ class FotoCreateService : Service() {
     }
 
     fun restartTakingPhotos() {
-        handler.removeCallbacksAndMessages(null)
-        startTakingPhotos()
+        // handler.removeCallbacksAndMessages(null)
+        // startTakingPhotos()
+        // countSecond = 0
+        // DISPARO_CAMARA = 0
     }
 }
