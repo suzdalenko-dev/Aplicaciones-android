@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         timePicker.hour   = prefs.getInt("hourOfDay", 0)
         timePicker.minute = prefs.getInt("minute", 30)
         timePicker.setOnTimeChangedListener { view, hourOfDay, minute ->
-            minuteValue = if(minute < 1) { 1; } else { minute }
+            minuteValue = if(minute < 1 && hourOfDay == 0) { 1; } else { minute }
             MAKE_PHOTO_EVERY_MILISEC = ((hourOfDay * 3600 + minuteValue * 60) * 1000).toLong()
             prefs.edit().putInt("hourOfDay", hourOfDay).apply()
             prefs.edit().putInt("minute", minuteValue).apply()
