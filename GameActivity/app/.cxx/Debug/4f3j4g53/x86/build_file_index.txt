@@ -1,1 +1,0 @@
-D:\Aplicaciones-android\GameActivity\app\src\main\cpp\CMakeLists.txt
