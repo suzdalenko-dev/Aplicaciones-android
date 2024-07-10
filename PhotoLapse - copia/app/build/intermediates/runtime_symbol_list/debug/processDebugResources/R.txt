@@ -3629,6 +3629,7 @@ int id textinput_placeholder 0x7f0801df
 int id textinput_prefix_text 0x7f0801e0
 int id textinput_suffix_text 0x7f0801e1
 int id time 0x7f0801e2
+int id timePicker 0x7f08020f
 int id title 0x7f0801e3
 int id titleDividerNoCustom 0x7f0801e4
 int id title_template 0x7f0801e5
@@ -4064,6 +4065,7 @@ int string searchbar_scrolling_view_behavior 0x7f0f00ba
 int string searchview_clear_text_content_description 0x7f0f00bb
 int string searchview_navigation_content_description 0x7f0f00bc
 int string segundos 0x7f0f00bd
+int string service_restarted 0x7f0f00c1
 int string side_sheet_accessibility_pane_title 0x7f0f00be
 int string side_sheet_behavior 0x7f0f00bf
 int string status_bar_notification_info_overflow 0x7f0f00c0

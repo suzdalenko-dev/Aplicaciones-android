@@ -35,13 +35,12 @@ class FotoCreateService : Service() {
         fun getService(): FotoCreateService = this@FotoCreateService
     }
     private val binder = LocalBinder()
-
     private lateinit var currentLocale: Locale
     private lateinit var handlerThread: HandlerThread
     private lateinit var handler: Handler
-    private lateinit var miHandlerThread: HandlerThread
-    private lateinit var miHandler: Handler
-    var secundosQueFaltan: String = ""
+    private lateinit var miHandlerThreadSecondLive: HandlerThread
+    private lateinit var miHandlerSecondLive: Handler
+    private var secundosQueFaltan: String = ""
     var countSecond: Long = 0
     companion object {
         var activityCamara: WeakReference<CameraActivity>? = null
@@ -55,9 +54,11 @@ class FotoCreateService : Service() {
         handlerThread.start()
         handler = Handler(handlerThread.looper)
 
-        miHandlerThread = HandlerThread("suzdalThread")
-        miHandlerThread.start()
-        miHandler = Handler(miHandlerThread.looper)
+
+
+        miHandlerThreadSecondLive = HandlerThread("secondLive")
+        miHandlerThreadSecondLive.start()
+        miHandlerSecondLive = Handler(miHandlerThreadSecondLive.looper)
 
         startForeground(11, createNotification())
         startTakingPhotos()
@@ -79,12 +80,6 @@ class FotoCreateService : Service() {
                 Thread.sleep(1000)
             }
         }.start()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        handlerThread.quitSafely()
-        miHandlerThread.quitSafely()
     }
 
     private fun createNotification(): Notification {
@@ -109,9 +104,10 @@ class FotoCreateService : Service() {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 takePhoto()
-                handler.postDelayed(this, MAKE_PHOTO_EVERY_MILISEC) // Ejecutar cada 10 segundos
+                MAKE_PHOTO_EVERY_MILISEC = prefs.getLong("camera_frequency", 1800 * 1000) // Ejecutar cada 30 minutos
+                handler.postDelayed(this, MAKE_PHOTO_EVERY_MILISEC)
             }
-        }, 1000)
+        }, 5000)
     }
 
     private fun takePhoto() {
@@ -153,12 +149,12 @@ class FotoCreateService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         // Simular algún proceso en segundo plano que envía un evento cada cierto tiempo
-        miHandler.postDelayed(object : Runnable {
+        miHandlerSecondLive.postDelayed(object : Runnable {
             override fun run() {
                 val intent1 = Intent("com.example.ACTION_EVENT")
                 intent1.putExtra("message", "Evento desde el servicio")
                 LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent1)
-                miHandler.postDelayed(this, 1320 * 1000) // 22 minutos son 1320 segundos.
+                miHandlerSecondLive.postDelayed(this, 1320 * 1000) // 22 minutos son 1320 segundos.
             }
         }, 5000)
 
@@ -166,6 +162,16 @@ class FotoCreateService : Service() {
         return START_STICKY
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        handler.removeCallbacksAndMessages(null) // Detener todos los mensajes pendientes y callbacks
+        miHandlerSecondLive.removeCallbacksAndMessages(null) // Detener todos los mensajes pendientes y callbacks
+        handlerThread.quitSafely() // Detener el handlerThread principal
+        miHandlerThreadSecondLive.quitSafely() // Detener el handlerThread principal
+    }
 
-
+    fun restartTakingPhotos() {
+        handler.removeCallbacksAndMessages(null)
+        startTakingPhotos()
+    }
 }

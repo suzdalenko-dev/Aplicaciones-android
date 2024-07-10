@@ -10,7 +10,7 @@ class MyApp: Application() {
     companion object {
         lateinit var instance: MyApp
         lateinit var prefs : SharedPreferences
-        val MAKE_PHOTO_EVERY_MILISEC: Long = 1800 * 1000    // 30 minutos
+        var MAKE_PHOTO_EVERY_MILISEC: Long = 1800 * 1000    // 30 minutos
         val UPLOAD_FILES_EACH_SEC: Long = 660               // 11 minutos
 
         fun getDateApp(): String {
@@ -32,5 +32,6 @@ class MyApp: Application() {
         super.onCreate()
         prefs = getSharedPreferences("suzdalenko.fotolapso", MODE_PRIVATE)
         prefs.edit().putString("flash", "").apply()
+        prefs.edit().putLong("camera_frequency", MAKE_PHOTO_EVERY_MILISEC).apply()
     }
 }

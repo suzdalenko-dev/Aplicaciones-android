@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -44,12 +45,15 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ConstraintLayout main;
 
   @NonNull
+  public final TimePicker timePicker;
+
+  @NonNull
   public final TextView tvAutoImage;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnAutoCapture,
       @NonNull Button btnCamara, @NonNull Button btnGuardar, @NonNull Button btnTakePhoto,
       @NonNull EditText etEmail, @NonNull Guideline guideline, @NonNull ConstraintLayout main,
-      @NonNull TextView tvAutoImage) {
+      @NonNull TimePicker timePicker, @NonNull TextView tvAutoImage) {
     this.rootView = rootView;
     this.btnAutoCapture = btnAutoCapture;
     this.btnCamara = btnCamara;
@@ -58,6 +62,7 @@ public final class ActivityMainBinding implements ViewBinding {
     this.etEmail = etEmail;
     this.guideline = guideline;
     this.main = main;
+    this.timePicker = timePicker;
     this.tvAutoImage = tvAutoImage;
   }
 
@@ -126,6 +131,12 @@ public final class ActivityMainBinding implements ViewBinding {
 
       ConstraintLayout main = (ConstraintLayout) rootView;
 
+      id = R.id.timePicker;
+      TimePicker timePicker = ViewBindings.findChildViewById(rootView, id);
+      if (timePicker == null) {
+        break missingId;
+      }
+
       id = R.id.tvAutoImage;
       TextView tvAutoImage = ViewBindings.findChildViewById(rootView, id);
       if (tvAutoImage == null) {
@@ -133,7 +144,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((ConstraintLayout) rootView, btnAutoCapture, btnCamara,
-          btnGuardar, btnTakePhoto, etEmail, guideline, main, tvAutoImage);
+          btnGuardar, btnTakePhoto, etEmail, guideline, main, timePicker, tvAutoImage);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
