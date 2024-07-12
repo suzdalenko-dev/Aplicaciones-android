@@ -3936,6 +3936,7 @@ int string email_de_recepci_n_de_im_genes 0x7f0f0039
 int string email_saved 0x7f0f003a
 int string empty 0x7f0f003b
 int string error_a11y_label 0x7f0f003c
+int string error_captured 0x7f0f00c3
 int string error_icon_content_description 0x7f0f003d
 int string error_image_sented 0x7f0f003e
 int string error_image_upload_to_server 0x7f0f003f
@@ -3947,6 +3948,7 @@ int string files_uploaded 0x7f0f0044
 int string guardar 0x7f0f0045
 int string hide_bottom_view_on_scroll_behavior 0x7f0f0046
 int string icon_content_description 0x7f0f0047
+int string image_captured 0x7f0f00c2
 int string image_sented 0x7f0f0048
 int string image_upload_to_server 0x7f0f0049
 int string insert_email_correct 0x7f0f004a

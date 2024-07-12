@@ -18,6 +18,7 @@
     <string name="files_sented">"Archivos enviados: "</string>
     <string name="files_uploaded">"Archivos subidos: "</string>
     <string name="guardar">Guardar</string>
+    <string name="image_captured">"Imagen creada "</string>
     <string name="image_sented">Imagen enviada por correo\n</string>
     <string name="image_upload_to_server">Imagen subida al servidor</string>
     <string name="insert_email_correct">Ingrese email correcto</string>

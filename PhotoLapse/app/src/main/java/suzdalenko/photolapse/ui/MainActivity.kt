@@ -12,7 +12,6 @@ import android.os.Bundle
 import android.os.IBinder
 import android.provider.MediaStore
 import android.provider.Settings
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TimePicker
@@ -31,7 +30,7 @@ import suzdalenko.photolapse.util.MyApp.Companion.isValidEmail
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 
 class MainActivity : AppCompatActivity() {
-    private var minuteValue: Int = 1
+    private var minuteValue: Double = .1
     private lateinit var editEmail: EditText
     private lateinit var btnGuardar: Button
     private lateinit var btnTakePhoto: Button
@@ -72,9 +71,9 @@ class MainActivity : AppCompatActivity() {
             val email = editEmail.text.toString().trim()
             if(isValidEmail(email)){
                 prefs.edit().putString("email", email).apply()
-                Toast.makeText(this, getString(R.string.email_saved), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, getString(R.string.email_saved), Toast.LENGTH_SHORT).show();
                 editEmail.setText(prefs.getString("email", "email").toString()); editEmail.clearFocus()
-            } else { Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_LONG).show(); editEmail.setText("") }
+            } else { Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_SHORT).show(); editEmail.setText("") }
         }
         btnTakePhoto = findViewById(R.id.btnTakePhoto)
         btnTakePhoto.setOnClickListener {
@@ -84,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         }
         btnAutoCapture = findViewById(R.id.btnAutoCapture)
         btnAutoCapture.setOnClickListener{
-            val intent = Intent(this, ClickCaptureActivity::class.java)
+            val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
             openXiaomiAutoStartSettings()
         }
@@ -95,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_LONG).show(); editEmail.setText("")
+                Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_SHORT).show(); editEmail.setText("")
             }
         }
         timePicker = findViewById(R.id.timePicker)
@@ -103,10 +102,10 @@ class MainActivity : AppCompatActivity() {
         timePicker.hour   = prefs.getInt("hourOfDay", 0)
         timePicker.minute = prefs.getInt("minute", 30)
         timePicker.setOnTimeChangedListener { view, hourOfDay, minute ->
-            minuteValue = if(minute.toInt() < 1 && hourOfDay.toInt() == 0) { 1; } else { minute.toInt() }
+            minuteValue = if(minute.toInt() < 1 && hourOfDay.toInt() == 0) { 0.1; } else { minute.toDouble() }
             val x = ((hourOfDay.toInt()  * 3600 + minuteValue * 60) * 1000).toLong()
             prefs.edit().putInt("hourOfDay", hourOfDay.toInt()).apply()
-            prefs.edit().putInt("minute", minuteValue).apply()
+            prefs.edit().putInt("minute", minuteValue.toInt()).apply()
             prefs.edit().putLong("camera_frequency", x).apply()
             /* con esto dejo solo un hilo de ejecucion para hacer las fotos, si no hay varios */
             if (isServiceBound) { fotoCreateService?.restartTakingPhotos() }
@@ -201,23 +200,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    // private fun checkPermissionsAndStartService() {
-    //     val permissionsToRequest = mutableListOf<String>()
-    //     if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-    //         permissionsToRequest.add(Manifest.permission.CAMERA)
-    //     }
-    //     if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-    //         permissionsToRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-    //     }
-    //     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
-    //         ContextCompat.checkSelfPermission(this, Manifest.permission.FOREGROUND_SERVICE_CAMERA) != PackageManager.PERMISSION_GRANTED) {
-    //         permissionsToRequest.add(Manifest.permission.FOREGROUND_SERVICE_CAMERA)
-    //     }
-    //     if (permissionsToRequest.isNotEmpty()) {
-    //         ActivityCompat.requestPermissions(this, permissionsToRequest.toTypedArray(), 22)
-    //     } else {
-    //         startFotoCreateService()
-    //     }
-    // }
-
 }

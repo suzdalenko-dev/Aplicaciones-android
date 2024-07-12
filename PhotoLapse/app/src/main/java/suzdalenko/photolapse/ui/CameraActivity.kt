@@ -115,10 +115,9 @@ class CameraActivity : AppCompatActivity() {
         // Establecer la referencia de la actividad en el servicio
         FotoCreateService.activityCamara = WeakReference(this)
         FileUploadService.activityCamara = WeakReference(this)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, FotoCreateService::class.java))
-        } else { startService(Intent(this, FotoCreateService::class.java)) }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, FileUploadService::class.java))
-        } else { startService(Intent(this, FileUploadService::class.java)) }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, FotoCreateService::class.java)); startForegroundService(Intent(this, FileUploadService::class.java))
+        } else { startService(Intent(this, FotoCreateService::class.java)); startService(Intent(this, FileUploadService::class.java))}
+
     }
 
     private fun startCamera() {
@@ -135,9 +134,7 @@ class CameraActivity : AppCompatActivity() {
 
             imageCapture = ImageCapture.Builder().build()
 
-            val cameraSelector = CameraSelector.Builder()
-                .requireLensFacing(CameraSelector.LENS_FACING_BACK)
-                .build()
+            val cameraSelector = CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build()
 
             try {
                 // Unir el caso de uso de la vista previa y de captura de imágenes a la cámara
@@ -166,13 +163,11 @@ class CameraActivity : AppCompatActivity() {
                 ContextCompat.getMainExecutor(this),
                 object : ImageCapture.OnImageSavedCallback {
                     override fun onError(exception: ImageCaptureException) {
-                        Log.e(TAG, "Error al capturar la imagen: ${exception.message}", exception)
-                        Toast.makeText(baseContext, "Error al capturar la imagen: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, getString(R.string.error_captured)+exception.message.toString(), Toast.LENGTH_SHORT).show()
                     }
                     override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                         val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
-                        val msg = "Imagen capturada: $savedUri"
-                        Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext, getString(R.string.image_captured)+photoFile.name.toString(), Toast.LENGTH_SHORT).show()
                         modifyServiceVariable()
                     }
                 }

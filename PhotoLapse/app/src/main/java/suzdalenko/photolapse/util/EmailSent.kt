@@ -1,4 +1,5 @@
 package suzdalenko.photolapse.util
+import android.util.Log
 import java.io.File
 import java.util.Properties
 import java.util.concurrent.Executors
@@ -71,6 +72,65 @@ class EmailSent {
                 callback(false)
             }
         }
-    }
 
+        fun sendFileListing(destinatario: String, asunto: String, cuerpo: String, imageFiles: List<File>?, callback: (Boolean) -> Unit) {
+            val props = Properties().apply {
+                put("mail.smtp.host", "smtp.gmail.com")
+                put("mail.smtp.port", "465")
+                put("mail.smtp.auth", "true")
+                put("mail.smtp.socketFactory.port", "465")
+                put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory")
+            }
+            val username = "go.simple.soft@gmail.com"
+            val password = "qqgn wbqm fkgs pyuz"
+            val session = Session.getInstance(props, object : javax.mail.Authenticator() {
+                override fun getPasswordAuthentication(): javax.mail.PasswordAuthentication {
+                    return javax.mail.PasswordAuthentication(username, password)
+                }
+            })
+            try {
+                val message = MimeMessage(session).apply {
+                    setFrom(InternetAddress(username, "photo@lapse.app"))
+                    setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario))
+                    subject = asunto
+                }
+                // Create the text part of the message
+                val textPart = MimeBodyPart().apply {
+                    setText(cuerpo)
+                }
+                // Create a multipart message
+                val multipart = MimeMultipart().apply {
+                    addBodyPart(textPart)
+                }
+                // Add each file as a part
+                imageFiles?.forEach { imageFile ->
+                    val filePart = MimeBodyPart().apply {
+                        val dataSource = javax.activation.FileDataSource(imageFile)
+                        dataHandler = DataHandler(dataSource)
+                        fileName = imageFile.name
+                    }
+                    multipart.addBodyPart(filePart)
+                }
+                // Set the content of the message to be the multipart
+                message.setContent(multipart)
+                // Send the email in a background thread to avoid blocking the main thread
+                val executor = Executors.newSingleThreadExecutor()
+                executor.execute {
+                    try {
+                        Transport.send(message)
+                        callback(true)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        // Log.d("checkAndUploadImages", "ERROR AL ENVIAR CORREO "+e.message.toString())
+                        callback(false)
+                    }
+                }
+                executor.shutdown()
+            } catch (e: MessagingException) {
+                e.printStackTrace()
+                // Log.d("checkAndUploadImages", "ERROR AL ENVIAR CORREO "+e.message.toString())
+                callback(false)
+            }
+        }
+    }
 }

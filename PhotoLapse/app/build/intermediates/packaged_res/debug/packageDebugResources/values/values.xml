@@ -18,11 +18,13 @@
     <string name="email_de_recepci_n_de_im_genes">Email receipt of images</string>
     <string name="email_saved">Saved</string>
     <string name="empty"/>
+    <string name="error_captured" translatable="false">"Error capturing the image "</string>
     <string name="error_image_sented">Error sending image by mail</string>
     <string name="error_image_upload_to_server">Error uploading image to server</string>
     <string name="files_sented">Files sent: </string>
     <string name="files_uploaded">Uploaded files: </string>
     <string name="guardar">Save</string>
+    <string name="image_captured">"Captured Image "</string>
     <string name="image_sented">Image sent by mail</string>
     <string name="image_upload_to_server">Image uploaded to server</string>
     <string name="insert_email_correct">Enter correct email</string>

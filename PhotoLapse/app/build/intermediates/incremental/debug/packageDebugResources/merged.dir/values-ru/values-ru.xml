@@ -18,6 +18,7 @@
     <string name="files_sented">Отправленные файлы: </string>
     <string name="files_uploaded">Загруженные файлы: </string>
     <string name="guardar">Сохранить</string>
+    <string name="image_captured">"Фото "</string>
     <string name="image_sented">Изображение отправлено по почте</string>
     <string name="image_upload_to_server">Изображение загружено на сервер</string>
     <string name="insert_email_correct">Введите правильную электронную почту</string>

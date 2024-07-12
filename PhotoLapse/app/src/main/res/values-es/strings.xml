@@ -23,4 +23,5 @@
     <string name="photos_created">"Fotos creadas: "</string>
     <string name="ajuste2">Ajuste 2</string>
     <string name="a_mi_mismo">Log es</string>
+    <string name="image_captured">"Imagen creada "</string>
 </resources>

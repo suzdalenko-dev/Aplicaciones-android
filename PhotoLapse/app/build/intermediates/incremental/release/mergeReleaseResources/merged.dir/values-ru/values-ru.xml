@@ -6,7 +6,7 @@
     <item quantity="many">%d новых уведомлений</item>
     <item quantity="other">%d нового уведомления</item>
   </plurals>
-    <string name="a_mi_mismo">Для себя</string>
+    <string name="a_mi_mismo">Log ru</string>
     <string msgid="5976598919945601918" name="abc_action_bar_home_description">"Перейти на главный экран"</string>
     <string msgid="8388173803310557296" name="abc_action_bar_up_description">"Перейти вверх"</string>
     <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"Ещё"</string>

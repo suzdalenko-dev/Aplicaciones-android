@@ -11,11 +11,11 @@ class MyApp: Application() {
         lateinit var instance: MyApp
         lateinit var prefs : SharedPreferences
         var DISPARO_CAMARA : Long = 0
-        val UPLOAD_FILES_EACH_SEC: Long = 660               // 11 minutos
+        val UPLOAD_FILES_EACH_SEC: Long = 221               // 660 -> 11 minutos
 
-        fun getDateApp(): String {
+        fun getDateApp(volumeFiles: Double): String {
             val currentDate = Date()
-            return "DATE: "+ SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.FRANCE).format(currentDate)
+            return "DATE: "+ SimpleDateFormat("HH:mm:ss dd/MM/yyyy", Locale.FRANCE).format(currentDate) + " VOLUME: "+volumeFiles.toInt().toString()+" MB"
         }
         fun isValidEmail(email: String): Boolean {
             return email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()

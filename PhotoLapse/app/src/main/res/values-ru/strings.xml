@@ -23,4 +23,5 @@
     <string name="photos_created">Созданные фотографии: </string>
     <string name="ajuste2">2</string>
     <string name="a_mi_mismo">Log ru</string>
+    <string name="image_captured">"Фото "</string>
 </resources>

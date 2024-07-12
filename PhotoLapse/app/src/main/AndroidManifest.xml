@@ -52,7 +52,7 @@
             android:exported="false"
             android:launchMode="singleInstance" />
         <activity
-            android:name="suzdalenko.photolapse.ui.ClickCaptureActivity"
+            android:name="suzdalenko.photolapse.ui.SettingActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity

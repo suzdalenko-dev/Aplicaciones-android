@@ -2042,6 +2042,7 @@
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
   </string>
+    <string name="error_captured" translatable="false">"Error capturing the image "</string>
     <string name="error_icon_content_description">Error</string>
     <string name="error_image_sented">Error sending image by mail</string>
     <string name="error_image_upload_to_server">Error uploading image to server</string>
@@ -2053,6 +2054,7 @@
     <string name="guardar">Save</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string description="Content description for an icon that appears in the title area of a dialog" name="icon_content_description">Dialog Icon</string>
+    <string name="image_captured">"Captured Image "</string>
     <string name="image_sented">Image sent by mail</string>
     <string name="image_upload_to_server">Image uploaded to server</string>
     <string name="insert_email_correct">Enter correct email</string>

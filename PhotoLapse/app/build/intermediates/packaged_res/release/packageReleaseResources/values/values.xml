@@ -5,7 +5,7 @@
     <color name="mi_green">#89FF00</color>
     <color name="white">#FFFFFFFF</color>
     <dimen name="fab_margin">16dp</dimen>
-    <string name="a_mi_mismo">To myself</string>
+    <string name="a_mi_mismo">Log en</string>
     <string name="ajuste2">Set 2</string>
     <string name="ajuste_1">Set 1</string>
     <string name="ajuste_2">Set 2</string>
@@ -29,7 +29,7 @@
     <string name="lorem_ipsum">Auto Snapshot Auto Snap and Mail</string>
     <string name="photos_created">Created photos: "</string>
     <string name="segundos">Time: </string>
-    <string name="service_restarted">service buinding\n</string>
+    <string name="service_restarted" translatable="false">service buinding</string>
     <style name="Base.Theme.FroxaImagenes" parent="Theme.Material3.DayNight.NoActionBar">
         
         

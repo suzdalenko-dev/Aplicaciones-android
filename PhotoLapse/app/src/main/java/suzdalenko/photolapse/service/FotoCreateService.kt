@@ -108,18 +108,16 @@ class FotoCreateService : Service() {
             override fun run() {
                 if(DISPARO_CAMARA.toInt() <= 0 || DISPARO_CAMARA.toInt() == 0) {
                     takePhoto()
-                    DISPARO_CAMARA = prefs.getLong("camera_frequency", 5000)
+                    DISPARO_CAMARA = prefs.getLong("camera_frequency", 1000)
                     countSecond = 0
                 }
-                handler.postDelayed(this, 5000)
-
+                handler.postDelayed(this, 1000)
             }
         }, 5000)
     }
 
     private fun takePhoto() {
-        // Verificar si la actividad está en primer plano
-        // Log.d("CAMERA_FREQUENCY", "TOMANDO LA FOTO: ${DISPARO_CAMARA} " +"countSecond $countSecond")
+        if(fotosCreadas > 999999) fotosCreadas = 0
 
         CameraActivity.imageCapture?.let { imageCapture ->
             val imageDir = File(externalMediaDirs.firstOrNull(), "images")
@@ -128,17 +126,15 @@ class FotoCreateService : Service() {
             val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
             if(prefs.getString("flash", "x").toString() == "flash") { imageCapture.flashMode = ImageCapture.FLASH_MODE_ON
             } else { imageCapture.flashMode = ImageCapture.FLASH_MODE_OFF }
-                imageCapture.takePicture(
+            imageCapture.takePicture(
                 outputOptions,
                 ContextCompat.getMainExecutor(this@FotoCreateService),
                 object : ImageCapture.OnImageSavedCallback {
                     override fun onError(exception: ImageCaptureException) {
-                        Log.e("CreateFotoService", "Error al capturar la imagen: ${exception.message}", exception)
+                        Toast.makeText(this@FotoCreateService, getString(R.string.error_captured)+exception.message.toString(), Toast.LENGTH_SHORT).show()
                     }
                     override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                        val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
-                        val msg = "Imagen capturada: $savedUri"
-                        Toast.makeText(this@FotoCreateService, msg, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this@FotoCreateService, getString(R.string.image_captured)+photoFile.name.toString(), Toast.LENGTH_SHORT).show()
                         fotosCreadas++
                     }
                 }

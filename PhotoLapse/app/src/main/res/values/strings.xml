@@ -24,4 +24,6 @@
     <string name="ajuste2">Set 2</string>
     <string name="a_mi_mismo">Log en</string>
     <string name="service_restarted" translatable="false">service buinding</string>
+    <string name="image_captured">"Captured Image "</string>
+    <string name="error_captured" translatable="false">"Error capturing the image "</string>
 </resources>

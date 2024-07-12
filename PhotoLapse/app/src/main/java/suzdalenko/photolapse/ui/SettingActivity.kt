@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class ClickCaptureActivity : AppCompatActivity() {
+class SettingActivity : AppCompatActivity() {
 
     private lateinit var takePictureLauncher: ActivityResultLauncher<Uri>
     private lateinit var photoUri: Uri

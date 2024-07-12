@@ -41,11 +41,13 @@ string dots
 string email_de_recepci_n_de_im_genes
 string email_saved
 string empty
+string error_captured
 string error_image_sented
 string error_image_upload_to_server
 string files_sented
 string files_uploaded
 string guardar
+string image_captured
 string image_sented
 string image_upload_to_server
 string insert_email_correct
