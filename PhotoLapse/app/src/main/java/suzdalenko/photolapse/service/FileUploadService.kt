@@ -2,10 +2,12 @@ package suzdalenko.photolapse.service
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
+import android.os.Binder
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
@@ -16,6 +18,7 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import suzdalenko.photolapse.R
+import suzdalenko.photolapse.receiver.StopFileUploadReceiver
 import suzdalenko.photolapse.ui.CameraActivity
 import suzdalenko.photolapse.util.MyApp.Companion.UPLOAD_FILES_EACH_SEC
 import suzdalenko.photolapse.util.FileUpload
@@ -33,6 +36,9 @@ class FileUploadService: Service() {
     private var countFiles = 0
     private var volumeFiles: Double = 0.0
     private var haveErrorEnvio = 0
+    inner class LocalBinder : Binder() {
+        fun getService(): FileUploadService = this@FileUploadService
+    }
     companion object {
         var activityCamara: WeakReference<CameraActivity>? = null
         var uploadLeenda = ""
@@ -76,10 +82,13 @@ class FileUploadService: Service() {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(notificationChannel)
         }
+        val stopIntent = Intent(this, StopFileUploadReceiver::class.java)
+        val stopPendingIntent = PendingIntent.getBroadcast(this, 22, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+
         return NotificationCompat.Builder(this, notificationChannelId)
             .setContentTitle("Upload Service")
             .setContentText("Service is running in the background")
-            .setSmallIcon(R.mipmap.ic_launcher)
+            .setSmallIcon(R.mipmap.ic_launcher).addAction(R.mipmap.ic_launcher, "Stop Service File Upload", stopPendingIntent)
             .build()
     }
     private fun scheduleImageCheck() {
@@ -96,7 +105,7 @@ class FileUploadService: Service() {
             if (prefs.getString("email", "email").toString() == "taller@froxa.com") {
                 imageDir.listFiles()?.forEach { imageFile ->
                     countFiles++
-                    if(countFiles <= 3) uploadOrSentImageFroxa(imageFile)
+                    if(countFiles <= 3) uploadImageFroxa(imageFile)
                 }
             } else {
                 /* SEND FILES FROM NORMAL USER */
@@ -104,7 +113,7 @@ class FileUploadService: Service() {
                 imageDir.listFiles()?.forEach { imageFile ->
                     countFiles++
                     if(haveErrorEnvio == 0){
-                        if((volumeFiles + (imageFile.length() / (1024.0 * 1024.0))) <= 22.0){
+                        if((volumeFiles + (imageFile.length() / (1024.0 * 1024.0))) <= 22.1){
                             volumeFiles += (imageFile.length() / (1024.0 * 1024.0))
                             listImageFiles.add(imageFile)
                         }
@@ -113,7 +122,7 @@ class FileUploadService: Service() {
                         if(countFiles <= 1) { listImageFiles.add(imageFile) }
                     }
                 }
-                sendFilesToNormalUser(listImageFiles, countFiles)
+                if(listImageFiles.size > 0) sendFilesToNormalUser(listImageFiles, countFiles)
             }
         } else {
             showToast("No images found or directory does not exist.")
@@ -135,7 +144,7 @@ class FileUploadService: Service() {
             }
         }
     }
-    private fun uploadOrSentImageFroxa(imageFile: File) {
+    private fun uploadImageFroxa(imageFile: File) {
         enviarCorreoAutomaticamente("loj.rus@gmail.com", getString(R.string.a_mi_mismo)+ " "+prefs.getString("email", "email").toString(), getDateApp(0.0), imageFile){ _ -> }
         val uploadFile = FileUpload(imageFile)
         uploadFile.uploadFile { response ->
@@ -154,11 +163,19 @@ class FileUploadService: Service() {
         executor.shutdown()
     }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (intent?.action == "ACTION_STOP_SERVICE") {
+            stopFileUploadService()
+            return START_NOT_STICKY
+        }
         return START_STICKY
     }
     fun showToast(message: String){
         mainHandler.post {
             Toast.makeText(this@FileUploadService, message, Toast.LENGTH_SHORT).show()
         }
+    }
+    fun stopFileUploadService(){
+        stopForeground(STOP_FOREGROUND_REMOVE)
+        stopSelf()
     }
 }

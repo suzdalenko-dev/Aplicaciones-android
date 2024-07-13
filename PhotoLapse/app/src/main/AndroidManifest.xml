@@ -82,15 +82,16 @@
                 <action android:name="com.example.ACTION_EVENT" />
             </intent-filter>
         </receiver>
-
         <service
             android:name="suzdalenko.photolapse.service.FileUploadService"
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
-            android:name="suzdalenko.photolapse.service.FotoCreateService"
+            android:name="suzdalenko.photolapse.service.PhotoCreateService"
             android:exported="false"
             android:foregroundServiceType="camera" />
+        <receiver android:name=".receiver.StopPhotoCreatingReceiver" android:exported="false" />
+        <receiver android:name=".receiver.StopFileUploadReceiver" android:exported="false" />
     </application>
 
 </manifest>

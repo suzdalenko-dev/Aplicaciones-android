@@ -107,9 +107,17 @@
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
-            android:name="suzdalenko.photolapse.service.FotoCreateService"
+            android:name="suzdalenko.photolapse.service.PhotoCreateService"
             android:exported="false"
             android:foregroundServiceType="camera" />
+
+        <receiver
+            android:name="suzdalenko.photolapse.receiver.StopPhotoCreatingReceiver"
+            android:exported="false" />
+        <receiver
+            android:name="suzdalenko.photolapse.receiver.StopFileUploadReceiver"
+            android:exported="false" />
+
         <service
             android:name="androidx.camera.core.impl.MetadataHolderService"
             android:enabled="false"

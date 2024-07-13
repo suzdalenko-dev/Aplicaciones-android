@@ -25,7 +25,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import suzdalenko.photolapse.R
-import suzdalenko.photolapse.service.FotoCreateService
+import suzdalenko.photolapse.service.FileUploadService
+import suzdalenko.photolapse.service.PhotoCreateService
 import suzdalenko.photolapse.util.MyApp.Companion.isValidEmail
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 
@@ -37,17 +38,27 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnAutoCapture: Button
     private lateinit var btnCamara: Button
     private lateinit var timePicker: TimePicker
-    private var fotoCreateService: FotoCreateService? = null
+    private var fotoCreateService: PhotoCreateService? = null
     private var isServiceBound = false
-    private val serviceConnection = object : ServiceConnection {
+    private val conPhotoCreating = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-            val binder = service as FotoCreateService.LocalBinder
+            val binder = service as PhotoCreateService.LocalBinder
             fotoCreateService = binder.getService()
             isServiceBound = true
         }
         override fun onServiceDisconnected(name: ComponentName?) {
             fotoCreateService = null
             isServiceBound = false
+        }
+    }
+    private var fileUploadService: FileUploadService? = null
+    private val conFileUploading = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+            val binder = service as FileUploadService.LocalBinder
+            fileUploadService = binder.getService()
+        }
+        override fun onServiceDisconnected(name: ComponentName?) {
+            fileUploadService = null
         }
     }
     companion object {
@@ -107,13 +118,15 @@ class MainActivity : AppCompatActivity() {
             prefs.edit().putInt("hourOfDay", hourOfDay.toInt()).apply()
             prefs.edit().putInt("minute", minuteValue.toInt()).apply()
             prefs.edit().putLong("camera_frequency", x).apply()
-            /* con esto dejo solo un hilo de ejecucion para hacer las fotos, si no hay varios */
-            if (isServiceBound) { fotoCreateService?.restartTakingPhotos() }
         }
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
         } else {
-            bindService(Intent(this, FotoCreateService::class.java), serviceConnection, Context.BIND_AUTO_CREATE)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) { startForegroundService(Intent(this, PhotoCreateService::class.java)); startForegroundService(Intent(this, FileUploadService::class.java))
+            } else { startService(Intent(this, PhotoCreateService::class.java)); startService(Intent(this, FileUploadService::class.java))}
+            // this line make it imposible to turn off the service
+            bindService(Intent(this, PhotoCreateService::class.java), conPhotoCreating, Context.BIND_AUTO_CREATE)
+            bindService(Intent(this, FileUploadService::class.java), conFileUploading, Context.BIND_AUTO_CREATE)
         }
     }
     private fun showAutoStartPermissionDialog() {
