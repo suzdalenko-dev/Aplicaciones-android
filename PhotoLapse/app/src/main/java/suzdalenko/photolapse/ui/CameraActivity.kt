@@ -31,7 +31,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import suzdalenko.photolapse.R
-import suzdalenko.photolapse.interfacemi.CameraReleaseCallback
 import suzdalenko.photolapse.receiver.FirstPlaneReceiver
 import suzdalenko.photolapse.service.PhotoCreateService
 import suzdalenko.photolapse.service.FileUploadService

@@ -24,11 +24,14 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleService
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import suzdalenko.photolapse.R
-import suzdalenko.photolapse.interfacemi.CameraReleaseCallback
 import suzdalenko.photolapse.receiver.StopFileUploadReceiver
 import suzdalenko.photolapse.receiver.StopPhotoCreatingReceiver
 import suzdalenko.photolapse.ui.CameraActivity
+import suzdalenko.photolapse.util.GetRequestWorker
 import suzdalenko.photolapse.util.MyApp.Companion.DISPARO_CAMARA
 import suzdalenko.photolapse.util.MyApp.Companion.formatSeconds
 import suzdalenko.photolapse.util.MyApp.Companion.getImageCapture
@@ -38,6 +41,7 @@ import java.io.File
 import java.lang.ref.WeakReference
 import java.text.SimpleDateFormat
 import java.util.Locale
+import java.util.concurrent.TimeUnit
 
 class PhotoCreateService : LifecycleService() {
     var fotosCreadasActivity: Long = 0
@@ -52,8 +56,8 @@ class PhotoCreateService : LifecycleService() {
     private lateinit var handler: Handler
     private lateinit var miHandlerThreadSecondLive: HandlerThread
     private lateinit var miHandlerSecondLive: Handler
-    private var secundosQueFaltan: String = ""
     var countSecond: Long = 0
+
     companion object {
         var activityCamara: WeakReference<CameraActivity>? = null
         var fotosCreadas: Long = 0
@@ -76,6 +80,7 @@ class PhotoCreateService : LifecycleService() {
         startTakingPhotos()
         handlerUI = Handler(Looper.getMainLooper())
         startUpdatingUI()
+        schedulePeriodicGetRequest(applicationContext)
     }
 
     private fun createNotification(): Notification {
@@ -178,16 +183,11 @@ class PhotoCreateService : LifecycleService() {
         override fun run() {
             activityCamara?.get()?.let { activity ->
                 activity.runOnUiThread {
+                    DISPARO_CAMARA = (prefs.getLong("camera_frequency", 1800 * 1000) / 1000).toInt() - countSecond++
                     val textView: TextView? = activity.findViewById(R.id.seconds_left)
-                    textView?.let {
-                        val CAMERA_FREQUENCY = prefs.getLong("camera_frequency", 1800 * 1000)
-                        DISPARO_CAMARA = (CAMERA_FREQUENCY / 1000).toInt() - countSecond++
-                        if(DISPARO_CAMARA < 0) { DISPARO_CAMARA = 0L }
-                        secundosQueFaltan = formatSeconds(DISPARO_CAMARA)
-                        it.text = getString(R.string.segundos) + " ${secundosQueFaltan}"
-                    }
+                    textView?.let { it.text = getString(R.string.segundos)+" "+formatSeconds(DISPARO_CAMARA) }
                     val textView2: TextView? = activity.findViewById(R.id.photos_created)
-                    textView2?.let { it.text = getString(R.string.photos_created) + " ${fotosCreadas + fotosCreadasActivity}" }
+                    textView2?.let { it.text = getString(R.string.photos_created)+ " ${fotosCreadas + fotosCreadasActivity}" }
                 }
             }
             handler.postDelayed(this, 1000)
@@ -198,5 +198,13 @@ class PhotoCreateService : LifecycleService() {
     }
     fun restartCamaraService() {
         initializeCamera(this@PhotoCreateService, this@PhotoCreateService)
+    }
+    fun schedulePeriodicGetRequest(context: Context) {
+        val getRequestWork = PeriodicWorkRequestBuilder<GetRequestWorker>(6, TimeUnit.HOURS).build()
+        WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+            "GetRequestWorker",
+            ExistingPeriodicWorkPolicy.UPDATE,
+            getRequestWork
+        )
     }
 }

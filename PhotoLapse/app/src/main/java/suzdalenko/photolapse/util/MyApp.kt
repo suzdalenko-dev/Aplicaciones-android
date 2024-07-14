@@ -43,6 +43,7 @@ class MyApp: Application() {
             return email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
         }
         fun formatSeconds(seconds: Long): String {
+            if (seconds <= 0) { return "00:00:00" }
             val hours = seconds / 3600
             val minutes = (seconds % 3600) / 60
             val secs = seconds % 60
@@ -121,10 +122,8 @@ class MyApp: Application() {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, StartServicesReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(context, 6, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-
         val intervalMillis = AlarmManager.INTERVAL_FIFTEEN_MINUTES // 15 * 60 * 1000   15 minutes in milliseconds
         val triggerAtMillis = System.currentTimeMillis() + intervalMillis
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             if (alarmManager.canScheduleExactAlarms()) {
                 alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent)
@@ -137,11 +136,9 @@ class MyApp: Application() {
                         val uri = Uri.fromParts("package", packageName, null)
                         intent.data = uri
                         startActivity(intent)
-                    }
-                    .setNegativeButton("Cancel") { dialog, _ ->
+                    }.setNegativeButton("Cancel") { dialog, _ ->
                         dialog.dismiss()
-                    }
-                    .show()
+                    }.show()
             }
         } else {
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent)

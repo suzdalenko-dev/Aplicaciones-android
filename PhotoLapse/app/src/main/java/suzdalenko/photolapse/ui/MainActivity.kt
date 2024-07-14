@@ -19,6 +19,7 @@ import android.widget.EditText
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +37,7 @@ import suzdalenko.photolapse.util.MyApp.Companion.isValidEmail
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var requestExactAlarmPermissionLauncher: ActivityResultLauncher<Intent>
     private var minuteValue: Double = .1
     private lateinit var editEmail: EditText
     private lateinit var btnGuardar: Button
@@ -92,7 +94,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnTakePhoto).setOnClickListener {
             checkPermissionsAndOpenCamera()
             dispatchTakePictureIntent()
-            showAutoStartPermissionDialog()
         }
         // setting button
         findViewById<Button>(R.id.btnAutoCapture).setOnClickListener{
@@ -128,79 +129,53 @@ class MainActivity : AppCompatActivity() {
             bindService(Intent(this, PhotoCreateService::class.java), conPhotoCreating, Context.BIND_AUTO_CREATE)
             bindService(Intent(this, FileUploadService::class.java), conFileUploading, Context.BIND_AUTO_CREATE)
         }
-        MyApp().setExactAlarm(applicationContext)
-        MyApp().scheduleExactAlarm(applicationContext)
-    }
-
-    private fun showAutoStartPermissionDialog() {
-        AlertDialog.Builder(this)
-            .setTitle("Informacion de aplicación")
-            .setMessage("Activa (no pausar la actividad de la aplicación de fondo), desactiva (ahorro de bateria), activa (autoinicio en segundo plano)")
-            .setPositiveButton("Ir a configuración") { _, _ ->
-                try {
-                    val intent = Intent()
-                    intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                    intent.addCategory(Intent.CATEGORY_DEFAULT)
-                    intent.data = Uri.parse("package:$packageName")
-                    startActivity(intent)
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+        requestExactAlarmPermissionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (canScheduleExactAlarms()) {
+                MyApp().setExactAlarm(applicationContext)
+                MyApp().scheduleExactAlarm(applicationContext)
+            } else {
+                Toast.makeText(this, "Permission denied. Exact alarms won't work.", Toast.LENGTH_SHORT).show()
             }
-            .setNegativeButton("Cancelar", null)
-            .show()
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (!canScheduleExactAlarms()) {
+                requestScheduleExactAlarmsPermission()
+            } else {
+                MyApp().setExactAlarm(applicationContext)
+                MyApp().scheduleExactAlarm(applicationContext)
+            }
+        } else {
+            MyApp().setExactAlarm(applicationContext)
+            MyApp().scheduleExactAlarm(applicationContext)
+        }
+    }
+    private fun canScheduleExactAlarms(): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) { val alarmManager = getSystemService(ALARM_SERVICE) as android.app.AlarmManager; alarmManager.canScheduleExactAlarms()
+        } else { true }
+    }
+    private fun requestScheduleExactAlarmsPermission() {
+        AlertDialog.Builder(this)
+            .setTitle("Permission Required")
+            .setMessage("This app requires permission to schedule exact alarms for its functionality.")
+            .setPositiveButton("Grant Permission") { _, _ ->
+                val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM)
+                requestExactAlarmPermissionLauncher.launch(intent)
+            }.setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+                Toast.makeText(this, "Permission denied. Exact alarms won't work.", Toast.LENGTH_SHORT).show()
+            }.show()
     }
 
     private fun checkPermissionsAndOpenCamera() {
         val cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
         val storagePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-
-        // Verificar si los permisos no están garantizados
-        if (cameraPermission != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE)
-        } else {
-            if (storagePermission != PackageManager.PERMISSION_GRANTED) {
-                // Solicitar permiso de almacenamiento dependiendo de la versión de Android
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    startActivity(Intent(this, CameraActivity::class.java))
-                    finish()
-                } else {
-                    // Para versiones anteriores a Android 10, solicitar permiso WRITE_EXTERNAL_STORAGE
-                    ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION_CODE)
-                }
-            }
-        }
+        if (cameraPermission != PackageManager.PERMISSION_GRANTED) { ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_CODE) }
+        if (storagePermission != PackageManager.PERMISSION_GRANTED && Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) { ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION_CODE) }
     }
+    private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result -> }
     private fun dispatchTakePictureIntent() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         takePictureLauncher.launch(intent)
     }
-    // Registro de resultado de actividad para la captura de imagen
-    private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
-        } else {
-            Toast.makeText(this, "Captura de imagen cancelada", Toast.LENGTH_SHORT).show()
-        }
-    }
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            CAMERA_PERMISSION_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "Permiso concedido para hacer fotos", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(this, "Necesario permiso para hacer fotos", Toast.LENGTH_LONG).show()
-                }
-            }
-            STORAGE_PERMISSION_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "Permiso concedido para guardar fotos", Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(this, "Necesario permiso para guardar fotos", Toast.LENGTH_LONG).show()
-                }
-            }
-        }
-    }
-
 
 }

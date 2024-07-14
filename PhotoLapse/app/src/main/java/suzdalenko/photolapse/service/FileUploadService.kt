@@ -26,12 +26,14 @@ import suzdalenko.photolapse.util.MyApp.Companion.getDateApp
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 import suzdalenko.photolapse.util.EmailSent.Companion.enviarCorreoAutomaticamente
 import suzdalenko.photolapse.util.EmailSent.Companion.sendFileListing
+import suzdalenko.photolapse.util.Settings.checkGitSettings
 import java.io.File
 import java.lang.ref.WeakReference
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 class FileUploadService: Service() {
     private val executor = Executors.newSingleThreadScheduledExecutor()
+    private val getSettingsExecutor = Executors.newSingleThreadScheduledExecutor()
     private var mainHandler = Handler(Looper.getMainLooper())
     private var countFiles = 0
     private var volumeFiles: Double = 0.0
@@ -57,19 +59,7 @@ class FileUploadService: Service() {
             startForeground(1, createNotification())
         }
         scheduleImageCheck()
-        Thread {
-            while (true) {
-                FileUploadService.activityCamara?.get()?.let { activity ->
-                    activity.runOnUiThread {
-                        val textView: TextView? = activity.findViewById(R.id.uploaded_photos)
-                        textView?.let {
-                            it.text = "${uploadLeenda} ${photosUploaded}"
-                        }
-                    }
-                }
-                Thread.sleep(3000)
-            }
-        }.start()
+        getGitSettings()
     }
     private fun createNotification(): Notification {
         val notificationChannelId = "UPLOAD_SERVICE_CHANNEL"
@@ -91,6 +81,9 @@ class FileUploadService: Service() {
             .setSmallIcon(R.mipmap.ic_launcher).addAction(R.mipmap.ic_launcher, "Stop Service File Upload", stopPendingIntent)
             .build()
     }
+    private fun getGitSettings(){
+        getSettingsExecutor.scheduleWithFixedDelay({ checkGitSettings() }, 2, 2, TimeUnit.SECONDS)
+    }
     private fun scheduleImageCheck() {
         executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 22, UPLOAD_FILES_EACH_SEC, TimeUnit.SECONDS)
     }
@@ -103,14 +96,14 @@ class FileUploadService: Service() {
         if (imageDir.exists() && imageDir.isDirectory) {
             /* SEND FILE BY FILE TO FROXA */
             if (prefs.getString("email", "email").toString() == "taller@froxa.com") {
-                imageDir.listFiles()?.forEach { imageFile ->
+                imageDir.listFiles()?.sortedBy{ it.name }?.forEach { imageFile ->
                     countFiles++
                     if(countFiles <= 3) uploadImageFroxa(imageFile)
                 }
             } else {
                 /* SEND FILES FROM NORMAL USER */
                 val listImageFiles: MutableList<File> = mutableListOf()
-                imageDir.listFiles()?.forEach { imageFile ->
+                imageDir.listFiles()?.sortedBy{ it.name }?.forEach { imageFile ->
                     countFiles++
                     if(haveErrorEnvio == 0){
                         if((volumeFiles + (imageFile.length() / (1024.0 * 1024.0))) <= 22.1){
@@ -136,11 +129,9 @@ class FileUploadService: Service() {
                 listImageFiles.forEach{ imageFile -> imageFile.delete(); photosUploaded++ }
                 showToast(getString(R.string.image_sented))
                 haveErrorEnvio = 0
-                // Log.d("checkAndUploadImages", "archivos enviados "+photosUploaded)
             } else {
                 showToast(getString(R.string.error_image_sented))
                 haveErrorEnvio = 1
-                // Log.d("checkAndUploadImages", "ERROR al enviar al usuario")
             }
         }
     }
@@ -170,12 +161,19 @@ class FileUploadService: Service() {
         return START_STICKY
     }
     fun showToast(message: String){
-        mainHandler.post {
-            Toast.makeText(this@FileUploadService, message, Toast.LENGTH_SHORT).show()
-        }
+        mainHandler.post { Toast.makeText(this@FileUploadService, message, Toast.LENGTH_SHORT).show() }
+        updateActivityData()
     }
     fun stopFileUploadService(){
         stopForeground(STOP_FOREGROUND_REMOVE)
         stopSelf()
+    }
+    fun updateActivityData(){
+        FileUploadService.activityCamara?.get()?.let { activity ->
+            activity.runOnUiThread {
+                val textView: TextView? = activity.findViewById(R.id.uploaded_photos)
+                textView?.let { it.text = "${uploadLeenda} ${photosUploaded}" }
+            }
+        }
     }
 }
