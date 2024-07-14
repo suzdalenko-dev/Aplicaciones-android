@@ -161,24 +161,20 @@ class CameraActivity : AppCompatActivity() {
     }
     override fun onPause(){
         super.onPause()
-        Toast.makeText(this, "onPause", Toast.LENGTH_SHORT).show()
     }
     override fun onStop(){
         super.onStop()
         releaseCamera(this)
         if (photoServiceActive) { photoCreateService?.restartCamaraService() }
-        Toast.makeText(this, "onStop", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         releaseCamera(this)
         if (photoServiceActive) { photoCreateService?.restartCamaraService() }
-        Toast.makeText(this, "onDestroy", Toast.LENGTH_SHORT).show()
     }
     override fun onRestart(){
         super.onRestart()
         initializeCamera(this, this, findViewById<PreviewView>(R.id.viewFinder))
-        Toast.makeText(this, "onRestart", Toast.LENGTH_SHORT).show()
     }
 }

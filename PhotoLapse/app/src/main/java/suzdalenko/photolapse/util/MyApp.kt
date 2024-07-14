@@ -1,22 +1,35 @@
 package suzdalenko.photolapse.util
+import android.annotation.SuppressLint
+import android.app.AlarmManager
 import android.app.Application
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
+import android.os.Build
+import android.os.PowerManager
+import android.provider.Settings
 import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.LifecycleOwner
+import suzdalenko.photolapse.receiver.StartServicesReceiver
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
 class MyApp: Application() {
     companion object {
+        lateinit var alarmManager: AlarmManager
         lateinit var instance: MyApp
         lateinit var prefs : SharedPreferences
         var DISPARO_CAMARA : Long = 0
@@ -64,6 +77,15 @@ class MyApp: Application() {
                 cameraProvider.unbindAll() }, ContextCompat.getMainExecutor(context))
         }
 
+
+
+        fun acquireWakeLock(context: Context): PowerManager.WakeLock {
+            val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
+            return powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyApp::MyWakeLock").apply {
+                acquire(10 * 60 * 1000L /*10 minutes*/)
+            }
+        }
+
     }
 
     override fun onCreate() {
@@ -71,7 +93,58 @@ class MyApp: Application() {
         prefs = getSharedPreferences("suzdalenko.fotolapso", MODE_PRIVATE)
         prefs.edit().putString("flash", "").apply()
         prefs.edit().putLong("camera_frequency", (1800 * 1000).toLong()).apply()
+        /* defaul camara frecuency */
+        // prefs.edit().putLong("camera_frequency", (22000).toLong()).apply()
+        setInexactRepeatingAlarm(applicationContext)
+    }
 
-        prefs.edit().putLong("camera_frequency", (22000).toLong()).apply()
+    private fun setInexactRepeatingAlarm(context: Context) {
+        alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        var intent = Intent(context, StartServicesReceiver::class.java)
+        var pendingIntent = PendingIntent.getBroadcast(context, 3, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + AlarmManager.INTERVAL_HOUR, AlarmManager.INTERVAL_HOUR, pendingIntent)
+
+        alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        intent = Intent(context, StartServicesReceiver::class.java)
+        pendingIntent = PendingIntent.getBroadcast(context, 4, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, pendingIntent)
+    }
+    @SuppressLint("ScheduleExactAlarm")
+    fun setExactAlarm(context: Context){
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, StartServicesReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(context, 5, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + AlarmManager.INTERVAL_HOUR, pendingIntent)
+    }
+
+    fun scheduleExactAlarm(context: Context) {
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, StartServicesReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(context, 6, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+
+        val intervalMillis = AlarmManager.INTERVAL_FIFTEEN_MINUTES // 15 * 60 * 1000   15 minutes in milliseconds
+        val triggerAtMillis = System.currentTimeMillis() + intervalMillis
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (alarmManager.canScheduleExactAlarms()) {
+                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent)
+            } else {
+                AlertDialog.Builder(context)
+                    .setTitle("Permission Required")
+                    .setMessage("This app requires permission to schedule exact alarms for its functionality.")
+                    .setPositiveButton("Grant Permission") { _, _ ->
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                        val uri = Uri.fromParts("package", packageName, null)
+                        intent.data = uri
+                        startActivity(intent)
+                    }
+                    .setNegativeButton("Cancel") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        } else {
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent)
+        }
     }
 }

@@ -1,97 +1,127 @@
 package suzdalenko.photolapse.ui
-
 import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.AlarmManager
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
-import android.media.AudioAttributes
-import android.media.SoundPool
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
+import android.provider.Settings
+import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
+import androidx.core.app.AlarmManagerCompat.canScheduleExactAlarms
 import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
+import org.w3c.dom.Text
 import suzdalenko.photolapse.R
-import java.io.File
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
+
 
 class SettingActivity : AppCompatActivity() {
-
-    private lateinit var takePictureLauncher: ActivityResultLauncher<Uri>
-    private lateinit var photoUri: Uri
-    private lateinit var soundPool: SoundPool
-    private var soundId: Int = 0
+    private val requestExactAlarmPermission = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result -> }
+    private fun requestScheduleExactAlarmPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            requestExactAlarmPermission.launch(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM))
+        } else{
+            Toast.makeText(this, "DON'T NECESARY", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-
-        // Inicializar el launcher para capturar la imagen
-        takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
-            if (success) {
-                dispatchTakePictureIntent()
-                playShutterSound()
-            }
-        }
-
-        // Inicializar el SoundPool con AudioAttributes adecuados
-        val audioAttributes = AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_MEDIA).setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build()
-
-        soundPool = SoundPool.Builder().setMaxStreams(1).setAudioAttributes(audioAttributes).build()
-
-        // Cargar el sonido del obturador predeterminado del sistema
-        soundId = soundPool.load(MediaStore.Audio.Media.INTERNAL_CONTENT_URI.toString(), 1)
-
-        // Iniciar la captura automática o solicitar permisos si no están concedidos
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
-        } else {
-            dispatchTakePictureIntent()
-        }
+        findViewById<TextView>(R.id.auto_start_background).setOnClickListener { openAutoStartSettings() }
+        findViewById<TextView>(R.id.enable_programing_alarm).setOnClickListener { requestScheduleExactAlarmPermission() }
+        findViewById<TextView>(R.id.enable_photo_creating).setOnClickListener { openCameraPermissionSettings() }
+        findViewById<TextView>(R.id.battery_optimizations).setOnClickListener { bareryOprimizations() }
     }
-
-    // Método para iniciar la captura de la imagen
-    private fun dispatchTakePictureIntent() {
-        val photoFile: File = createImageFile()
-        photoUri = FileProvider.getUriForFile(this, "${applicationContext.packageName}.fileprovider", photoFile)
-        takePictureLauncher.launch(photoUri)
+    @SuppressLint("BatteryLife")
+    private fun bareryOprimizations(){
+        val intent = Intent()
+        intent.action = Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+        intent.data = Uri.parse("package:$packageName")
+        startActivity(intent)
     }
-
-
-    // Método para crear un archivo de imagen temporal
-    private fun createImageFile(): File {
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-        val storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile("JPEG_${timeStamp}_", ".jpg", storageDir)
+    private fun openCameraPermissionSettings() {
+        val intent = Intent()
+        intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+        val uri = Uri.fromParts("package", packageName, null)
+        intent.data = uri
+        startActivity(intent)
     }
-
-    // Manejo de permisos de la aplicación
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                dispatchTakePictureIntent()
-            } else {
-                Toast.makeText(this, "Permisos necesarios no concedidos", Toast.LENGTH_LONG).show()
-            }
+    private fun openAutoStartSettings() {
+        val manufacturer = Build.MANUFACTURER.lowercase()
+        when {
+            manufacturer.contains("xiaomi") -> openMiuiAutoStartSettings()
+            manufacturer.contains("oppo") -> openOppoAutoStartSettings()
+            manufacturer.contains("vivo") -> openVivoAutoStartSettings()
+            manufacturer.contains("oneplus") -> openOnePlusAutoStartSettings()
+            manufacturer.contains("huawei") -> openHuaweiAutoStartSettings()
+            else -> openDefaultAutoStartSettings()
         }
     }
-
-    // Reproducir el sonido del obturador predeterminado del sistema
-    private fun playShutterSound() {
-        soundPool.play(soundId, 1.0f, 1.0f, 0, 0, 1.0f)
+    private fun openMiuiAutoStartSettings() {
+        try {
+            val intent = Intent()
+            intent.component = ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity")
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            openDefaultAutoStartSettings()
+        }
+    }
+    private fun openOppoAutoStartSettings() {
+        try {
+            val intent = Intent()
+            intent.component = ComponentName("com.coloros.safecenter", "com.coloros.safecenter.permission.startup.StartupAppListActivity")
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            openDefaultAutoStartSettings()
+        }
+    }
+    private fun openVivoAutoStartSettings() {
+        try {
+            val intent = Intent()
+            intent.component = ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.BgStartUpManagerActivity")
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            openDefaultAutoStartSettings()
+        }
+    }
+    private fun openOnePlusAutoStartSettings() {
+        try {
+            val intent = Intent()
+            intent.component = ComponentName("com.oneplus.security", "com.oneplus.security.chainlaunch.view.ChainLaunchAppListActivity")
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            openDefaultAutoStartSettings()
+        }
+    }
+    private fun openHuaweiAutoStartSettings() {
+        try {
+            val intent = Intent()
+            intent.component = ComponentName("com.huawei.systemmanager", "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity")
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            openDefaultAutoStartSettings()
+        }
+    }
+    private fun openDefaultAutoStartSettings() {
+        try {
+            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+            intent.data = Uri.parse("package:" + packageName)
+            startActivity(intent)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
-    // Liberar recursos cuando la actividad se destruye
-    override fun onDestroy() {
-        super.onDestroy()
-        soundPool.release()
-    }
 }

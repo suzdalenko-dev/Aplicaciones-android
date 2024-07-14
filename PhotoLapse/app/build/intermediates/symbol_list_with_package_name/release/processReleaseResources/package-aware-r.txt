@@ -3235,8 +3235,10 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id auto_start_background
 id barrier
 id baseline
+id battery_optimizations
 id beginOnFirstDraw
 id beginning
 id bestChoice
@@ -3329,6 +3331,8 @@ id edit_query
 id edit_text_id
 id elastic
 id embed
+id enable_photo_creating
+id enable_programing_alarm
 id end
 id endToStart
 id enterAlways
@@ -3904,6 +3908,7 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string active_auto_start_in_foreground
 string ajuste2
 string ajuste_1
 string ajuste_2
@@ -3932,11 +3937,15 @@ string character_counter_pattern
 string clear_text_end_icon_content_description
 string description
 string dest_title
+string disable_battery_usage_optimization
 string dots
 string email_de_recepci_n_de_im_genes
 string email_saved
 string empty
+string enable_photo_creting
+string enable_programing_alarm
 string error_a11y_label
+string error_captured
 string error_icon_content_description
 string error_image_sented
 string error_image_upload_to_server
@@ -3948,6 +3957,7 @@ string files_uploaded
 string guardar
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string image_captured
 string image_sented
 string image_upload_to_server
 string insert_email_correct

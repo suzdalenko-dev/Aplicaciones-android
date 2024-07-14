@@ -1,6 +1,8 @@
 package suzdalenko.photolapse.ui
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -21,12 +23,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.app.AlarmManagerCompat.canScheduleExactAlarms
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import suzdalenko.photolapse.R
+import suzdalenko.photolapse.receiver.StartServicesReceiver
 import suzdalenko.photolapse.service.FileUploadService
 import suzdalenko.photolapse.service.PhotoCreateService
+import suzdalenko.photolapse.util.MyApp
 import suzdalenko.photolapse.util.MyApp.Companion.isValidEmail
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 
@@ -34,9 +39,6 @@ class MainActivity : AppCompatActivity() {
     private var minuteValue: Double = .1
     private lateinit var editEmail: EditText
     private lateinit var btnGuardar: Button
-    private lateinit var btnTakePhoto: Button
-    private lateinit var btnAutoCapture: Button
-    private lateinit var btnCamara: Button
     private lateinit var timePicker: TimePicker
     private var fotoCreateService: PhotoCreateService? = null
     private var isServiceBound = false
@@ -86,20 +88,18 @@ class MainActivity : AppCompatActivity() {
                 editEmail.setText(prefs.getString("email", "email").toString()); editEmail.clearFocus()
             } else { Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_SHORT).show(); editEmail.setText("") }
         }
-        btnTakePhoto = findViewById(R.id.btnTakePhoto)
-        btnTakePhoto.setOnClickListener {
+        // test button
+        findViewById<Button>(R.id.btnTakePhoto).setOnClickListener {
             checkPermissionsAndOpenCamera()
             dispatchTakePictureIntent()
             showAutoStartPermissionDialog()
         }
-        btnAutoCapture = findViewById(R.id.btnAutoCapture)
-        btnAutoCapture.setOnClickListener{
-            val intent = Intent(this, SettingActivity::class.java)
-            startActivity(intent)
-            openXiaomiAutoStartSettings()
+        // setting button
+        findViewById<Button>(R.id.btnAutoCapture).setOnClickListener{
+            startActivity(Intent(this, SettingActivity::class.java))
         }
-        btnCamara = findViewById(R.id.btnCamara)
-        btnCamara.setOnClickListener{
+        // camara button
+        findViewById<Button>(R.id.btnCamara).setOnClickListener{
             if(prefs.getString("email", "email").toString() != "email"){
                 val intent = Intent(this, CameraActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -128,7 +128,10 @@ class MainActivity : AppCompatActivity() {
             bindService(Intent(this, PhotoCreateService::class.java), conPhotoCreating, Context.BIND_AUTO_CREATE)
             bindService(Intent(this, FileUploadService::class.java), conFileUploading, Context.BIND_AUTO_CREATE)
         }
+        MyApp().setExactAlarm(applicationContext)
+        MyApp().scheduleExactAlarm(applicationContext)
     }
+
     private fun showAutoStartPermissionDialog() {
         AlertDialog.Builder(this)
             .setTitle("Informacion de aplicación")
@@ -147,21 +150,6 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButton("Cancelar", null)
             .show()
     }
-    private fun openXiaomiAutoStartSettings() {
-        try {
-            val intent = Intent()
-            intent.component = android.content.ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity")
-            startActivity(intent)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            // Fallback: Open the general application settings
-            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-            intent.addCategory(Intent.CATEGORY_DEFAULT)
-            intent.data = Uri.parse("package:$packageName")
-            startActivity(intent)
-        }
-    }
-
 
     private fun checkPermissionsAndOpenCamera() {
         val cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
@@ -213,4 +201,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }

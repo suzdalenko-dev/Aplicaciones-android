@@ -1,318 +1,343 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
 3    package="suzdalenko.photolapse"
-4    android:versionCode="4"
-5    android:versionName="4" >
+4    android:versionCode="6"
+5    android:versionName="6" >
 6
 7    <uses-sdk
 8        android:minSdkVersion="24"
 9        android:targetSdkVersion="34" />
 10
 11    <uses-feature
-11-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:5:5-7:36
+11-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:5:5-85
 12        android:name="android.hardware.camera"
-12-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:6:9-47
+12-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:5:19-57
 13        android:required="false" />
-13-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:7:9-33
+13-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:5:58-82
 14
-15    <uses-permission android:name="android.permission.INTERNET" />
-15-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:9:5-67
-15-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:9:22-64
-16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-16-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:10:5-81
-16-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:10:22-78
-17    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-17-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:11:5-78
-17-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:11:22-75
-18    <uses-permission android:name="android.permission.CAMERA" />
-18-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:12:5-65
-18-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:12:22-62
-19    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-19-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:13:5-81
-19-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:13:22-78
-20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-20-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:14:5-80
-20-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:14:22-77
-21    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-21-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:15:5-77
-21-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:15:22-74
-22    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
-22-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:16:5-84
-22-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:16:22-81
-23    <uses-permission android:name="android.permission.WAKE_LOCK" />
-23-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:17:5-68
-23-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:17:22-65
-24
-25    <permission
-25-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
-26        android:name="suzdalenko.photolapse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-26-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
-27        android:protectionLevel="signature" />
-27-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
-28
-29    <uses-permission android:name="suzdalenko.photolapse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-29-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
-29-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+15    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+15-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:6:5-78
+15-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:6:22-76
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:7:5-67
+16-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:7:22-64
+17    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+17-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:8:5-81
+17-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:8:22-78
+18    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+18-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:9:5-78
+18-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:9:22-75
+19    <uses-permission android:name="android.permission.CAMERA" />
+19-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:10:5-65
+19-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:10:22-62
+20    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+20-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:11:5-81
+20-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:11:22-78
+21    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+21-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:12:5-80
+21-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:12:22-77
+22    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+22-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:13:5-77
+22-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:13:22-74
+23    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+23-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:14:5-84
+23-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:14:22-81
+24    <uses-permission android:name="android.permission.WAKE_LOCK" />
+24-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:15:5-68
+24-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:15:22-65
+25    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+25-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:16:5-95
+25-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:16:22-92
+26
+27    <permission
+27-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+28        android:name="suzdalenko.photolapse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+28-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+29        android:protectionLevel="signature" />
+29-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
 30
-31    <application
-31-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:19:5-95:19
-32        android:name="suzdalenko.photolapse.util.MyApp"
-32-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:20:9-56
-33        android:allowBackup="true"
-33-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:21:9-35
-34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-34-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
-35        android:dataExtractionRules="@xml/data_extraction_rules"
-35-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:22:9-65
-36        android:debuggable="true"
-37        android:extractNativeLibs="false"
-38        android:fullBackupContent="@xml/backup_rules"
-38-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:23:9-54
-39        android:icon="@mipmap/ic_launcher"
-39-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:24:9-43
-40        android:label="@string/app_name"
-40-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:25:9-41
-41        android:roundIcon="@mipmap/ic_launcher_round"
-41-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:26:9-54
-42        android:supportsRtl="true"
-42-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:27:9-35
-43        android:testOnly="true"
-44        android:theme="@style/Theme.FroxaImagenes"
-44-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:28:9-51
-45        android:usesCleartextTraffic="false" >
-45-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:29:9-45
-46        <uses-library
-46-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:32:9-34:40
-47            android:name="org.apache.http.legacy"
-47-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:33:13-50
-48            android:required="false" />
-48-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:34:13-37
-49
-50        <meta-data
-50-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:36:9-38:69
-51            android:name="androidx.camera.default.impl"
-51-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:37:13-56
-52            android:value="androidx.camera.camera2.Camera2Config" />
-52-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:38:13-66
-53
-54        <provider
-55            android:name="androidx.core.content.FileProvider"
-55-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:41:13-62
-56            android:authorities="suzdalenko.photolapse.fileprovider"
-56-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:42:13-64
-57            android:exported="false"
-57-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:43:13-37
-58            android:grantUriPermissions="true" >
-58-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:44:13-47
-59            <meta-data
-59-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:45:13-47:54
-60                android:name="android.support.FILE_PROVIDER_PATHS"
-60-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:46:17-67
-61                android:resource="@xml/file_paths" />
-61-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:47:17-51
-62        </provider>
-63
-64        <activity
-64-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:50:9-53:51
-65            android:name="suzdalenko.photolapse.ui.CameraActivity"
-65-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:51:13-67
-66            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
-66-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:50:19-97
-67            android:exported="false"
-67-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:52:13-37
-68            android:launchMode="singleInstance"
-68-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:53:13-48
-69            android:supportsPictureInPicture="true" />
-69-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:50:98-137
-70        <activity
-70-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:54:9-57:58
-71            android:name="suzdalenko.photolapse.ui.SettingActivity"
-71-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:55:13-68
-72            android:exported="false"
-72-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:56:13-37
-73            android:theme="@style/Theme.FroxaImagenes" />
-73-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:57:13-55
-74        <activity
-74-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:58:9-65:20
-75            android:name="suzdalenko.photolapse.ui.MainActivity"
-75-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:59:13-65
-76            android:exported="true"
-76-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:60:13-36
-77            android:launchMode="singleInstance" >
-77-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:60:38-73
-78            <intent-filter>
-78-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:61:13-64:29
-79                <action android:name="android.intent.action.MAIN" />
-79-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:62:17-69
-79-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:62:25-66
-80
-81                <category android:name="android.intent.category.LAUNCHER" />
-81-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:63:17-77
-81-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:63:27-74
-82            </intent-filter>
-83        </activity>
-84
-85        <receiver
-85-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:67:9-75:20
-86            android:name="suzdalenko.photolapse.receiver.BootReceiver"
-86-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:68:13-71
-87            android:enabled="true"
-87-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:69:13-35
-88            android:exported="true" >
-88-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:70:13-36
-89            <intent-filter>
-89-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:71:13-74:29
-90                <action android:name="android.intent.action.BOOT_COMPLETED" />
-90-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:72:17-79
-90-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:72:25-76
-91
-92                <category android:name="android.intent.category.DEFAULT" />
-92-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:73:17-76
-92-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:73:27-73
-93            </intent-filter>
-94        </receiver>
-95        <receiver
-95-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:76:9-84:20
-96            android:name="suzdalenko.photolapse.receiver.FirstPlaneReceiver"
-96-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:77:13-77
-97            android:enabled="true"
-97-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:78:13-35
-98            android:exported="true"
-98-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:79:13-36
-99            android:permission="TODO" >
-99-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:80:13-38
-100            <intent-filter>
-100-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:81:13-83:29
-101                <action android:name="com.example.ACTION_EVENT" />
-101-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:82:17-67
-101-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:82:25-64
-102            </intent-filter>
-103        </receiver>
-104
-105        <service
-105-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:85:9-88:54
-106            android:name="suzdalenko.photolapse.service.FileUploadService"
-106-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:86:13-75
-107            android:exported="false"
-107-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:87:13-37
-108            android:foregroundServiceType="camera" />
-108-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:88:13-51
-109        <service
-109-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:89:9-92:54
-110            android:name="suzdalenko.photolapse.service.PhotoCreateService"
-110-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:90:13-76
-111            android:exported="false"
-111-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:91:13-37
-112            android:foregroundServiceType="camera" />
-112-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:92:13-51
-113
-114        <receiver
-114-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:93:9-97
-115            android:name="suzdalenko.photolapse.receiver.StopPhotoCreatingReceiver"
-115-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:93:19-69
-116            android:exported="false" />
-116-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:93:70-94
-117        <receiver
-117-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:94:9-94
-118            android:name="suzdalenko.photolapse.receiver.StopFileUploadReceiver"
-118-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:94:19-66
+31    <uses-permission android:name="suzdalenko.photolapse.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+31-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+31-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+32
+33    <application
+33-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:18:5-99:19
+34        android:name="suzdalenko.photolapse.util.MyApp"
+34-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:19:9-56
+35        android:allowBackup="true"
+35-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:20:9-35
+36        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+36-->[androidx.core:core:1.13.1] C:\Users\alexei work\.gradle\caches\transforms-4\3f56a4bd69ee9e8887051f5f5c369e61\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+37        android:dataExtractionRules="@xml/data_extraction_rules"
+37-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:21:9-65
+38        android:debuggable="true"
+39        android:extractNativeLibs="false"
+40        android:fullBackupContent="@xml/backup_rules"
+40-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:22:9-54
+41        android:icon="@mipmap/ic_launcher"
+41-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:23:9-43
+42        android:label="@string/app_name"
+42-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:24:9-41
+43        android:roundIcon="@mipmap/ic_launcher_round"
+43-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:25:9-54
+44        android:supportsRtl="true"
+44-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:26:9-35
+45        android:testOnly="true"
+46        android:theme="@style/Theme.FroxaImagenes"
+46-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:27:9-51
+47        android:usesCleartextTraffic="false" >
+47-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:28:9-45
+48        <uses-library
+48-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:31:9-33:40
+49            android:name="org.apache.http.legacy"
+49-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:32:13-50
+50            android:required="false" />
+50-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:33:13-37
+51
+52        <meta-data
+52-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:35:9-37:69
+53            android:name="androidx.camera.default.impl"
+53-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:36:13-56
+54            android:value="androidx.camera.camera2.Camera2Config" />
+54-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:37:13-66
+55
+56        <provider
+57            android:name="androidx.core.content.FileProvider"
+57-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:40:13-62
+58            android:authorities="suzdalenko.photolapse.fileprovider"
+58-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:41:13-64
+59            android:exported="false"
+59-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:42:13-37
+60            android:grantUriPermissions="true" >
+60-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:43:13-47
+61            <meta-data
+61-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:44:13-46:54
+62                android:name="android.support.FILE_PROVIDER_PATHS"
+62-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:45:17-67
+63                android:resource="@xml/file_paths" />
+63-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:46:17-51
+64        </provider>
+65
+66        <activity
+66-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:49:9-52:51
+67            android:name="suzdalenko.photolapse.ui.CameraActivity"
+67-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:50:13-67
+68            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+68-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:49:19-97
+69            android:exported="false"
+69-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:51:13-37
+70            android:launchMode="singleInstance"
+70-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:52:13-48
+71            android:supportsPictureInPicture="true" />
+71-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:49:98-137
+72        <activity
+72-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:53:9-56:58
+73            android:name="suzdalenko.photolapse.ui.SettingActivity"
+73-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:54:13-68
+74            android:exported="false"
+74-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:55:13-37
+75            android:theme="@style/Theme.FroxaImagenes" />
+75-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:56:13-55
+76        <activity
+76-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:57:9-64:20
+77            android:name="suzdalenko.photolapse.ui.MainActivity"
+77-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:58:13-65
+78            android:exported="true"
+78-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:59:13-36
+79            android:launchMode="singleInstance" >
+79-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:59:38-73
+80            <intent-filter>
+80-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:60:13-63:29
+81                <action android:name="android.intent.action.MAIN" />
+81-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:61:17-69
+81-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:61:25-66
+82
+83                <category android:name="android.intent.category.LAUNCHER" />
+83-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:62:17-77
+83-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:62:27-74
+84            </intent-filter>
+85        </activity>
+86
+87        <receiver
+87-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:66:9-74:20
+88            android:name="suzdalenko.photolapse.receiver.BootReceiver"
+88-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:67:13-71
+89            android:enabled="true"
+89-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:68:13-35
+90            android:exported="true" >
+90-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:69:13-36
+91            <intent-filter>
+91-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:70:13-73:29
+92                <action android:name="android.intent.action.BOOT_COMPLETED" />
+92-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:71:17-79
+92-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:71:25-76
+93
+94                <category android:name="android.intent.category.DEFAULT" />
+94-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:72:17-76
+94-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:72:27-73
+95            </intent-filter>
+96        </receiver>
+97        <receiver
+97-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:75:9-83:20
+98            android:name="suzdalenko.photolapse.receiver.FirstPlaneReceiver"
+98-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:76:13-77
+99            android:enabled="true"
+99-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:77:13-35
+100            android:exported="false"
+100-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:78:13-37
+101            android:permission="TODO" >
+101-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:79:13-38
+102            <intent-filter>
+102-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:80:13-82:29
+103                <action android:name="com.example.ACTION_EVENT" />
+103-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:81:17-67
+103-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:81:25-64
+104            </intent-filter>
+105        </receiver>
+106
+107        <service
+107-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:84:9-87:54
+108            android:name="suzdalenko.photolapse.service.FileUploadService"
+108-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:85:13-75
+109            android:exported="false"
+109-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:86:13-37
+110            android:foregroundServiceType="camera" />
+110-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:87:13-51
+111        <service
+111-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:88:9-91:54
+112            android:name="suzdalenko.photolapse.service.PhotoCreateService"
+112-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:89:13-76
+113            android:exported="false"
+113-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:90:13-37
+114            android:foregroundServiceType="camera" />
+114-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:91:13-51
+115
+116        <receiver
+116-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:92:9-120
+117            android:name="suzdalenko.photolapse.receiver.StopPhotoCreatingReceiver"
+117-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:92:19-69
+118            android:enabled="true"
+118-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:92:95-117
 119            android:exported="false" />
-119-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:94:67-91
-120
-121        <service
-121-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:24:9-33:19
-122            android:name="androidx.camera.core.impl.MetadataHolderService"
-122-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:25:13-75
-123            android:enabled="false"
-123-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:26:13-36
-124            android:exported="false" >
-124-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:27:13-37
-125            <meta-data
-125-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:30:13-32:89
-126                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
-126-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:31:17-103
-127                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
-127-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:32:17-86
-128        </service>
-129
-130        <provider
-130-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-131            android:name="androidx.startup.InitializationProvider"
-131-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-132            android:authorities="suzdalenko.photolapse.androidx-startup"
-132-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-133            android:exported="false" >
-133-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-134            <meta-data
-134-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-135                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-135-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-136                android:value="androidx.startup" />
-136-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+119-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:92:70-94
+120        <receiver
+120-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:93:9-117
+121            android:name="suzdalenko.photolapse.receiver.StopFileUploadReceiver"
+121-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:93:19-66
+122            android:enabled="true"
+122-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:93:92-114
+123            android:exported="false" />
+123-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:93:67-91
+124        <receiver
+124-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:94:9-98:20
+125            android:name="suzdalenko.photolapse.receiver.StartServicesReceiver"
+125-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:94:19-65
+126            android:enabled="true"
+126-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:94:91-113
+127            android:exported="false" >
+127-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:94:66-90
+128            <intent-filter>
+128-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:95:13-97:29
+129                <action android:name="android.intent.action.BOOT_COMPLETED" />
+129-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:71:17-79
+129-->E:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:71:25-76
+130            </intent-filter>
+131        </receiver>
+132
+133        <service
+133-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:24:9-33:19
+134            android:name="androidx.camera.core.impl.MetadataHolderService"
+134-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:25:13-75
+135            android:enabled="false"
+135-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:26:13-36
+136            android:exported="false" >
+136-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:27:13-37
 137            <meta-data
-137-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\alexei work\.gradle\caches\transforms-4\cf4e26b9f04ba39f29e19dbe0f4fa741\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:29:13-31:52
-138                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-138-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\alexei work\.gradle\caches\transforms-4\cf4e26b9f04ba39f29e19dbe0f4fa741\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:30:17-78
-139                android:value="androidx.startup" />
-139-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\alexei work\.gradle\caches\transforms-4\cf4e26b9f04ba39f29e19dbe0f4fa741\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:31:17-49
-140            <meta-data
-140-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-141                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-142                android:value="androidx.startup" />
-142-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-143        </provider>
-144
-145        <uses-library
-145-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-146            android:name="androidx.window.extensions"
-146-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-147            android:required="false" />
-147-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
-148        <uses-library
-148-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-149            android:name="androidx.window.sidecar"
-149-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
-150            android:required="false" />
-150-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-151
-152        <receiver
-152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-153            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-153-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-154            android:directBootAware="false"
-154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-155            android:enabled="true"
-155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-156            android:exported="true"
-156-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-157            android:permission="android.permission.DUMP" >
-157-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-158            <intent-filter>
-158-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-159                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-159-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-159-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-160            </intent-filter>
-161            <intent-filter>
-161-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-162                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-162-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-162-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-163            </intent-filter>
-164            <intent-filter>
-164-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-165                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-165-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-165-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-166            </intent-filter>
-167            <intent-filter>
-167-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-168                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-168-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-168-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-169            </intent-filter>
-170        </receiver>
-171    </application>
-172
-173</manifest>
+137-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:30:13-32:89
+138                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+138-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:31:17-103
+139                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+139-->[androidx.camera:camera-camera2:1.3.4] C:\Users\alexei work\.gradle\caches\transforms-4\7c0eb931a72c6a8013be457e0305d1b2\transformed\camera-camera2-1.3.4\AndroidManifest.xml:32:17-86
+140        </service>
+141
+142        <provider
+142-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+143            android:name="androidx.startup.InitializationProvider"
+143-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+144            android:authorities="suzdalenko.photolapse.androidx-startup"
+144-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+145            android:exported="false" >
+145-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+146            <meta-data
+146-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+147                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+147-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+148                android:value="androidx.startup" />
+148-->[androidx.emoji2:emoji2:1.3.0] C:\Users\alexei work\.gradle\caches\transforms-4\7e6fca48146705c4d118fc7f721f2141\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+149            <meta-data
+149-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\alexei work\.gradle\caches\transforms-4\cf4e26b9f04ba39f29e19dbe0f4fa741\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:29:13-31:52
+150                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+150-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\alexei work\.gradle\caches\transforms-4\cf4e26b9f04ba39f29e19dbe0f4fa741\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:30:17-78
+151                android:value="androidx.startup" />
+151-->[androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\alexei work\.gradle\caches\transforms-4\cf4e26b9f04ba39f29e19dbe0f4fa741\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:31:17-49
+152            <meta-data
+152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+153                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+153-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+154                android:value="androidx.startup" />
+154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+155        </provider>
+156
+157        <uses-library
+157-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+158            android:name="androidx.window.extensions"
+158-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+159            android:required="false" />
+159-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+160        <uses-library
+160-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+161            android:name="androidx.window.sidecar"
+161-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+162            android:required="false" />
+162-->[androidx.window:window:1.0.0] C:\Users\alexei work\.gradle\caches\transforms-4\e365fa3ba2cd21e753d6cf08fe0cb9be\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+163
+164        <receiver
+164-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+165            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+165-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+166            android:directBootAware="false"
+166-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+167            android:enabled="true"
+167-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+168            android:exported="true"
+168-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+169            android:permission="android.permission.DUMP" >
+169-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+170            <intent-filter>
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+171                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+171-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+171-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+172            </intent-filter>
+173            <intent-filter>
+173-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+174                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+174-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+174-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+175            </intent-filter>
+176            <intent-filter>
+176-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+177                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+177-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+177-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+178            </intent-filter>
+179            <intent-filter>
+179-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+180                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+180-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+180-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\alexei work\.gradle\caches\transforms-4\2c4a3238b954b9ed392623eee75a1424\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+181            </intent-filter>
+182        </receiver>
+183    </application>
+184
+185</manifest>

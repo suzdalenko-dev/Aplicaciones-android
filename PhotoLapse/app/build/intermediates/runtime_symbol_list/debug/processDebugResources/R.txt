@@ -3234,8 +3234,10 @@ int id auto 0x7f080054
 int id autoComplete 0x7f080055
 int id autoCompleteToEnd 0x7f080056
 int id autoCompleteToStart 0x7f080057
+int id auto_start_background 0x7f080210
 int id barrier 0x7f080058
 int id baseline 0x7f080059
+int id battery_optimizations 0x7f080213
 int id beginOnFirstDraw 0x7f08005a
 int id beginning 0x7f08005b
 int id bestChoice 0x7f08005c
@@ -3328,6 +3330,8 @@ int id edit_query 0x7f0800b2
 int id edit_text_id 0x7f0800b3
 int id elastic 0x7f0800b4
 int id embed 0x7f0800b5
+int id enable_photo_creating 0x7f080211
+int id enable_programing_alarm 0x7f080212
 int id end 0x7f0800b6
 int id endToStart 0x7f0800b7
 int id enterAlways 0x7f0800b8
@@ -3903,6 +3907,7 @@ int string abc_searchview_description_voice 0x7f0f0018
 int string abc_shareactionprovider_share_with 0x7f0f0019
 int string abc_shareactionprovider_share_with_application 0x7f0f001a
 int string abc_toolbar_collapse_description 0x7f0f001b
+int string active_auto_start_in_foreground 0x7f0f00c4
 int string ajuste2 0x7f0f001c
 int string ajuste_1 0x7f0f001d
 int string ajuste_2 0x7f0f001e
@@ -3931,10 +3936,13 @@ int string character_counter_pattern 0x7f0f0034
 int string clear_text_end_icon_content_description 0x7f0f0035
 int string description 0x7f0f0036
 int string dest_title 0x7f0f0037
+int string disable_battery_usage_optimization 0x7f0f00c7
 int string dots 0x7f0f0038
 int string email_de_recepci_n_de_im_genes 0x7f0f0039
 int string email_saved 0x7f0f003a
 int string empty 0x7f0f003b
+int string enable_photo_creting 0x7f0f00c6
+int string enable_programing_alarm 0x7f0f00c5
 int string error_a11y_label 0x7f0f003c
 int string error_captured 0x7f0f003d
 int string error_icon_content_description 0x7f0f003e

@@ -34,9 +34,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Поделиться с помощью"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Поделиться с помощью <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Свернуть"</string>
+    <string name="active_auto_start_in_foreground">1. Включить автозапуск в фоновом режиме.</string>
     <string name="ajuste2">2</string>
-    <string name="ajuste_1">1</string>
-    <string name="ajuste_2">2</string>
+    <string name="ajuste_1">Тест</string>
+    <string name="ajuste_2">Настройки</string>
     <string name="app_name">АвтоФото</string>
     <string name="autoimage">Автоматическое фото</string>
     <string name="bottomsheet_action_collapse">Свернуть нижний экран</string>
@@ -57,10 +58,13 @@
     <string name="character_counter_overflowed_content_description">Превышено ограничение на количество символов (%1$d из %2$d)</string>
     <string name="clear_text_end_icon_content_description">Очистить текстовое поле</string>
     <string name="description">ПРИЛОЖЕНИЕ ДЛЯ АВТОМАТИЧЕСКИХ СНИМКОВ</string>
+    <string name="disable_battery_usage_optimization">4. Отключите оптимизацию использования батареи.</string>
     <string name="dots">..</string>
     <string name="email_de_recepci_n_de_im_genes">Получение изображений по электронной почте</string>
     <string name="email_saved">Сохранено </string>
     <string name="empty"/>
+    <string name="enable_photo_creting">3. Разрешить делать фотографии и читать архивы.</string>
+    <string name="enable_programing_alarm">2. Разрешить установку будильников и напоминаний.</string>
     <string name="error_a11y_label">Ошибка: недопустимое значение</string>
     <string name="error_icon_content_description">Ошибка</string>
     <string name="error_image_sented">Ошибка при отправке изображения по почте</string>
@@ -70,6 +74,7 @@
     <string name="files_uploaded">Загруженные файлы: </string>
     <string name="guardar">Сохранить</string>
     <string name="icon_content_description">Значок диалогового окна</string>
+    <string name="image_captured">"Фото "</string>
     <string name="image_sented">Изображение отправлено по почте</string>
     <string name="image_upload_to_server">Изображение загружено на сервер</string>
     <string name="insert_email_correct">Введите правильную электронную почту</string>

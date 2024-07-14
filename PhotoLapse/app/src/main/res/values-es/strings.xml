@@ -3,8 +3,8 @@
     <string name="description">Instantánea automática y envío</string>
     <string name="lorem_ipsum">Foto Lapso</string>
     <string name="autoimage">APLICACIÓN DE IMÁGENES AUTOMÁTICAS</string>
-    <string name="ajuste_1">A 1</string>
-    <string name="ajuste_2">A 2</string>
+    <string name="ajuste_1">Prueba</string>
+    <string name="ajuste_2">Ajustes</string>
     <string name="c_mara">Cámara</string>
     <string name="guardar">Guardar</string>
     <string name="email_de_recepci_n_de_im_genes">Email de recepción de imágenes</string>
@@ -24,4 +24,8 @@
     <string name="ajuste2">Ajuste 2</string>
     <string name="a_mi_mismo">Log es</string>
     <string name="image_captured">"Imagen creada "</string>
+    <string name="active_auto_start_in_foreground">1. Activar el arranque automático en segundo plano.</string>
+    <string name="enable_programing_alarm">2. Activar para permitir la configuración de alarmas y recordatorios.</string>
+    <string name="enable_photo_creting">3. Habilitar permisos de hacer fotos y leer archivos.</string>
+    <string name="disable_battery_usage_optimization">4. Desactivar la optimización del uso de la batería.</string>
 </resources>

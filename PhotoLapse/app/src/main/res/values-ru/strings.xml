@@ -3,8 +3,8 @@
     <string name="description">ПРИЛОЖЕНИЕ ДЛЯ АВТОМАТИЧЕСКИХ СНИМКОВ</string>
     <string name="lorem_ipsum">ПРИЛОЖЕНИЕ ДЛЯ АВТОМАТИЧЕСКИХ СНИМКОВ</string>
     <string name="autoimage">Автоматическое фото</string>
-    <string name="ajuste_1">1</string>
-    <string name="ajuste_2">2</string>
+    <string name="ajuste_1">Тест</string>
+    <string name="ajuste_2">Настройки</string>
     <string name="c_mara">Камера</string>
     <string name="guardar">Сохранить</string>
     <string name="email_de_recepci_n_de_im_genes">Получение изображений по электронной почте</string>
@@ -24,4 +24,8 @@
     <string name="ajuste2">2</string>
     <string name="a_mi_mismo">Log ru</string>
     <string name="image_captured">"Фото "</string>
+    <string name="active_auto_start_in_foreground">1. Включить автозапуск в фоновом режиме.</string>
+    <string name="enable_programing_alarm">2. Разрешить установку будильников и напоминаний.</string>
+    <string name="enable_photo_creting">3. Разрешить делать фотографии и читать архивы.</string>
+    <string name="disable_battery_usage_optimization">4. Отключите оптимизацию использования батареи.</string>
 </resources>
