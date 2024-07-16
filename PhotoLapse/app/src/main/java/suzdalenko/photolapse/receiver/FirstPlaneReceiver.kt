@@ -12,6 +12,7 @@ class FirstPlaneReceiver : BroadcastReceiver(){
             if (it.action == "com.example.ACTION_EVENT") {
                 val message = it.getStringExtra("message")
                 val startIntent = Intent(context, CameraActivity::class.java)
+                // intent show Camera activity in first plane
                 startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
                 LogPhotoLapse("work-FirstPlaneReceiver")
                 context?.startActivity(startIntent)

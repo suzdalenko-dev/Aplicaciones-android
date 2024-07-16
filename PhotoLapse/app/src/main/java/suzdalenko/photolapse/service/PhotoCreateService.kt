@@ -83,6 +83,7 @@ class PhotoCreateService : LifecycleService() {
         startTakingPhotos()
         handlerUI = Handler(Looper.getMainLooper())
         startUpdatingUI()
+        startFirstPlaneReceiver()
         LogPhotoLapse("onCreate-PhotoCreateService")
     }
 
@@ -161,15 +162,6 @@ class PhotoCreateService : LifecycleService() {
             stopPhotoService()
             return START_NOT_STICKY
         }
-        // Simular algún proceso en segundo plano que envía un evento cada cierto tiempo
-        miHandlerSecondLive.postDelayed(object : Runnable {
-            override fun run() {
-                val intent1 = Intent("com.example.ACTION_EVENT")
-                intent1.putExtra("message", "Evento desde el servicio")
-                LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent1)
-                miHandlerSecondLive.postDelayed(this, 1320 * 1000) // 22 minutos son 1320 segundos.
-            }
-        }, 5000)
         LogPhotoLapse("onStartCommand-PhotoCreateService")
         return START_STICKY
     }
@@ -207,5 +199,16 @@ class PhotoCreateService : LifecycleService() {
     }
     fun restartCamaraService() {
         initializeCamera(this@PhotoCreateService, this@PhotoCreateService)
+    }
+    fun startFirstPlaneReceiver(){
+        // Simular algún proceso en segundo plano que envía un evento cada cierto tiempo
+        miHandlerSecondLive.postDelayed(object : Runnable {
+            override fun run() {
+                val intent1 = Intent("com.example.ACTION_EVENT")
+                intent1.putExtra("message", "Evento desde el servicio")
+                miHandlerSecondLive.postDelayed(this, 3600 * 1000) // 1 hora
+                LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent1)
+            }
+        }, 5000)
     }
 }
