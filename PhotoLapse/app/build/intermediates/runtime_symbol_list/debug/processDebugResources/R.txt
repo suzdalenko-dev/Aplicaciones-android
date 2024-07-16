@@ -3883,6 +3883,10 @@ int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_foreground 0x7f0d0001
 int mipmap ic_launcher_round 0x7f0d0002
 int plurals mtrl_badge_content_description 0x7f0e0000
+int raw camera_shutter 0x7f130000
+int raw error_photo 0x7f130001
+int raw error_upload 0x7f130002
+int raw upload_positive 0x7f130003
 int string a_mi_mismo 0x7f0f0000
 int string abc_action_bar_home_description 0x7f0f0001
 int string abc_action_bar_up_description 0x7f0f0002

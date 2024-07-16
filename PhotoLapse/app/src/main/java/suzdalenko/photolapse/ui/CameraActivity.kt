@@ -38,6 +38,9 @@ import suzdalenko.photolapse.util.MyApp.Companion.getImageCapture
 import suzdalenko.photolapse.util.MyApp.Companion.initializeCamera
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 import suzdalenko.photolapse.util.MyApp.Companion.releaseCamera
+import suzdalenko.photolapse.util.PlaySound.errorSoundGetFoto
+import suzdalenko.photolapse.util.PlaySound.playSoundGetFoto
+import suzdalenko.photolapse.util.Settings.LogPhotoLapse
 import java.io.File
 import java.lang.ref.WeakReference
 import java.text.SimpleDateFormat
@@ -82,7 +85,10 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
         currentLocale = applicationContext.resources.configuration.locales.get(0)
-        findViewById<Button>(R.id.captureButton).setOnClickListener { takePhoto() }
+        findViewById<Button>(R.id.captureButton).setOnClickListener {
+            takePhoto()
+            LogPhotoLapse("take-photo-with-botton-in-CameraActivity")
+        }
 
         // Registrar el receptor de broadcast
         LocalBroadcastManager.getInstance(this).registerReceiver(FirstPlaneReceiver(), IntentFilter("com.example.ACTION_EVENT"))
@@ -98,6 +104,7 @@ class CameraActivity : AppCompatActivity() {
         switchCompat.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked){ prefs.edit().putString("flash", "flash").apply(); Toast.makeText(this, "Flash ON", Toast.LENGTH_SHORT).show()
             } else { prefs.edit().putString("flash", "x").apply(); ; Toast.makeText(this, "Flash OFF", Toast.LENGTH_SHORT).show() }
+            LogPhotoLapse("change-switchCompat-CameraActivity")
         }
 
         // Establecer la referencia de la actividad en el servicio
@@ -128,8 +135,10 @@ class CameraActivity : AppCompatActivity() {
             object : ImageCapture.OnImageSavedCallback {
                 override fun onError(exc: ImageCaptureException) {
                     Toast.makeText(baseContext, "ACT ${exc.message}", Toast.LENGTH_SHORT).show()
+                    errorSoundGetFoto(applicationContext)
                 }
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                    playSoundGetFoto(applicationContext)
                     if (photoServiceActive) { photoCreateService?.let { service -> service.fotosCreadasActivity += 1 } }
                     Toast.makeText(baseContext, photoFile.name.toString(), Toast.LENGTH_SHORT).show()
                 }

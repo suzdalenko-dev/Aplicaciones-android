@@ -37,6 +37,9 @@ import suzdalenko.photolapse.util.MyApp.Companion.formatSeconds
 import suzdalenko.photolapse.util.MyApp.Companion.getImageCapture
 import suzdalenko.photolapse.util.MyApp.Companion.initializeCamera
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
+import suzdalenko.photolapse.util.PlaySound.errorSoundGetFoto
+import suzdalenko.photolapse.util.PlaySound.playSoundGetFoto
+import suzdalenko.photolapse.util.Settings.LogPhotoLapse
 import java.io.File
 import java.lang.ref.WeakReference
 import java.text.SimpleDateFormat
@@ -80,7 +83,7 @@ class PhotoCreateService : LifecycleService() {
         startTakingPhotos()
         handlerUI = Handler(Looper.getMainLooper())
         startUpdatingUI()
-        schedulePeriodicGetRequest(applicationContext)
+        LogPhotoLapse("onCreate-PhotoCreateService")
     }
 
     private fun createNotification(): Notification {
@@ -132,10 +135,14 @@ class PhotoCreateService : LifecycleService() {
                     initializeCamera(this@PhotoCreateService, this@PhotoCreateService)
                     Toast.makeText(baseContext, "SER ${exc.message}", Toast.LENGTH_SHORT).show()
                     Log.e("PhotoCreateService", "Photo capture failed: ${exc.message}", exc)
+                    LogPhotoLapse("ERROR-takePhoto-PhotoCreateService")
+                    errorSoundGetFoto(applicationContext)
                 }
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     Toast.makeText(baseContext, getString(R.string.image_captured) + photoFile.name.toString(), Toast.LENGTH_SHORT).show()
                     fotosCreadasActivity += 1
+                    LogPhotoLapse("good-takePhoto-PhotoCreateService")
+                    playSoundGetFoto(applicationContext)
                 }
             }
         )
@@ -163,6 +170,7 @@ class PhotoCreateService : LifecycleService() {
                 miHandlerSecondLive.postDelayed(this, 1320 * 1000) // 22 minutos son 1320 segundos.
             }
         }, 5000)
+        LogPhotoLapse("onStartCommand-PhotoCreateService")
         return START_STICKY
     }
 
@@ -172,6 +180,7 @@ class PhotoCreateService : LifecycleService() {
         miHandlerSecondLive.removeCallbacksAndMessages(null)
         handlerThread.quitSafely()
         miHandlerThreadSecondLive.quitSafely()
+        LogPhotoLapse("onDestroy-PhotoCreateService")
     }
     fun stopPhotoService(){
         stopForeground(STOP_FOREGROUND_REMOVE)
@@ -198,13 +207,5 @@ class PhotoCreateService : LifecycleService() {
     }
     fun restartCamaraService() {
         initializeCamera(this@PhotoCreateService, this@PhotoCreateService)
-    }
-    fun schedulePeriodicGetRequest(context: Context) {
-        val getRequestWork = PeriodicWorkRequestBuilder<GetRequestWorker>(6, TimeUnit.HOURS).build()
-        WorkManager.getInstance(context).enqueueUniquePeriodicWork(
-            "GetRequestWorker",
-            ExistingPeriodicWorkPolicy.UPDATE,
-            getRequestWork
-        )
     }
 }

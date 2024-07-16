@@ -20,12 +20,14 @@ import androidx.core.app.ServiceCompat
 import suzdalenko.photolapse.R
 import suzdalenko.photolapse.receiver.StopFileUploadReceiver
 import suzdalenko.photolapse.ui.CameraActivity
-import suzdalenko.photolapse.util.MyApp.Companion.UPLOAD_FILES_EACH_SEC
 import suzdalenko.photolapse.util.FileUpload
 import suzdalenko.photolapse.util.MyApp.Companion.getDateApp
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
 import suzdalenko.photolapse.util.EmailSent.Companion.enviarCorreoAutomaticamente
 import suzdalenko.photolapse.util.EmailSent.Companion.sendFileListing
+import suzdalenko.photolapse.util.PlaySound.errorFileSound
+import suzdalenko.photolapse.util.PlaySound.uploadFileSound
+import suzdalenko.photolapse.util.Settings.LogPhotoLapse
 import suzdalenko.photolapse.util.Settings.checkGitSettings
 import java.io.File
 import java.lang.ref.WeakReference
@@ -49,7 +51,7 @@ class FileUploadService: Service() {
     override fun onBind(p0: Intent?): IBinder? {
         return null
     }
-    override fun onCreate() {
+    override fun onCreate() {                                               Log.d("getGitSettings", "onCreate service")
         super.onCreate()
         mainHandler = Handler(Looper.getMainLooper())
         uploadLeenda = getString(R.string.files_sented)
@@ -60,6 +62,7 @@ class FileUploadService: Service() {
         }
         scheduleImageCheck()
         getGitSettings()
+        LogPhotoLapse("onCreate-FileUploadService")
     }
     private fun createNotification(): Notification {
         val notificationChannelId = "UPLOAD_SERVICE_CHANNEL"
@@ -82,10 +85,11 @@ class FileUploadService: Service() {
             .build()
     }
     private fun getGitSettings(){
-        getSettingsExecutor.scheduleWithFixedDelay({ checkGitSettings() }, 2, 2, TimeUnit.SECONDS)
+        Log.d("getGitSettings", "getGitSettings1")
+        getSettingsExecutor.scheduleWithFixedDelay({ checkGitSettings() }, 1, 11, TimeUnit.SECONDS)
     }
     private fun scheduleImageCheck() {
-        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 22, UPLOAD_FILES_EACH_SEC, TimeUnit.SECONDS)
+        executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 22, prefs.getLong("update_frequency", 100), TimeUnit.SECONDS)
     }
     private fun checkAndUploadImages() {
         countFiles  = 0
@@ -129,9 +133,13 @@ class FileUploadService: Service() {
                 listImageFiles.forEach{ imageFile -> imageFile.delete(); photosUploaded++ }
                 showToast(getString(R.string.image_sented))
                 haveErrorEnvio = 0
+                LogPhotoLapse("good-sendFilesToNormalUser-FileUploadService")
+                uploadFileSound(applicationContext)
             } else {
                 showToast(getString(R.string.error_image_sented))
                 haveErrorEnvio = 1
+                LogPhotoLapse("ERROR-sendFilesToNormalUser-FileUploadService")
+                errorFileSound(applicationContext)
             }
         }
     }
@@ -144,20 +152,26 @@ class FileUploadService: Service() {
                 uploadLeenda = getString(R.string.files_uploaded)
                 photosUploaded++
                 showToast(getString(R.string.image_upload_to_server)+" "+imageFile.name)
+                LogPhotoLapse("uploadImageFroxa-FileUploadService")
+                uploadFileSound(applicationContext)
             } else {
                 showToast(getString(R.string.error_image_upload_to_server)+" "+imageFile.name)
+                LogPhotoLapse("ERROR-uploadImageFroxa-FileUploadService")
+                errorFileSound(applicationContext)
             }
         }
     }
     override fun onDestroy() {
         super.onDestroy()
         executor.shutdown()
+        LogPhotoLapse("onDestroy-FileUploadService")
     }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (intent?.action == "ACTION_STOP_SERVICE") {
             stopFileUploadService()
             return START_NOT_STICKY
         }
+        LogPhotoLapse("onStartCommand-FileUploadService")
         return START_STICKY
     }
     fun showToast(message: String){

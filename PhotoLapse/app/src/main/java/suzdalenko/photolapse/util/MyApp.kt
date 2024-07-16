@@ -20,7 +20,6 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.LifecycleOwner
 import suzdalenko.photolapse.receiver.StartServicesReceiver
 import java.text.SimpleDateFormat
@@ -29,11 +28,10 @@ import java.util.Locale
 
 class MyApp: Application() {
     companion object {
+        lateinit var myApp: MyApp
         lateinit var alarmManager: AlarmManager
-        lateinit var instance: MyApp
         lateinit var prefs : SharedPreferences
         var DISPARO_CAMARA : Long = 0
-        val UPLOAD_FILES_EACH_SEC: Long = 322               // 660 -> 11 minutos
 
         fun getDateApp(volumeFiles: Double): String {
             val currentDate = Date()
@@ -91,11 +89,12 @@ class MyApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        myApp = MyApp()
         prefs = getSharedPreferences("suzdalenko.fotolapso", MODE_PRIVATE)
         prefs.edit().putString("flash", "").apply()
-        prefs.edit().putLong("camera_frequency", (1800 * 1000).toLong()).apply()
-        /* defaul camara frecuency */
-        // prefs.edit().putLong("camera_frequency", (22000).toLong()).apply()
+        prefs.edit().putLong("camera_frequency", 1800000L).apply()
+        prefs.edit().putLong("update_frequency", 322L).apply()
+        prefs.edit().putString("log", "false").apply()
         setInexactRepeatingAlarm(applicationContext)
     }
 
@@ -143,5 +142,18 @@ class MyApp: Application() {
         } else {
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent)
         }
+    }
+    fun canScheduleExactAlarms(context: Context): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) { val alarmManager = context.getSystemService(ALARM_SERVICE) as android.app.AlarmManager; alarmManager.canScheduleExactAlarms()
+        } else { true }
+    }
+    fun getDeviceName(): String {
+        val manufacturer = Build.MANUFACTURER.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+        val model = Build.MODEL.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
+        return "$manufacturer$model"
+    }
+    fun filterToAllowedChars(input: String): String {
+        val res = input.replace(" ", "")
+        return res.replace("[^a-z0-9]".toRegex(RegexOption.IGNORE_CASE), "")
     }
 }

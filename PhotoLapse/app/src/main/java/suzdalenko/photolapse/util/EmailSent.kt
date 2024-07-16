@@ -121,14 +121,14 @@ class EmailSent {
                         callback(true)
                     } catch (e: Exception) {
                         e.printStackTrace()
-                        // Log.d("checkAndUploadImages", "ERROR AL ENVIAR CORREO "+e.message.toString())
+                        Log.d("checkAndUploadImagesA", "ERROR AL ENVIAR CORREO "+e.message.toString())
                         callback(false)
                     }
                 }
                 executor.shutdown()
             } catch (e: MessagingException) {
                 e.printStackTrace()
-                // Log.d("checkAndUploadImages", "ERROR AL ENVIAR CORREO "+e.message.toString())
+                Log.d("checkAndUploadImagesA", "ERROR AL ENVIAR CORREO "+e.message.toString())
                 callback(false)
             }
         }

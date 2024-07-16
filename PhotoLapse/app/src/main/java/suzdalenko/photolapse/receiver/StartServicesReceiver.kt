@@ -8,6 +8,8 @@ import suzdalenko.photolapse.service.FileUploadService
 import suzdalenko.photolapse.service.PhotoCreateService
 import suzdalenko.photolapse.util.MyApp
 import suzdalenko.photolapse.util.MyApp.Companion.acquireWakeLock
+import suzdalenko.photolapse.util.MyApp.Companion.myApp
+import suzdalenko.photolapse.util.Settings.LogPhotoLapse
 
 class StartServicesReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
@@ -20,9 +22,12 @@ class StartServicesReceiver : BroadcastReceiver() {
             context.startService(Intent(context, PhotoCreateService::class.java))
             context.startService(Intent(context, FileUploadService::class.java))
         }
-        MyApp().setExactAlarm(context)
-        MyApp().scheduleExactAlarm(context)
-        // Toast.makeText(context, "Alarm Triggered StartServicesReceiver", Toast.LENGTH_SHORT).show()
+        LogPhotoLapse("work-StartServicesReceiver")
+        if (myApp.canScheduleExactAlarms(context)) {
+            myApp.setExactAlarm(context)
+            myApp.scheduleExactAlarm(context)
+            LogPhotoLapse("install-alarm-in-StartServicesReceiver")
+        }
         wakeLock.release()
     }
 }

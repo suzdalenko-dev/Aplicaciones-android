@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import suzdalenko.photolapse.ui.CameraActivity
+import suzdalenko.photolapse.util.Settings.LogPhotoLapse
 
 class FirstPlaneReceiver : BroadcastReceiver(){
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -12,6 +13,7 @@ class FirstPlaneReceiver : BroadcastReceiver(){
                 val message = it.getStringExtra("message")
                 val startIntent = Intent(context, CameraActivity::class.java)
                 startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                LogPhotoLapse("work-FirstPlaneReceiver")
                 context?.startActivity(startIntent)
             }
         }

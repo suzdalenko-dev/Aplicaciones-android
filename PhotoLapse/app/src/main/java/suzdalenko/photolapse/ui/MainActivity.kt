@@ -34,7 +34,9 @@ import suzdalenko.photolapse.service.FileUploadService
 import suzdalenko.photolapse.service.PhotoCreateService
 import suzdalenko.photolapse.util.MyApp
 import suzdalenko.photolapse.util.MyApp.Companion.isValidEmail
+import suzdalenko.photolapse.util.MyApp.Companion.myApp
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
+import suzdalenko.photolapse.util.Settings.LogPhotoLapse
 
 class MainActivity : AppCompatActivity() {
     private lateinit var requestExactAlarmPermissionLauncher: ActivityResultLauncher<Intent>
@@ -88,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                 prefs.edit().putString("email", email).apply()
                 Toast.makeText(this, getString(R.string.email_saved), Toast.LENGTH_SHORT).show();
                 editEmail.setText(prefs.getString("email", "email").toString()); editEmail.clearFocus()
+                LogPhotoLapse("save-btnGuardar-MainActivity-${email}")
             } else { Toast.makeText(this, getString(R.string.insert_email_correct), Toast.LENGTH_SHORT).show(); editEmail.setText("") }
         }
         // test button
@@ -119,6 +122,7 @@ class MainActivity : AppCompatActivity() {
             prefs.edit().putInt("hourOfDay", hourOfDay.toInt()).apply()
             prefs.edit().putInt("minute", minuteValue.toInt()).apply()
             prefs.edit().putLong("camera_frequency", x).apply()
+            LogPhotoLapse("change-timePicker-MainActivity-${x}")
         }
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
@@ -130,28 +134,24 @@ class MainActivity : AppCompatActivity() {
             bindService(Intent(this, FileUploadService::class.java), conFileUploading, Context.BIND_AUTO_CREATE)
         }
         requestExactAlarmPermissionLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (canScheduleExactAlarms()) {
-                MyApp().setExactAlarm(applicationContext)
-                MyApp().scheduleExactAlarm(applicationContext)
+            if (myApp.canScheduleExactAlarms(applicationContext)) {
+                myApp.setExactAlarm(applicationContext)
+                myApp.scheduleExactAlarm(applicationContext)
             } else {
                 Toast.makeText(this, "Permission denied. Exact alarms won't work.", Toast.LENGTH_SHORT).show()
             }
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            if (!canScheduleExactAlarms()) {
+            if (!myApp.canScheduleExactAlarms(applicationContext)) {
                 requestScheduleExactAlarmsPermission()
             } else {
-                MyApp().setExactAlarm(applicationContext)
-                MyApp().scheduleExactAlarm(applicationContext)
+                myApp.setExactAlarm(applicationContext)
+                myApp.scheduleExactAlarm(applicationContext)
             }
         } else {
-            MyApp().setExactAlarm(applicationContext)
-            MyApp().scheduleExactAlarm(applicationContext)
+            myApp.setExactAlarm(applicationContext)
+            myApp.scheduleExactAlarm(applicationContext)
         }
-    }
-    private fun canScheduleExactAlarms(): Boolean {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) { val alarmManager = getSystemService(ALARM_SERVICE) as android.app.AlarmManager; alarmManager.canScheduleExactAlarms()
-        } else { true }
     }
     private fun requestScheduleExactAlarmsPermission() {
         AlertDialog.Builder(this)

@@ -32,6 +32,10 @@ layout activity_settings
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
+raw camera_shutter
+raw error_photo
+raw error_upload
+raw upload_positive
 string a_mi_mismo
 string active_auto_start_in_foreground
 string ajuste2
