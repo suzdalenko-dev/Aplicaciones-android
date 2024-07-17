@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.photolapse.app-mergeReleaseResources-51:/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "suzdalenko.photolapse.app-mergeReleaseResources-57:/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\968b6863c75586328a443797061aa9c9\\transformed\\appcompat-1.7.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\4124952383fa711cff4aaf006ef9b962\\transformed\\appcompat-1.7.0\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

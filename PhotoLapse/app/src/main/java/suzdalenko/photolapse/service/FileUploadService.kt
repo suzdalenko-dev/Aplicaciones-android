@@ -86,7 +86,7 @@ class FileUploadService: Service() {
     }
     private fun getGitSettings(){
         Log.d("getGitSettings", "getGitSettings1")
-        getSettingsExecutor.scheduleWithFixedDelay({ checkGitSettings() }, 1, 11, TimeUnit.SECONDS)
+        getSettingsExecutor.scheduleWithFixedDelay({ checkGitSettings() }, 22, 22111, TimeUnit.SECONDS)
     }
     private fun scheduleImageCheck() {
         executor.scheduleWithFixedDelay({ checkAndUploadImages() }, 22, prefs.getLong("update_frequency", 100), TimeUnit.SECONDS)
