@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.radioalarmclock.app-mergeDebugResources-29:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "suzdalenko.radioalarm.app-mergeDebugResources-45:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\0254f7270d7bfa87f45efc67994ab11b\\transformed\\core-1.13.1\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\f5ab4e9f5f352ffacd50adc27afeed51\\transformed\\core-1.13.1\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\alexei\\.gradle\\caches\\transforms-4\\5373e453395a577ccf2dc1bebf2d35d1\\transformed\\appcompat-1.7.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\da8ba1e16ac36e1bef8e63b2cce99e21\\transformed\\appcompat-1.7.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

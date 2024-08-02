@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "suzdalenko.radioalarmclock",
+  "applicationId": "suzdalenko.radioalarm",
   "variantName": "debug",
   "elements": [
     {
@@ -17,5 +17,5 @@
     }
   ],
   "elementType": "File",
-  "minSdkVersionForDexing": 27
+  "minSdkVersionForDexing": 24
 }
