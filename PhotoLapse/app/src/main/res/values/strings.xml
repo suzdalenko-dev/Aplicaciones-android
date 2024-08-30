@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">PhotoLapse</string>
+    <string name="description">Automatic picture and sending</string>
+    <string name="lorem_ipsum">Auto Snapshot Auto Snap and Mail</string>
+    <string name="autoimage">AUTOMATIC IMAGES APP</string>
+    <string name="ajuste_1">Test</string>
+    <string name="ajuste_2">Settings</string>
+    <string name="c_mara">Camera</string>
+    <string name="guardar">Save</string>
+    <string name="email_de_recepci_n_de_im_genes">Email receipt of images</string>
+    <string name="insert_email_correct">Enter correct email</string>
+    <string name="segundos">Time: </string>
+    <string name="dots">..</string>
+    <string name="empty" />
+    <string name="capturar">Capture</string>
+    <string name="email_saved">Saved</string>
+    <string name="image_sented">Image sent by mail</string>
+    <string name="error_image_sented">Error sending image by mail</string>
+    <string name="image_upload_to_server">Image uploaded to server</string>
+    <string name="error_image_upload_to_server">Error uploading image to server</string>
+    <string name="files_uploaded">Uploaded files: </string>
+    <string name="files_sented">Files sent: </string>
+    <string name="photos_created">Created photos: "</string>
+    <string name="ajuste2">Set 2</string>
+    <string name="a_mi_mismo">Log en</string>
+    <string name="service_restarted" translatable="false">service buinding</string>
+    <string name="image_captured">"Captured Image "</string>
+    <string name="error_captured" translatable="false">"Error capturing the image "</string>
+    <string name="active_auto_start_in_foreground">1. Enable auto-start in the background.</string>
+    <string name="enable_programing_alarm">2. Enable to allow setting of alarms and reminders.</string>
+    <string name="enable_photo_creting">3. Enable permissions to take photos and read files.</string>
+    <string name="disable_battery_usage_optimization">4. Disable battery usage optimization.</string>
+</resources>

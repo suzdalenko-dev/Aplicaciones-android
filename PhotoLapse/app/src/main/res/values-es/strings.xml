@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">FotoLapso</string>
+    <string name="description">Instantánea automática y envío</string>
+    <string name="lorem_ipsum">Foto Lapso</string>
+    <string name="autoimage">APLICACIÓN DE IMÁGENES AUTOMÁTICAS</string>
+    <string name="ajuste_1">Prueba</string>
+    <string name="ajuste_2">Ajustes</string>
+    <string name="c_mara">Cámara</string>
+    <string name="guardar">Guardar</string>
+    <string name="email_de_recepci_n_de_im_genes">Email de recepción de imágenes</string>
+    <string name="insert_email_correct">Ingrese email correcto</string>
+    <string name="segundos">El tiempo: </string>
+    <string name="dots">..</string>
+    <string name="empty" />
+    <string name="capturar">Capturar</string>
+    <string name="email_saved">Guardado</string>
+    <string name="image_sented">Imagen enviada por correo\n</string>
+    <string name="error_image_sented">Error al enviar imagen por correo</string>
+    <string name="image_upload_to_server">Imagen subida al servidor</string>
+    <string name="error_image_upload_to_server">Error al subir imagen al servidor</string>
+    <string name="files_uploaded">"Archivos subidos: "</string>
+    <string name="files_sented">"Archivos enviados: "</string>
+    <string name="photos_created">"Fotos creadas: "</string>
+    <string name="ajuste2">Ajuste 2</string>
+    <string name="a_mi_mismo">Log es</string>
+    <string name="image_captured">"Imagen creada "</string>
+    <string name="active_auto_start_in_foreground">1. Activar el arranque automático en segundo plano.</string>
+    <string name="enable_programing_alarm">2. Activar para permitir la configuración de alarmas y recordatorios.</string>
+    <string name="enable_photo_creting">3. Habilitar permisos de hacer fotos y leer archivos.</string>
+    <string name="disable_battery_usage_optimization">4. Desactivar la optimización del uso de la batería.</string>
+</resources>
