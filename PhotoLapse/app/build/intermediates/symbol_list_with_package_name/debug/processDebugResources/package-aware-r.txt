@@ -3528,10 +3528,12 @@ id pin
 id position
 id postLayout
 id pressed
+id previewView
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id record_button
 id rectangles
 id report_drawn
 id reverseSawtooth
@@ -3801,6 +3803,7 @@ layout abc_tooltip
 layout activity_camera
 layout activity_main
 layout activity_settings
+layout activity_video
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

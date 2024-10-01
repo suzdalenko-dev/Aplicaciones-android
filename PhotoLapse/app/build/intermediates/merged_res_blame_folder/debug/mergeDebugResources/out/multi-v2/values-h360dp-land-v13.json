@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-57:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
+            "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-2:/values-h360dp-land-v13/values-h360dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\287060a2e64cf3f4d9c3a4abfecf7c55\\transformed\\material-1.12.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
+                    "source": "D:\\ProgramData\\jdk\\caches\\transforms-4\\ad04e081b1b62573a7e0368c5a7ab28d\\transformed\\material-1.12.0\\res\\values-h360dp-land-v13\\values-h360dp-land-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",

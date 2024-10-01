@@ -63,7 +63,7 @@ class MyApp: Application() {
                     cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview, imageCapture)
                 } catch (exc: Exception) {
                     Log.e("CameraUtil", "Error initializing camera: ${exc.message}", exc)
-                } }, ContextCompat.getMainExecutor(context))
+                }}, ContextCompat.getMainExecutor(context))
 
         }
         fun getImageCapture(): ImageCapture? {

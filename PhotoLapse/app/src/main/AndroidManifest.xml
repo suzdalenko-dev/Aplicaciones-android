@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="suzdalenko.photolapse"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="suzdalenko.photolapse">
 
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -16,7 +22,7 @@
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
-        android:name="suzdalenko.photolapse.util.MyApp"
+        android:name=".util.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -26,8 +32,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FroxaImagenes"
         android:usesCleartextTraffic="false"
-
         tools:targetApi="31">
+        <activity
+            android:name=".ui.VideoActivity"
+            android:exported="false" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -46,34 +55,39 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation" android:supportsPictureInPicture="true"
-            android:name="suzdalenko.photolapse.ui.CameraActivity"
-            android:exported="false"
-            android:launchMode="singleInstance" />
         <activity
-            android:name="suzdalenko.photolapse.ui.SettingActivity"
+            android:name=".ui.CameraActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:exported="false"
+            android:launchMode="singleInstance"
+            android:supportsPictureInPicture="true" />
+        <activity
+            android:name=".ui.SettingActivity"
             android:exported="false"
             android:theme="@style/Theme.FroxaImagenes" />
         <activity
-            android:name="suzdalenko.photolapse.ui.MainActivity"
-            android:exported="true"  android:launchMode="singleInstance">
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <receiver
-            android:name="suzdalenko.photolapse.receiver.BootReceiver"
+            android:name=".receiver.BootReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
         <receiver
-            android:name="suzdalenko.photolapse.receiver.FirstPlaneReceiver"
+            android:name=".receiver.FirstPlaneReceiver"
             android:enabled="true"
             android:exported="false"
             android:permission="TODO">
@@ -81,19 +95,30 @@
                 <action android:name="com.example.ACTION_EVENT" />
             </intent-filter>
         </receiver>
+
         <service
-            android:name="suzdalenko.photolapse.service.FileUploadService"
+            android:name=".service.FileUploadService"
             android:exported="false"
             android:foregroundServiceType="camera" />
         <service
-            android:name="suzdalenko.photolapse.service.PhotoCreateService"
+            android:name=".service.PhotoCreateService"
             android:exported="false"
             android:foregroundServiceType="camera" />
-        <receiver android:name=".receiver.StopPhotoCreatingReceiver" android:exported="false" android:enabled="true" />
-        <receiver android:name=".receiver.StopFileUploadReceiver" android:exported="false" android:enabled="true" />
-        <receiver android:name=".receiver.StartServicesReceiver" android:exported="false" android:enabled="true">
+
+        <receiver
+            android:name=".receiver.StopPhotoCreatingReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name=".receiver.StopFileUploadReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name=".receiver.StartServicesReceiver"
+            android:enabled="true"
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     </application>

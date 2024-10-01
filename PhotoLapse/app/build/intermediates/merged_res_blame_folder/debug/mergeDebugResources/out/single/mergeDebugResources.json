@@ -1,118 +1,126 @@
 [
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/raw_upload_positive.mp3.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/raw/upload_positive.mp3"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\xml_data_extraction_rules.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\layout_activity_main.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\layout\\activity_main.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\xml_backup_rules.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-hdpi/ic_launcher_foreground.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/drawable_ic_launcher_background.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/drawable/ic_launcher_background.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-mdpi/ic_launcher_foreground.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/xml_file_paths.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/xml/file_paths.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\layout_activity_video.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\layout\\activity_video.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\layout_activity_settings.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\layout\\activity_settings.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/layout_activity_main.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/layout/activity_main.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\raw_error_upload.mp3.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\raw\\error_upload.mp3"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\xml_file_paths.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\xml\\file_paths.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\drawable_ic_launcher_background.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\raw_camera_shutter.mp3.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\raw\\camera_shutter.mp3"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/drawable/ic_launcher_foreground.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\layout_activity_camera.xml.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\layout\\activity_camera.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/xml_backup_rules.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/xml/backup_rules.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\raw_upload_positive.mp3.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\raw\\upload_positive.mp3"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/layout_activity_settings.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/layout/activity_settings.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xxhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/layout_activity_camera.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/layout/activity_camera.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-xhdpi/ic_launcher_foreground.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\raw_error_photo.mp3.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\raw\\error_photo.mp3"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/xml_data_extraction_rules.xml.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/xml/data_extraction_rules.xml"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/raw_error_upload.mp3.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/raw/error_upload.mp3"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/raw_camera_shutter.mp3.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/raw/camera_shutter.mp3"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-hdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "suzdalenko.photolapse.app-debug-59:/raw_error_photo.mp3.flat",
-        "source": "suzdalenko.photolapse.app-main-61:/raw/error_photo.mp3"
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "suzdalenko.photolapse.app-debug-4:/layout_activity_video.xml.flat",
+        "source": "suzdalenko.photolapse.app-main-6:/layout/activity_video.xml"
+    },
+    {
+        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-debug-4:\\mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\mipmap-mdpi\\ic_launcher_foreground.webp"
     }
 ]

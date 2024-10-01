@@ -1,12 +1,12 @@
-#Tue Aug 20 21:00:01 CEST 2024
-base.0=E\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=E\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=E\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
-base.3=E\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-base.4=E\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
-base.5=E\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.6=E\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
-base.7=E\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+#Tue Oct 01 21:18:15 CEST 2024
+base.0=D\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=D\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=D\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=D\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
+base.4=D\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.5=D\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
+base.6=D\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
+base.7=D\:\\Aplicaciones-android\\PhotoLapse\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=10/classes.dex

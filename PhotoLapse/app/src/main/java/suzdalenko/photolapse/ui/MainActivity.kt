@@ -152,6 +152,8 @@ class MainActivity : AppCompatActivity() {
             myApp.setExactAlarm(applicationContext)
             myApp.scheduleExactAlarm(applicationContext)
         }
+
+        startActivity(Intent(this, VideoActivity::class.java))
     }
     private fun requestScheduleExactAlarmsPermission() {
         AlertDialog.Builder(this)

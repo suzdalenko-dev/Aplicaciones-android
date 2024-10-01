@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-57:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-2:/values-ldrtl-v17/values-ldrtl-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\287060a2e64cf3f4d9c3a4abfecf7c55\\transformed\\material-1.12.0\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",
+                    "source": "D:\\ProgramData\\jdk\\caches\\transforms-4\\ad04e081b1b62573a7e0368c5a7ab28d\\transformed\\material-1.12.0\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

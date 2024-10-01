@@ -20,6 +20,8 @@ id etEmail
 id guideline
 id main
 id photos_created
+id previewView
+id record_button
 id seconds_left
 id switchCompat
 id timePicker
@@ -29,6 +31,7 @@ id viewFinder
 layout activity_camera
 layout activity_main
 layout activity_settings
+layout activity_video
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round

@@ -1,4 +1,5 @@
 package suzdalenko.photolapse.service
+import android.Manifest
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -6,6 +7,7 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Binder
 import android.os.Build
 import android.os.Handler
@@ -20,6 +22,14 @@ import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.camera.video.FileOutputOptions
+import androidx.camera.video.Quality
+import androidx.camera.video.QualitySelector
+import androidx.camera.video.Recorder
+import androidx.camera.video.Recording
+import androidx.camera.video.VideoCapture
+import androidx.camera.video.VideoRecordEvent
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleService
@@ -122,30 +132,28 @@ class PhotoCreateService : LifecycleService() {
     }
 
     private fun takePhoto() {
-        val imageCapture = getImageCapture() ?: return
-        val imageDir = File(externalMediaDirs.firstOrNull(), "images")
-        if (!imageDir.exists()) { imageDir.mkdirs() }
-        val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.US).format(System.currentTimeMillis()) + ".jpg")
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-        if (prefs.getString("flash", "x").toString() == "flash") { imageCapture.flashMode = ImageCapture.FLASH_MODE_ON } else { imageCapture.flashMode = ImageCapture.FLASH_MODE_OFF }
-        imageCapture.takePicture(
-            outputOptions,
-            ContextCompat.getMainExecutor(this),
-            object : ImageCapture.OnImageSavedCallback {
-                override fun onError(exc: ImageCaptureException) {
-                    initializeCamera(this@PhotoCreateService, this@PhotoCreateService)
-                    Toast.makeText(baseContext, "SER ${exc.message}", Toast.LENGTH_SHORT).show()
-                    Log.e("PhotoCreateService", "Photo capture failed: ${exc.message}", exc)
-                    LogPhotoLapse("ERROR-takePhoto-PhotoCreateService")
-                    errorSoundGetFoto(applicationContext)
-                }
-                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    Toast.makeText(baseContext, getString(R.string.image_captured) + photoFile.name.toString(), Toast.LENGTH_SHORT).show()
-                    fotosCreadasActivity += 1
-                    LogPhotoLapse("good-takePhoto-PhotoCreateService")
-                    playSoundGetFoto(applicationContext)
-                }
-            }
+         val imageCapture = getImageCapture() ?: return
+         val imageDir = File(externalMediaDirs.firstOrNull(), "images")
+         if (!imageDir.exists()) { imageDir.mkdirs() }
+         val photoFile = File(imageDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.US).format(System.currentTimeMillis()) + ".jpg")
+         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+         if (prefs.getString("flash", "x").toString() == "flash") { imageCapture.flashMode = ImageCapture.FLASH_MODE_ON } else { imageCapture.flashMode = ImageCapture.FLASH_MODE_OFF }
+
+        imageCapture.takePicture(outputOptions, ContextCompat.getMainExecutor(this), object : ImageCapture.OnImageSavedCallback {
+                 override fun onError(exc: ImageCaptureException) {
+                     initializeCamera(this@PhotoCreateService, this@PhotoCreateService)
+                     Toast.makeText(baseContext, "SER ${exc.message}", Toast.LENGTH_SHORT).show()
+                     Log.e("PhotoCreateService", "Photo capture failed: ${exc.message}", exc)
+                     LogPhotoLapse("ERROR-takePhoto-PhotoCreateService")
+                     errorSoundGetFoto(applicationContext)
+                 }
+                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                     Toast.makeText(baseContext, getString(R.string.image_captured) + photoFile.name.toString(), Toast.LENGTH_SHORT).show()
+                     fotosCreadasActivity += 1
+                     LogPhotoLapse("good-takePhoto-PhotoCreateService")
+                     playSoundGetFoto(applicationContext)
+                 }
+             }
         )
     }
 
@@ -211,4 +219,5 @@ class PhotoCreateService : LifecycleService() {
             }
         }, 5000)
     }
+
 }
