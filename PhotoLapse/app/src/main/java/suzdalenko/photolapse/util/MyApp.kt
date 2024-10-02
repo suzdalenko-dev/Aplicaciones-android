@@ -96,10 +96,9 @@ class MyApp: Application() {
             }, ContextCompat.getMainExecutor(context))
         }
         fun monitorFileSize(videoFile: File) {
-            val maxSizeInBytes = 1 * 1024 * 1024 // 22
+            val maxSizeInBytes = 22 * 1024 * 1024 // 22
             Thread {
                 while (recording != null) {
-                    Log.d("suzdalenko_x_log", (videoFile.length() / 1024 / 1024).toString())
                     if (videoFile.length() > maxSizeInBytes) {
                         recording?.stop()
                         recording = null

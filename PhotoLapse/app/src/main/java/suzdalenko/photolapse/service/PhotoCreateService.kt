@@ -128,7 +128,6 @@ class PhotoCreateService : LifecycleService() {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 if(DISPARO_CAMARA.toInt() <= 0 || DISPARO_CAMARA.toInt() == 0) {
-                    Log.d("suzdalenko_x_log", "(videoFile.length() / 1024 / 1024).toString()")
                     if(prefs.getString("image_video", "x") == "video"){
                         if (recording != null) {
                             // Detener la grabación
