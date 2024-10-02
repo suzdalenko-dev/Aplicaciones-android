@@ -10,8 +10,8 @@ android {
         applicationId = "suzdalenko.photolapse"
         minSdk = 24
         targetSdk = 34
-        versionCode = 8
-        versionName = "8"
+        versionCode = 9
+        versionName = "9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
