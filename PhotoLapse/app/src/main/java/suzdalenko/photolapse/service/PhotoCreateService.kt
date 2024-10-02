@@ -15,6 +15,7 @@ import android.os.HandlerThread
 import android.os.IBinder
 import android.os.Looper
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.camera.core.CameraSelector
@@ -29,6 +30,7 @@ import androidx.camera.video.Recorder
 import androidx.camera.video.Recording
 import androidx.camera.video.VideoCapture
 import androidx.camera.video.VideoRecordEvent
+import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -46,7 +48,11 @@ import suzdalenko.photolapse.util.MyApp.Companion.DISPARO_CAMARA
 import suzdalenko.photolapse.util.MyApp.Companion.formatSeconds
 import suzdalenko.photolapse.util.MyApp.Companion.getImageCapture
 import suzdalenko.photolapse.util.MyApp.Companion.initializeCamera
+import suzdalenko.photolapse.util.MyApp.Companion.initializedVIDEO
+import suzdalenko.photolapse.util.MyApp.Companion.monitorFileSize
 import suzdalenko.photolapse.util.MyApp.Companion.prefs
+import suzdalenko.photolapse.util.MyApp.Companion.recording
+import suzdalenko.photolapse.util.MyApp.Companion.videoCapture
 import suzdalenko.photolapse.util.PlaySound.errorSoundGetFoto
 import suzdalenko.photolapse.util.PlaySound.playSoundGetFoto
 import suzdalenko.photolapse.util.Settings.LogPhotoLapse
@@ -122,7 +128,17 @@ class PhotoCreateService : LifecycleService() {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 if(DISPARO_CAMARA.toInt() <= 0 || DISPARO_CAMARA.toInt() == 0) {
-                    takePhoto()
+                    Log.d("suzdalenko_x_log", "(videoFile.length() / 1024 / 1024).toString()")
+                    if(prefs.getString("image_video", "x") == "video"){
+                        if (recording != null) {
+                            // Detener la grabación
+                            recording?.stop()
+                            recording = null
+                        }
+                        startRecording()
+                    } else {
+                        takePhoto();
+                    }
                     DISPARO_CAMARA = prefs.getLong("camera_frequency", 1000)
                     countSecond = 0
                 }
@@ -155,6 +171,38 @@ class PhotoCreateService : LifecycleService() {
                  }
              }
         )
+    }
+    private fun startRecording() {
+
+        if (videoCapture == null ) {
+            initializedVIDEO(this@PhotoCreateService, this@PhotoCreateService)
+            Toast.makeText(this, "Camara don`t  initialized, intent later", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val videoDir = File(externalMediaDirs.firstOrNull(), "videos")
+        if (!videoDir.exists()) { videoDir.mkdirs() }
+        val videoFile = File(videoDir, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.US).format(System.currentTimeMillis()) + ".mp4")
+
+        val outputOptions = FileOutputOptions.Builder(videoFile).build()
+        recording = videoCapture?.output?.prepareRecording(this, outputOptions)?.apply {
+            if (ActivityCompat.checkSelfPermission(this@PhotoCreateService, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                withAudioEnabled()
+            }
+        }?.start(ContextCompat.getMainExecutor(this)) { recordEvent ->
+            when (recordEvent) {
+                is VideoRecordEvent.Start -> { monitorFileSize(videoFile) }
+                is VideoRecordEvent.Finalize -> {
+                    if (recordEvent.error == VideoRecordEvent.Finalize.ERROR_NONE) {
+                        Toast.makeText(baseContext, videoFile.name.toString(), Toast.LENGTH_SHORT).show()
+                        fotosCreadasActivity += 1
+                    } else {
+                        Toast.makeText(baseContext, "Video recording error", Toast.LENGTH_SHORT).show()
+                        initializedVIDEO(this@PhotoCreateService, this@PhotoCreateService)
+                    }
+                }
+            }
+        }
     }
 
 

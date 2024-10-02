@@ -45,7 +45,29 @@
             android:id="@+id/switchCompat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/empty" />
+            android:text="@string/on_of_flash"
+            android:textColor="@color/mi_green"
+            android:textSize="11sp"
+            android:layoutDirection="rtl"
+            />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchImageVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/on_image_video"
+            android:textColor="@color/mi_green"
+            android:textSize="11sp"
+            android:layoutDirection="rtl"
+            />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchSound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/on_sound"
+            android:textColor="@color/mi_green"
+            android:textSize="11sp"
+            android:layoutDirection="rtl"
+            />
     </LinearLayout>
 
     <Button

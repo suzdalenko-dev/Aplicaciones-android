@@ -3608,6 +3608,8 @@ int id submenuarrow 0x7f0801c4
 int id submit_area 0x7f0801c5
 int id supportScrollUp 0x7f0801c6
 int id switchCompat 0x7f0801c7
+int id switchImageVideo 0x7f080216
+int id switchSound 0x7f080217
 int id tabMode 0x7f0801c8
 int id tag_accessibility_actions 0x7f0801c9
 int id tag_accessibility_clickable_spans 0x7f0801ca
@@ -4075,6 +4077,9 @@ int string mtrl_timepicker_cancel 0x7f1000b5
 int string mtrl_timepicker_confirm 0x7f1000b6
 int string nav_app_bar_navigate_up_description 0x7f1000b7
 int string nav_app_bar_open_drawer_description 0x7f1000b8
+int string on_image_video 0x7f1000c9
+int string on_of_flash 0x7f1000c8
+int string on_sound 0x7f1000ca
 int string password_toggle_content_description 0x7f1000b9
 int string path_password_eye 0x7f1000ba
 int string path_password_eye_mask_strike_through 0x7f1000bb

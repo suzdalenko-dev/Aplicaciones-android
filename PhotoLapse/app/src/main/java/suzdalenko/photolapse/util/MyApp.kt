@@ -18,13 +18,21 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.camera.video.Quality
+import androidx.camera.video.QualitySelector
+import androidx.camera.video.Recorder
+import androidx.camera.video.Recording
+import androidx.camera.video.VideoCapture
 import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
+import suzdalenko.photolapse.R
 import suzdalenko.photolapse.receiver.StartServicesReceiver
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import java.util.concurrent.ExecutorService
 
 class MyApp: Application() {
     companion object {
@@ -50,6 +58,10 @@ class MyApp: Application() {
 
 
         private var imageCapture: ImageCapture? = null
+        var videoCapture: VideoCapture<Recorder>? = null
+        var recording: Recording? = null
+        lateinit var cameraExecutor: ExecutorService
+
         fun initializeCamera(context: Context, lifecycleOwner: LifecycleOwner, viewFinder: PreviewView? = null) {
             val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
             cameraProviderFuture.addListener({
@@ -66,6 +78,38 @@ class MyApp: Application() {
                 }}, ContextCompat.getMainExecutor(context))
 
         }
+        fun initializedVIDEO(context: Context, lifecycleOwner: LifecycleOwner, viewFinder: PreviewView? = null) {
+            val cameraProviderFuture = ProcessCameraProvider.getInstance(context)
+            cameraProviderFuture.addListener({
+                val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+                val preview = Preview.Builder().build()
+                if (viewFinder != null) { preview.setSurfaceProvider(viewFinder.surfaceProvider) }
+                val recorder = Recorder.Builder().setQualitySelector(QualitySelector.from(Quality.HIGHEST)).build()
+                videoCapture = VideoCapture.withOutput(recorder)
+                val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+                try {
+                    cameraProvider.unbindAll()
+                    cameraProvider.bindToLifecycle(lifecycleOwner, cameraSelector, preview, videoCapture)
+                } catch (e: Exception) {
+                    Log.e("CameraX", "Fallo al iniciar la cámara.", e)
+                }
+            }, ContextCompat.getMainExecutor(context))
+        }
+        fun monitorFileSize(videoFile: File) {
+            val maxSizeInBytes = 1 * 1024 * 1024 // 22
+            Thread {
+                while (recording != null) {
+                    Log.d("suzdalenko_x_log", (videoFile.length() / 1024 / 1024).toString())
+                    if (videoFile.length() > maxSizeInBytes) {
+                        recording?.stop()
+                        recording = null
+                        break
+                    }
+                    Thread.sleep(222)
+                }
+            }.start()
+        }
+
         fun getImageCapture(): ImageCapture? {
             return imageCapture
         }
@@ -156,4 +200,5 @@ class MyApp: Application() {
         val res = input.replace(" ", "")
         return res.replace("[^a-z0-9]".toRegex(RegexOption.IGNORE_CASE), "")
     }
+
 }

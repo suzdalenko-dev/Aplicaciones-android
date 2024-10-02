@@ -68,12 +68,10 @@ class VideoActivity : AppCompatActivity() {
         cameraProviderFuture.addListener({
             val cameraProvider = cameraProviderFuture.get()
 
-            // Configuración del visor de la cámara
             val preview = Preview.Builder().build()
             val previewView = findViewById<PreviewView>(R.id.previewView)
             preview.setSurfaceProvider(previewView.surfaceProvider)
 
-            // Configuración del VideoCapture
             val recorder = Recorder.Builder()
                 .setQualitySelector(QualitySelector.from(Quality.HIGHEST))
                 .build()
@@ -83,7 +81,6 @@ class VideoActivity : AppCompatActivity() {
             val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
 
             try {
-                // Unbind de cualquier cámara anterior y bind a la nueva
                 cameraProvider.unbindAll()
                 cameraProvider.bindToLifecycle(
                     this, cameraSelector, preview, videoCapture
@@ -96,11 +93,7 @@ class VideoActivity : AppCompatActivity() {
     }
 
     private fun startRecording() {
-        val videoFile = File(
-            outputDirectory, SimpleDateFormat(
-                "yyyy-MM-dd-HH-mm-ss-SSS", Locale.US
-            ).format(System.currentTimeMillis()) + ".mp4"
-        )
+        val videoFile = File(outputDirectory, SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.US).format(System.currentTimeMillis()) + ".mp4")
 
         val outputOptions = FileOutputOptions.Builder(videoFile).build()
         recording = videoCapture.output

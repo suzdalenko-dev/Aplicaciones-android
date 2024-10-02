@@ -30,4 +30,7 @@
     <string name="enable_programing_alarm">2. Enable to allow setting of alarms and reminders.</string>
     <string name="enable_photo_creting">3. Enable permissions to take photos and read files.</string>
     <string name="disable_battery_usage_optimization">4. Disable battery usage optimization.</string>
+    <string name="on_of_flash" translatable="false">on/off Flash</string>
+    <string name="on_image_video" translatable="false">Video/Image</string>
+    <string name="on_sound" translatable="false">on/off Sound</string>
 </resources>

@@ -94,7 +94,7 @@ class FileUploadService: Service() {
     private fun checkAndUploadImages() {
         countFiles  = 0
         volumeFiles = 0.0
-        if(photosUploaded > 999999) photosUploaded = 0
+        if(photosUploaded > 99999999) photosUploaded = 0
 
         val imageDir = File(externalMediaDirs.firstOrNull(), "images")
         if (imageDir.exists() && imageDir.isDirectory) {
@@ -115,14 +115,29 @@ class FileUploadService: Service() {
                             listImageFiles.add(imageFile)
                         }
                     } else {
-                        Log.d("checkAndUploadImages", "AÑADIENDO ARCHIVOS BOTTOM"+countFiles)
                         if(countFiles <= 1) { listImageFiles.add(imageFile) }
                     }
                 }
                 if(listImageFiles.size > 0) sendFilesToNormalUser(listImageFiles, countFiles)
             }
-        } else {
-            showToast("No images found or directory does not exist.")
+        }
+        /* SEND VIDEOS FROM NORMAL USER */
+        val videoDir = File(externalMediaDirs.firstOrNull(), "videos")
+        if (videoDir.exists() && videoDir.isDirectory) {
+            val listImageFiles: MutableList<File> = mutableListOf()
+            videoDir.listFiles()?.sortedBy{ it.name }?.forEach { videoFile ->
+                if(videoFile.length() > 23 * 1024 * 1024) { videoFile.delete(); }
+                countFiles++
+                if(haveErrorEnvio == 0){
+                    if((volumeFiles + (videoFile.length() / (1024.0 * 1024.0))) <= 23.1){
+                        volumeFiles += (videoFile.length() / (1024.0 * 1024.0))
+                        listImageFiles.add(videoFile)
+                    }
+                } else {
+                    if(countFiles <= 1) { listImageFiles.add(videoFile) }
+                }
+            }
+            if(listImageFiles.size > 0) sendFilesToNormalUser(listImageFiles, countFiles)
         }
     }
     private fun sendFilesToNormalUser(listImageFiles: List<File>, countFiles: Int){

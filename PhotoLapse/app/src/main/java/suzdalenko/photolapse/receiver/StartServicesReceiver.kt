@@ -13,7 +13,7 @@ import suzdalenko.photolapse.util.Settings.LogPhotoLapse
 
 class StartServicesReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        Toast.makeText(context, "Alarm Triggered StartServicesReceiver", Toast.LENGTH_SHORT).show()
+
         val wakeLock = acquireWakeLock(context)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(Intent(context, PhotoCreateService::class.java))
