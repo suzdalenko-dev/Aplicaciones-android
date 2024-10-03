@@ -64,6 +64,7 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var switchCompat: SwitchCompat
     private lateinit var switchImageVideo: SwitchCompat
     private lateinit var switchSound: SwitchCompat
+    private lateinit var switchCuality: SwitchCompat
 
     private val conFileUploading = object : ServiceConnection {
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
@@ -152,6 +153,12 @@ class CameraActivity : AppCompatActivity() {
             if (isChecked) { prefs.edit().putString("sound", "sound").apply(); Toast.makeText(this, "Sound ON", Toast.LENGTH_SHORT).show()
             } else { prefs.edit().putString("sound", "x").apply(); Toast.makeText(this, "Sound OFF", Toast.LENGTH_SHORT).show() }
         }
+        switchCuality = findViewById(R.id.switchCuality)
+        switchCuality.isChecked = prefs.getString("quality", "x") == "quality"
+        switchCuality.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) { prefs.edit().putString("quality", "quality").apply(); Toast.makeText(this, "High quality video", Toast.LENGTH_SHORT).show()
+            } else { prefs.edit().putString("quality", "x").apply(); Toast.makeText(this, "Low quality video", Toast.LENGTH_SHORT).show() }
+        }
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
@@ -215,7 +222,8 @@ class CameraActivity : AppCompatActivity() {
             if (ActivityCompat.checkSelfPermission(this@CameraActivity, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
                 withAudioEnabled()
             }
-        }?.start(ContextCompat.getMainExecutor(this)) { recordEvent ->
+        }
+            ?.start(ContextCompat.getMainExecutor(this)) { recordEvent ->
                 when (recordEvent) {
                     is VideoRecordEvent.Start -> { monitorFileSize(videoFile) }
                     is VideoRecordEvent.Finalize -> {

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.photolapse.app-mergeReleaseResources-57:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "suzdalenko.photolapse.app-mergeReleaseResources-2:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\4124952383fa711cff4aaf006ef9b962\\transformed\\appcompat-1.7.0\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "D:\\ProgramData\\jdk\\caches\\transforms-4\\19cd4d1fe8e2a967c8877ed092fa6051\\transformed\\appcompat-1.7.0\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\18e0f29519ca3e42d77a4da3e8648bbc\\transformed\\core-1.13.1\\res\\values-en-rCA\\values-en-rCA.xml",
+                    "source": "D:\\ProgramData\\jdk\\caches\\transforms-4\\c55a89b6e103f8aa40731a5a637ef878\\transformed\\core-1.13.1\\res\\values-en-rCA\\values-en-rCA.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

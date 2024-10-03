@@ -3609,6 +3609,7 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id switchCompat
+id switchCuality
 id switchImageVideo
 id switchSound
 id tabMode
@@ -3976,6 +3977,7 @@ string image_upload_to_server
 string insert_email_correct
 string item_view_role_description
 string lorem_ipsum
+string low_higth
 string m3_exceed_max_badge_text_suffix
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular

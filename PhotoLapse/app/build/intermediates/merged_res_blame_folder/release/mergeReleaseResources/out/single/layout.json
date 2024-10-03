@@ -1,14 +1,18 @@
 [
     {
-        "merged": "suzdalenko.photolapse.app-mergeReleaseResources-58:/layout/activity_camera.xml",
-        "source": "suzdalenko.photolapse.app-main-60:/layout/activity_camera.xml"
+        "merged": "suzdalenko.photolapse.app-mergeReleaseResources-3:/layout/activity_camera.xml",
+        "source": "suzdalenko.photolapse.app-main-5:/layout/activity_camera.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-mergeReleaseResources-58:/layout/activity_settings.xml",
-        "source": "suzdalenko.photolapse.app-main-60:/layout/activity_settings.xml"
+        "merged": "suzdalenko.photolapse.app-mergeReleaseResources-3:/layout/activity_settings.xml",
+        "source": "suzdalenko.photolapse.app-main-5:/layout/activity_settings.xml"
     },
     {
-        "merged": "suzdalenko.photolapse.app-mergeReleaseResources-58:/layout/activity_main.xml",
-        "source": "suzdalenko.photolapse.app-main-60:/layout/activity_main.xml"
+        "merged": "suzdalenko.photolapse.app-mergeReleaseResources-3:/layout/activity_video.xml",
+        "source": "suzdalenko.photolapse.app-main-5:/layout/activity_video.xml"
+    },
+    {
+        "merged": "suzdalenko.photolapse.app-mergeReleaseResources-3:/layout/activity_main.xml",
+        "source": "suzdalenko.photolapse.app-main-5:/layout/activity_main.xml"
     }
 ]

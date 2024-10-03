@@ -24,6 +24,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import suzdalenko.photolapse.R
+import suzdalenko.photolapse.util.MyApp.Companion.monitorFileSize
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -138,17 +139,5 @@ class VideoActivity : AppCompatActivity() {
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
     }
-    private fun monitorFileSize(videoFile: File) {
-        val maxSizeInBytes = 22 * 1024 * 1024 // 22 MB
-        Thread {
-            while (recording != null) {
-                if (videoFile.length() > maxSizeInBytes) {
-                    recording?.stop()
-                    recording = null
-                    break
-                }
-                Thread.sleep(333)
-            }
-        }.start()
-    }
+
 }

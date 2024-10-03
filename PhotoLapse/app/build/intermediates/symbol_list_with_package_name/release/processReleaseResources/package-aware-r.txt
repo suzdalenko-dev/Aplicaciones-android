@@ -3528,10 +3528,12 @@ id pin
 id position
 id postLayout
 id pressed
+id previewView
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id record_button
 id rectangles
 id report_drawn
 id reverseSawtooth
@@ -3607,6 +3609,8 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id switchCompat
+id switchImageVideo
+id switchSound
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3801,6 +3805,7 @@ layout abc_tooltip
 layout activity_camera
 layout activity_main
 layout activity_settings
+layout activity_video
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -4073,6 +4078,9 @@ string mtrl_timepicker_cancel
 string mtrl_timepicker_confirm
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
+string on_image_video
+string on_of_flash
+string on_sound
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through

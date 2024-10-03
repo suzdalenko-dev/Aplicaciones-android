@@ -24,6 +24,7 @@ id previewView
 id record_button
 id seconds_left
 id switchCompat
+id switchCuality
 id switchImageVideo
 id switchSound
 id timePicker
@@ -69,6 +70,7 @@ string image_sented
 string image_upload_to_server
 string insert_email_correct
 string lorem_ipsum
+string low_higth
 string on_image_video
 string on_of_flash
 string on_sound

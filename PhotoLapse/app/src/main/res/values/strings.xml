@@ -14,13 +14,13 @@
     <string name="empty" />
     <string name="capturar">Capture</string>
     <string name="email_saved">Saved</string>
-    <string name="image_sented">Image sent by mail</string>
-    <string name="error_image_sented">Error sending image by mail</string>
+    <string name="image_sented">Files sent by mail</string>
+    <string name="error_image_sented">Error sending files by mail</string>
     <string name="image_upload_to_server">Image uploaded to server</string>
     <string name="error_image_upload_to_server">Error uploading image to server</string>
     <string name="files_uploaded">Uploaded files: </string>
     <string name="files_sented">Files sent: </string>
-    <string name="photos_created">Created photos: "</string>
+    <string name="photos_created">Created files: </string>
     <string name="ajuste2">Set 2</string>
     <string name="a_mi_mismo">Log en</string>
     <string name="service_restarted" translatable="false">service buinding</string>
@@ -33,4 +33,5 @@
     <string name="on_of_flash" translatable="false">on/off Flash</string>
     <string name="on_image_video" translatable="false">Video/Image</string>
     <string name="on_sound" translatable="false">on/off Sound</string>
+    <string name="low_higth" translatable="false">high/low Quality</string>
 </resources>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="suzdalenko.photolapse"
-    android:versionCode="8"
-    android:versionName="8" >
+    android:versionCode="9"
+    android:versionName="9" >
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -12,6 +12,8 @@
         android:name="android.hardware.camera"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -44,6 +46,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FroxaImagenes"
         android:usesCleartextTraffic="false" >
+        <activity
+            android:name="suzdalenko.photolapse.ui.VideoActivity"
+            android:exported="false" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

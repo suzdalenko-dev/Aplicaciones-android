@@ -51,6 +51,15 @@
             android:layoutDirection="rtl"
             />
         <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchSound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/on_sound"
+            android:textColor="@color/mi_green"
+            android:textSize="11sp"
+            android:layoutDirection="rtl"
+            />
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchImageVideo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,10 +69,10 @@
             android:layoutDirection="rtl"
             />
         <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchSound"
+            android:id="@+id/switchCuality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/on_sound"
+            android:text="@string/low_higth"
             android:textColor="@color/mi_green"
             android:textSize="11sp"
             android:layoutDirection="rtl"

@@ -33,6 +33,9 @@
     <string name="image_upload_to_server">Image uploaded to server</string>
     <string name="insert_email_correct">Enter correct email</string>
     <string name="lorem_ipsum">Auto Snapshot Auto Snap and Mail</string>
+    <string name="on_image_video" translatable="false">Video/Image</string>
+    <string name="on_of_flash" translatable="false">on/off Flash</string>
+    <string name="on_sound" translatable="false">on/off Sound</string>
     <string name="photos_created">Created photos: "</string>
     <string name="segundos">Time: </string>
     <string name="service_restarted" translatable="false">service buinding</string>

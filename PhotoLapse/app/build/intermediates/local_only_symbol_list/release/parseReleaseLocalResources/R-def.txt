@@ -20,8 +20,12 @@ id etEmail
 id guideline
 id main
 id photos_created
+id previewView
+id record_button
 id seconds_left
 id switchCompat
+id switchImageVideo
+id switchSound
 id timePicker
 id tvAutoImage
 id uploaded_photos
@@ -29,6 +33,7 @@ id viewFinder
 layout activity_camera
 layout activity_main
 layout activity_settings
+layout activity_video
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round
@@ -64,6 +69,9 @@ string image_sented
 string image_upload_to_server
 string insert_email_correct
 string lorem_ipsum
+string on_image_video
+string on_of_flash
+string on_sound
 string photos_created
 string segundos
 string service_restarted

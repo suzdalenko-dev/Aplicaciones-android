@@ -84,7 +84,9 @@ class MyApp: Application() {
                 val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
                 val preview = Preview.Builder().build()
                 if (viewFinder != null) { preview.setSurfaceProvider(viewFinder.surfaceProvider) }
-                val recorder = Recorder.Builder().setQualitySelector(QualitySelector.from(Quality.HIGHEST)).build()
+                val recorder: Recorder
+                if(prefs.getString("quality", "x") == "quality"){ recorder = Recorder.Builder().setQualitySelector(QualitySelector.from(Quality.HIGHEST)).build()
+                } else { recorder = Recorder.Builder().setQualitySelector(QualitySelector.from(Quality.LOWEST)).build() }
                 videoCapture = VideoCapture.withOutput(recorder)
                 val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
                 try {
@@ -97,13 +99,16 @@ class MyApp: Application() {
         }
         fun monitorFileSize(videoFile: File) {
             val maxSizeInBytes = 22 * 1024 * 1024 // 22
+            Log.d("suzdalenkoABC", "monitorFileSize: "+(videoFile.length() / 1024 / 1024).toString())
             Thread {
                 while (recording != null) {
                     if (videoFile.length() > maxSizeInBytes) {
                         recording?.stop()
                         recording = null
+                        Log.d("suzdalenkoABC", "FILE STOPPED")
                         break
                     }
+                    Log.d("suzdalenkoABC", videoFile.length().toString())
                     Thread.sleep(222)
                 }
             }.start()

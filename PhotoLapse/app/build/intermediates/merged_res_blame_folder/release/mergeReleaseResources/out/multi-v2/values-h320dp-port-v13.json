@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.photolapse.app-mergeReleaseResources-57:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "outputFile": "suzdalenko.photolapse.app-mergeReleaseResources-2:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\287060a2e64cf3f4d9c3a4abfecf7c55\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
+                    "source": "D:\\ProgramData\\jdk\\caches\\transforms-4\\ad04e081b1b62573a7e0368c5a7ab28d\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
