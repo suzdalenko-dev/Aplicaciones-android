@@ -62,7 +62,6 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var currentLocale: Locale
     private var fileUploadService: FileUploadService? = null
     private lateinit var switchCompat: SwitchCompat
-    private lateinit var switchImageVideo: SwitchCompat
     private lateinit var switchSound: SwitchCompat
     private lateinit var switchCuality: SwitchCompat
 
@@ -135,18 +134,7 @@ class CameraActivity : AppCompatActivity() {
             } else { prefs.edit().putString("flash", "x").apply(); ; Toast.makeText(this, "Flash OFF", Toast.LENGTH_SHORT).show() }
             LogPhotoLapse("change-switchCompat-CameraActivity")
         }
-        switchImageVideo = findViewById(R.id.switchImageVideo)
-        switchImageVideo.isChecked = prefs.getString("image_video", "x") == "video"
-        switchImageVideo.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                initializedVIDEO(this@CameraActivity, this@CameraActivity,  findViewById<PreviewView>(R.id.viewFinder))
-                prefs.edit().putString("image_video", "video").apply(); Toast.makeText(this, "Capture Video", Toast.LENGTH_SHORT).show()
-            } else {
-                initializeCamera(this, this,  findViewById<PreviewView>(R.id.viewFinder))
-                prefs.edit().putString("image_video", "x").apply(); Toast.makeText(this, "Capture Image", Toast.LENGTH_SHORT).show() }
-        }
-        if(prefs.getString("image_video", "x") == "video"){ initializedVIDEO(this@CameraActivity, this@CameraActivity,  findViewById<PreviewView>(R.id.viewFinder))
-        } else { initializeCamera(this, this,  findViewById<PreviewView>(R.id.viewFinder)); }
+
         switchSound = findViewById(R.id.switchSound)
         switchSound.isChecked = prefs.getString("sound", "x") == "sound"
         switchSound.setOnCheckedChangeListener { _, isChecked ->

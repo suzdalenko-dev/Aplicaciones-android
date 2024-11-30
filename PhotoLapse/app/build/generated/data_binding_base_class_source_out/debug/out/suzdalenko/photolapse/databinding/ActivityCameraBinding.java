@@ -38,9 +38,6 @@ public final class ActivityCameraBinding implements ViewBinding {
   public final SwitchCompat switchCuality;
 
   @NonNull
-  public final SwitchCompat switchImageVideo;
-
-  @NonNull
   public final SwitchCompat switchSound;
 
   @NonNull
@@ -52,15 +49,14 @@ public final class ActivityCameraBinding implements ViewBinding {
   private ActivityCameraBinding(@NonNull RelativeLayout rootView, @NonNull Button captureButton,
       @NonNull TextView photosCreated, @NonNull TextView secondsLeft,
       @NonNull SwitchCompat switchCompat, @NonNull SwitchCompat switchCuality,
-      @NonNull SwitchCompat switchImageVideo, @NonNull SwitchCompat switchSound,
-      @NonNull TextView uploadedPhotos, @NonNull PreviewView viewFinder) {
+      @NonNull SwitchCompat switchSound, @NonNull TextView uploadedPhotos,
+      @NonNull PreviewView viewFinder) {
     this.rootView = rootView;
     this.captureButton = captureButton;
     this.photosCreated = photosCreated;
     this.secondsLeft = secondsLeft;
     this.switchCompat = switchCompat;
     this.switchCuality = switchCuality;
-    this.switchImageVideo = switchImageVideo;
     this.switchSound = switchSound;
     this.uploadedPhotos = uploadedPhotos;
     this.viewFinder = viewFinder;
@@ -123,12 +119,6 @@ public final class ActivityCameraBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.switchImageVideo;
-      SwitchCompat switchImageVideo = ViewBindings.findChildViewById(rootView, id);
-      if (switchImageVideo == null) {
-        break missingId;
-      }
-
       id = R.id.switchSound;
       SwitchCompat switchSound = ViewBindings.findChildViewById(rootView, id);
       if (switchSound == null) {
@@ -148,8 +138,7 @@ public final class ActivityCameraBinding implements ViewBinding {
       }
 
       return new ActivityCameraBinding((RelativeLayout) rootView, captureButton, photosCreated,
-          secondsLeft, switchCompat, switchCuality, switchImageVideo, switchSound, uploadedPhotos,
-          viewFinder);
+          secondsLeft, switchCompat, switchCuality, switchSound, uploadedPhotos, viewFinder);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

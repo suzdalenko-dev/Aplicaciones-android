@@ -48,10 +48,6 @@
         android:testOnly="true"
         android:theme="@style/Theme.FroxaImagenes"
         android:usesCleartextTraffic="false" >
-        <activity
-            android:name="suzdalenko.photolapse.ui.VideoActivity"
-            android:exported="false" />
-
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />

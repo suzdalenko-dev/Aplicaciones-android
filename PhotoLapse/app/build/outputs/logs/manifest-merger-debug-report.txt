@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:48:9-56:20
+INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:45:9-53:20
 	android:grantUriPermissions
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:52:13-47
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:49:13-47
 	android:authorities
 		INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:50:13-64
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:47:13-64
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:51:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:48:13-37
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:49:13-62
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:46:13-62
 manifest
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2:1-126:12
-INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2:1-126:12
-INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2:1-126:12
-INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2:1-126:12
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2:1-123:12
+INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2:1-123:12
+INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2:1-123:12
+INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2:1-123:12
 MERGED from [androidx.databinding:viewbinding:8.5.1] D:\ProgramData\jdk\caches\transforms-4\42ad49057bed93fdbc26c15ede02ba16\transformed\viewbinding-8.5.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-common:2.7.7] D:\ProgramData\jdk\caches\transforms-4\677849734adcb54b596cc398a99a3a36\transformed\navigation-common-2.7.7\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] D:\ProgramData\jdk\caches\transforms-4\47668ff34b48ff27bb2e34bda002a3a9\transformed\navigation-common-ktx-2.7.7\AndroidManifest.xml:2:1-7:12
@@ -159,8 +159,8 @@ ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:2
 	android:name
 		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:22:22-92
 application
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:24:5-124:19
-INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:24:5-124:19
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:24:5-121:19
+INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:24:5-121:19
 MERGED from [com.google.android.material:material:1.12.0] D:\ProgramData\jdk\caches\transforms-4\ad04e081b1b62573a7e0368c5a7ab28d\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] D:\ProgramData\jdk\caches\transforms-4\ad04e081b1b62573a7e0368c5a7ab28d\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] D:\ProgramData\jdk\caches\transforms-4\4eeb6c610fc513204c744aca0cb60cb4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -213,144 +213,138 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\ProgramD
 		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:34:9-45
 	android:name
 		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:25:9-35
-activity#suzdalenko.photolapse.ui.VideoActivity
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:36:9-38:40
-	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:38:13-37
-	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:37:13-45
 uses-library#org.apache.http.legacy
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:40:9-42:40
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:37:9-39:40
 	android:required
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:42:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:39:13-37
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:41:13-50
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:38:13-50
 meta-data#androidx.camera.default.impl
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:44:9-46:69
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:41:9-43:69
 	android:value
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:46:13-66
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:43:13-66
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:45:13-56
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:42:13-56
 activity#suzdalenko.photolapse.ui.CameraActivity
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:58:9-63:55
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:55:9-60:55
 	android:launchMode
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:62:13-48
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:59:13-48
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:61:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:58:13-37
 	android:supportsPictureInPicture
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:63:13-52
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:60:13-52
 	android:configChanges
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:60:13-91
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:57:13-91
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:59:13-46
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:56:13-46
 activity#suzdalenko.photolapse.ui.SettingActivity
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:64:9-67:58
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:61:9-64:58
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:66:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:63:13-37
 	android:theme
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:67:13-55
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:64:13-55
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:65:13-47
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:62:13-47
 activity#suzdalenko.photolapse.ui.MainActivity
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:68:9-77:20
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:65:9-74:20
 	android:launchMode
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:71:13-48
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:68:13-48
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:70:13-36
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:67:13-36
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:69:13-44
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:66:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:72:13-76:29
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:69:13-73:29
 action#android.intent.action.MAIN
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:73:17-69
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:70:17-69
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:73:25-66
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:70:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:75:17-77
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:72:17-77
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:75:27-74
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:72:27-74
 receiver#suzdalenko.photolapse.receiver.BootReceiver
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:79:9-88:20
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:76:9-85:20
 	android:enabled
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:81:13-35
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:78:13-35
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:82:13-36
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:79:13-36
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:80:13-50
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:77:13-50
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED+category:name:android.intent.category.DEFAULT
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:83:13-87:29
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:80:13-84:29
 action#android.intent.action.BOOT_COMPLETED
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:84:17-79
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:81:17-79
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:84:25-76
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:81:25-76
 category#android.intent.category.DEFAULT
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:86:17-76
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:83:17-76
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:86:27-73
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:83:27-73
 receiver#suzdalenko.photolapse.receiver.FirstPlaneReceiver
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:89:9-97:20
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:86:9-94:20
 	android:enabled
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:91:13-35
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:88:13-35
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:92:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:89:13-37
 	android:permission
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:93:13-38
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:90:13-38
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:90:13-56
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:87:13-56
 intent-filter#action:name:com.example.ACTION_EVENT
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:94:13-96:29
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:91:13-93:29
 action#com.example.ACTION_EVENT
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:95:17-67
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:92:17-67
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:95:25-64
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:92:25-64
 service#suzdalenko.photolapse.service.FileUploadService
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:99:9-102:54
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:96:9-99:54
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:101:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:98:13-37
 	android:foregroundServiceType
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:102:13-51
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:99:13-51
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:100:13-54
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:97:13-54
 service#suzdalenko.photolapse.service.PhotoCreateService
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:103:9-106:54
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:100:9-103:54
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:105:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:102:13-37
 	android:foregroundServiceType
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:106:13-51
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:103:13-51
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:104:13-55
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:101:13-55
 receiver#suzdalenko.photolapse.receiver.StopPhotoCreatingReceiver
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:108:9-111:40
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:105:9-108:40
 	android:enabled
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:110:13-35
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:107:13-35
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:111:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:108:13-37
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:109:13-63
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:106:13-63
 receiver#suzdalenko.photolapse.receiver.StopFileUploadReceiver
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:112:9-115:40
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:109:9-112:40
 	android:enabled
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:114:13-35
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:111:13-35
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:115:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:112:13-37
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:113:13-60
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:110:13-60
 receiver#suzdalenko.photolapse.receiver.StartServicesReceiver
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:116:9-123:20
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:113:9-120:20
 	android:enabled
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:118:13-35
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:115:13-35
 	android:exported
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:119:13-37
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:116:13-37
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:117:13-59
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:114:13-59
 intent-filter#action:name:android.intent.action.BOOT_COMPLETED
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:120:13-122:29
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:117:13-119:29
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:53:13-55:54
+ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:50:13-52:54
 	android:resource
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:55:17-51
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:52:17-51
 	android:name
-		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:54:17-67
+		ADDED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml:51:17-67
 uses-sdk
 INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Aplicaciones-android\PhotoLapse\app\src\main\AndroidManifest.xml
