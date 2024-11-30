@@ -1,22 +1,14 @@
 [
     {
-        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-mergeDebugResources-3:\\layout\\activity_settings.xml",
-        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\layout\\activity_settings.xml"
+        "merged": "suzdalenko.photolapse.app-mergeDebugResources-58:/layout/activity_main.xml",
+        "source": "suzdalenko.photolapse.app-main-61:/layout/activity_main.xml"
     },
     {
-        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-mergeDebugResources-3:\\layout\\activity_camera.xml",
-        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\layout\\activity_camera.xml"
+        "merged": "suzdalenko.photolapse.app-mergeDebugResources-58:/layout/activity_camera.xml",
+        "source": "suzdalenko.photolapse.app-main-61:/layout/activity_camera.xml"
     },
     {
-        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-mergeDebugResources-3:\\layout\\activity_video.xml",
-        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\layout\\activity_video.xml"
-    },
-    {
-        "merged": "suzdalenko.photolapse.app-mergeDebugResources-3:/layout/activity_camera.xml",
-        "source": "suzdalenko.photolapse.app-main-6:/layout/activity_camera.xml"
-    },
-    {
-        "merged": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-mergeDebugResources-3:\\layout\\activity_main.xml",
-        "source": "D:\\ProgramData\\jdk\\daemon\\8.7\\suzdalenko.photolapse.app-main-6:\\layout\\activity_main.xml"
+        "merged": "suzdalenko.photolapse.app-mergeDebugResources-58:/layout/activity_settings.xml",
+        "source": "suzdalenko.photolapse.app-main-61:/layout/activity_settings.xml"
     }
 ]

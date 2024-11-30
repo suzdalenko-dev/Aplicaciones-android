@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-2:/values-port/values-port.xml",
+            "outputFile": "suzdalenko.photolapse.app-mergeDebugResources-57:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "D:\\ProgramData\\jdk\\caches\\transforms-4\\19cd4d1fe8e2a967c8877ed092fa6051\\transformed\\appcompat-1.7.0\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\alexei work\\.gradle\\caches\\transforms-4\\19cd4d1fe8e2a967c8877ed092fa6051\\transformed\\appcompat-1.7.0\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
