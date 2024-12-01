@@ -1,4 +1,5 @@
 package suzdalenko.speedometer
+
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -59,6 +60,14 @@ class MainActivity : AppCompatActivity() {
             requiredPermissions.add(Manifest.permission.POST_NOTIFICATIONS)
         }
 
+        // Check activity recognition permissions (for Android 10+)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
+            ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            requiredPermissions.add(Manifest.permission.ACTIVITY_RECOGNITION)
+        }
+
         // Request permissions if needed
         if (requiredPermissions.isNotEmpty()) {
             ActivityCompat.requestPermissions(
@@ -79,7 +88,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             startService(intent)
         }
-        Toast.makeText(this, "Speed service started", Toast.LENGTH_SHORT).show()
     }
 
     override fun onRequestPermissionsResult(

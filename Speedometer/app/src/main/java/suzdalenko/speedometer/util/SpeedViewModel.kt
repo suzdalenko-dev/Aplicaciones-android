@@ -8,6 +8,13 @@ class SpeedViewModel: ViewModel() {
     val currentSpeed: LiveData<String> get() = _currentSpeed
     fun updateCurrentSpeed(speed: String) { _currentSpeed.postValue(speed) }
 
+    private val _currentSpeed2 = MutableLiveData<String>()
+    val currentSpeed2: LiveData<String> get() = _currentSpeed2
+    fun updateCurrentSpeed2(speed: String) { _currentSpeed2.postValue(speed) }
+
+    private val _currentSpeed3 = MutableLiveData<String>()
+    val currentSpeed3: LiveData<String> get() = _currentSpeed3
+    fun updateCurrentSpeed3(speed: String) { _currentSpeed3.postValue(speed) }
 
     private val _totalDistance = MutableLiveData<String>()
     val totalDistance: LiveData<String> get() = _totalDistance

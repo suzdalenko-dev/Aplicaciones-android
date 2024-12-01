@@ -28,14 +28,20 @@ class HomeFragment : Fragment() {
         speedViewModel.currentSpeed.observe(viewLifecycleOwner) { speed ->
             binding.tvCurrentSpeed.text = speed
         }
+        speedViewModel.currentSpeed2.observe(viewLifecycleOwner) { speed ->
+            binding.tvCurrentSpeed2.text = speed
+        }
+        speedViewModel.currentSpeed3.observe(viewLifecycleOwner) { speed ->
+            binding.tvCurrentSpeed3.text = speed
+        }
         speedViewModel.totalDistance.observe(viewLifecycleOwner) { distance ->
-            binding.tvTotalDistance.text = "Distancia: $distance m"
+            binding.tvTotalDistance.text = "Distance: $distance m"
         }
         speedViewModel.altitude.observe(viewLifecycleOwner) { altitude ->
-            binding.tvAltitude.text = "Altura: $altitude m"
+            binding.tvAltitude.text = "Height: $altitude m"
         }
         speedViewModel.elapsedTime.observe(viewLifecycleOwner) { time ->
-            binding.tvElapsedTime.text = "Tiempo: $time"
+            binding.tvElapsedTime.text = "Time: $time"
         }
 
 
